@@ -8,17 +8,15 @@
 <body>
     <header>
     <nav>
-        <a class="logo" href="/">Tiger Codes</a>
+        <a class="logo" href="/">SCERVINO</a>
         <div class="mobile-menu">
           <div class="line1"></div>
           <div class="line2"></div>
           <div class="line3"></div>
         </div>
         <ul class="nav-list">
-          <li><a href="#">Início</a></li>
-          <li><a href="#">Sobre</a></li>
-          <li><a href="#">Projetos</a></li>
-          <li><a href="#">Contato</a></li>
+          <li><a href="#">Nossa historia</a></li>
+          <li><a href="#"></a></li>
         </ul>
       </nav>
     </header>
