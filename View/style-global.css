@@ -1,0 +1,10 @@
+:root{
+    --main-green: #4AAD41;
+    --main-black: #2B2D3C;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
