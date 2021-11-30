@@ -171,7 +171,7 @@
 					"response": []
 				},
 				{
-					"name": "PESSOA_UPDATE",
+					"name": "UPDATE",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -197,6 +197,201 @@
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
 								"Product",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "FIND_ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"ATLANTIS-SCERVINO-LTDA",
+								"Back-end",
+								"Client",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FIND_BY_ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idClient\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"ATLANTIS-SCERVINO-LTDA",
+								"Back-end",
+								"Client",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE_UPLOAD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "José da Fonseca",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "josezao@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "cpf",
+									"value": "274.928.726-83",
+									"type": "text"
+								},
+								{
+									"key": "birthDate",
+									"value": "2000-02-21",
+									"type": "text"
+								},
+								{
+									"key": "idCategory",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "idColor",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"ATLANTIS-SCERVINO-LTDA",
+								"Back-end",
+								"Client",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idClient\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"ATLANTIS-SCERVINO-LTDA",
+								"Back-end",
+								"Client",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idClient\" : 2,\r\n    \"name\": \"Josezao da Fonseca\",\r\n    \"email\": \"josezao@gmail.com\",\r\n    \"password\": \"\",\r\n    \"cpf\": \"274.928.726-83\",\r\n    \"birthDate\": \"2000-02-21\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"ATLANTIS-SCERVINO-LTDA",
+								"Back-end",
+								"Client",
 								""
 							]
 						}
