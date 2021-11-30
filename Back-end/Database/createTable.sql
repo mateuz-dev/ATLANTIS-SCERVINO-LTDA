@@ -35,8 +35,18 @@ CREATE TABLE tblCategory (
   UNIQUE INDEX (idCategory)
   );
   
-
-
+  
+  
+  
+  
+  create table tblColor (
+	idColor INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(20) NOT NULL,
+    hexa varchar(10) NOT NULL,
+    PRIMARY KEY (idColor),
+	UNIQUE INDEX (idColor)
+);
+  
 
 
 
@@ -58,14 +68,6 @@ CREATE TABLE tblProduct (
   CONSTRAINT fk_tblProduct_tblCategory
   FOREIGN KEY (idCategory)
   REFERENCES tblCategory (idCategory)
-);
-
-create table tblColor (
-	idColor INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(20) NOT NULL,
-    hexa varchar(10) NOT NULL,
-    PRIMARY KEY (idColor),
-	UNIQUE INDEX (idColor)
 );
 
 
