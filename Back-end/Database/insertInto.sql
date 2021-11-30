@@ -1,6 +1,7 @@
 USE dbScervino;
 
-INSERT INTO tblAdmin (user, password) values ("admin", "admin");
+INSERT INTO tblAdmin (user, password) values ("admin", "$2y$10$DPMZ.JTBSdnVSknVOhmBV.XseNvj62nuuEFJzrkY3jXcqCIoy9/DS");
+#123456
 
 INSERT INTO tblColor (name, hexa) VALUES ("Azul", "#0000FF"),
 											("Vermelho", "#FF0000 "),

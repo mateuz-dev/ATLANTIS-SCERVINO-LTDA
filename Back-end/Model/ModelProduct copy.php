@@ -131,11 +131,9 @@ class ModelProduct{
         $stmt->bindValue(8, $this->_idColor);
         $stmt->bindValue(9, $this->_idProduct);
 
-        // if (
-            $stmt->execute();
-        // ) {
-        //     return "Dados alterados com sucesso!";
-        // }
+        if ($stmt->execute()) {
+            return "Dados alterados com sucesso!";
+        }
 
     }
 
