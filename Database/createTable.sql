@@ -52,17 +52,18 @@ CREATE TABLE tblProduct (
   idCategory INT NOT NULL,
   PRIMARY KEY (idProduct),
   UNIQUE INDEX (idProduct),
-  CONSTRAINT fk_tblProduct_tblColors
+  CONSTRAINT fk_tblProduct_tblColor
   FOREIGN KEY (idColor)
-  REFERENCES tblColors (idColor),
+  REFERENCES tblColor (idColor),
   CONSTRAINT fk_tblProduct_tblCategory
   FOREIGN KEY (idCategory)
   REFERENCES tblCategory (idCategory)
 );
 
-create table tblColors (
+create table tblColor (
 	idColor INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(10) NOT NULL,
+    name VARCHAR(20) NOT NULL,
+    hexa varchar(10) NOT NULL,
     PRIMARY KEY (idColor),
 	UNIQUE INDEX (idColor)
 );
