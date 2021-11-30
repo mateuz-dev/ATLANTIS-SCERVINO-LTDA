@@ -48,13 +48,24 @@ CREATE TABLE tblProduct (
   qtdInventory INT NOT NULL,
   image VARCHAR(500) NOT NULL,
   discount INT NULL,
-  color VARCHAR(45) NOT NULL,
+  idColor INT NOT NULL,
   idCategory INT NOT NULL,
   PRIMARY KEY (idProduct),
   UNIQUE INDEX (idProduct),
-  CONSTRAINT fk_tblProduct_tblCategory1
-    FOREIGN KEY (idCategory)
-    REFERENCES tblCategory (idCategory));
+  CONSTRAINT fk_tblProduct_tblColors
+  FOREIGN KEY (idColor)
+  REFERENCES tblColors (idColor),
+  CONSTRAINT fk_tblProduct_tblCategory
+  FOREIGN KEY (idCategory)
+  REFERENCES tblCategory (idCategory)
+);
+
+create table tblColors (
+	idColor INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(10) NOT NULL,
+    PRIMARY KEY (idColor),
+	UNIQUE INDEX (idColor)
+);
 
 
 
@@ -91,6 +102,3 @@ REFERENCES tblClient (idClient),
     FOREIGN KEY (idProduct)
     REFERENCES tblProduct (idProduct)
     );
-    
-    
-    
