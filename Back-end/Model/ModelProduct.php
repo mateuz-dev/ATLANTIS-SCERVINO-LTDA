@@ -23,9 +23,9 @@ class ModelProduct{
         $this->_description = $_POST['description'] ?? $datasProduct->description ?? null;
         $this->_qtdInventory = $_POST['qtdInventory'] ?? $datasProduct->qtdInventory ?? null;
         $this->_image = $_FILES['image']['name'] ?? $datasProduct->image ?? null;
-        $this->_discount = $_FILES['discount'] ?? $datasProduct->discount ?? null;
-        $this->_idCategory = $_FILES['idCategory'] ?? $datasProduct->idCategory ?? null;
-        $this->_idColor = $_FILES['idColor'] ?? $datasProduct->idColor ?? null;
+        $this->_discount = $_POST['discount'] ?? $datasProduct->discount ?? null;
+        $this->_idCategory = $_POST['idCategory'] ?? $datasProduct->idCategory ?? null;
+        $this->_idColor = $_POST['idColor'] ?? $datasProduct->idColor ?? null;
 
         $this->_conn = $conn;
     }
@@ -65,10 +65,10 @@ class ModelProduct{
         $stm->bindValue(2, $this->_price);
         $stm->bindValue(3, $this->_description);
         $stm->bindValue(4, $this->_qtdInventory);
-        $stm->bindValue(6, $newFileName);
-        $stm->bindValue(7, $this->_discount);
-        $stm->bindValue(8, $this->_idCategory);
-        $stm->bindValue(9, $this->_idColor);
+        $stm->bindValue(5, $newFileName);
+        $stm->bindValue(6, $this->_discount);
+        $stm->bindValue(7, $this->_idCategory);
+        $stm->bindValue(8, $this->_idColor);
 
         if ($stm->execute()){
             return "Sucess";
@@ -79,7 +79,20 @@ class ModelProduct{
 
     public function delete(){
 
-        $sql = "DELETE * FROM tblProduct WHERE idProduct = ?";
+        //Deletar imagem da pasta
+        $sql = "SELECT image FROM tblProduct WHERE idProduct = ?";
+        $stmt = $this->_conn->prepare($sql);
+        $stmt->bindValue(1, $this->_idProduct);
+        $stmt->execute();
+
+        if ($stmt->execute()) {
+            $fileName = $stmt->fetchAll(PDO::FETCH_ASSOC)[0]['image'];
+            unlink("../upload/" . $fileName);
+        }
+
+        //Deletar produto no sql
+
+        $sql = "DELETE FROM tblProduct WHERE idProduct = ?";
 
         $stmt = $this->_conn->prepare($sql);
 
@@ -103,7 +116,7 @@ class ModelProduct{
         image = ?,
         discount = ?,
         idCategory = ?,
-        idColor = ?,
+        idColor = ?
         WHERE idProduct = ?";
 
         $stmt = $this->_conn->prepare($sql);
@@ -118,9 +131,11 @@ class ModelProduct{
         $stmt->bindValue(8, $this->_idColor);
         $stmt->bindValue(9, $this->_idProduct);
 
-        if ($stmt->execute()) {
-            return "Dados alterados com sucesso!";
-        }
+        // if (
+            $stmt->execute();
+        // ) {
+        //     return "Dados alterados com sucesso!";
+        // }
 
     }
 
