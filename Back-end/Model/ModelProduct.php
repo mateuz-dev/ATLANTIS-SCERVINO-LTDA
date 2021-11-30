@@ -57,7 +57,7 @@ class ModelProduct{
 
                 $extension = pathinfo($this->_image, PATHINFO_EXTENSION);
                 $newFileName = md5(microtime()) . ".$extension";
-                move_uploaded_file($_FILES['image']['tmp_name'], "../upload/$newFileName");
+                move_uploaded_file($_FILES['image']['tmp_name'], "../Upload/$newFileName");
 
         $stm = $this->_conn->prepare($sql);
 
@@ -87,7 +87,7 @@ class ModelProduct{
 
         if ($stmt->execute()) {
             $fileName = $stmt->fetchAll(PDO::FETCH_ASSOC)[0]['image'];
-            unlink("../upload/" . $fileName);
+            unlink("../Upload/" . $fileName);
         }
 
         //Deletar produto no sql
