@@ -25,7 +25,7 @@ class ModelClient{
     }
 
     public function findAll(){
-        $sql = "SELECT * FROM tblClient";
+        $sql = "SELECT name, email, cpf, birthDate FROM tblClient";
 
         $stm = $this->_conn->prepare($sql);
 
@@ -36,7 +36,7 @@ class ModelClient{
 
     public function findById(){
 
-        $sql = "SELECT * FROM tblClient WHERE idClient = ?";
+        $sql = "SELECT name, email, cpf, birthDate FROM tblClient WHERE idClient = ?";
         $stm = $this->_conn->prepare($sql);
         $stm->bindValue(1, $this->_idClient);
         $stm->execute();
