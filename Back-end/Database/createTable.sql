@@ -56,7 +56,6 @@ CREATE TABLE tblProduct (
   price FLOAT NOT NULL,
   description TEXT NOT NULL,
   qtdInventory INT NOT NULL,
-  image VARCHAR(500) NOT NULL,
   discount INT NULL,
   idColor INT NOT NULL,
   idCategory INT NOT NULL,
@@ -69,6 +68,18 @@ CREATE TABLE tblProduct (
   FOREIGN KEY (idCategory)
   REFERENCES tblCategory (idCategory)
 );
+
+CREATE TABLE tblImageProduct (
+  idImageProduct INT NOT NULL AUTO_INCREMENT,
+  image VARCHAR(500) NOT NULL,
+  PRIMARY KEY (idImageProduct),
+  UNIQUE INDEX (idImageProduct),
+  CONSTRAINT fk_tblImageProduct_tblProduct
+  FOREIGN KEY (idProduct)
+  REFERENCES tblProduct (idProduct)
+);
+
+ 
 
 
 
