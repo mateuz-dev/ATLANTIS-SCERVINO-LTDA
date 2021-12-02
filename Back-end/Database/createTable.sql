@@ -31,6 +31,7 @@ CREATE TABLE tblCategory (
   idCategory INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(80) NOT NULL,
   icon VARCHAR(500) NOT NULL,
+  backgroundImage VARCHAR(500) NOT NULL,
   PRIMARY KEY (idCategory),
   UNIQUE INDEX (idCategory)
   );
@@ -71,8 +72,8 @@ CREATE TABLE tblProduct (
 
 CREATE TABLE tblImageProduct (
   idImageProduct INT NOT NULL AUTO_INCREMENT,
-  idProduct INT NOT NULL,
   image VARCHAR(500) NOT NULL,
+  idProduct INT NOT NULL,
   PRIMARY KEY (idImageProduct),
   UNIQUE INDEX (idImageProduct),
   CONSTRAINT fk_tblImageProduct_tblProduct
@@ -99,8 +100,6 @@ CREATE TABLE tblFeedback (
     FOREIGN KEY (idProduct)
     REFERENCES tblProduct (idProduct)
     );
-
-
 
 
 CREATE TABLE tblClient_Product (
