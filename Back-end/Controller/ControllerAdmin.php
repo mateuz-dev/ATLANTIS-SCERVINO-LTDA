@@ -20,13 +20,20 @@ class ControllerAdmin{
 
         switch ($this->_method) {
             case 'GET':
-
-                if (isset($this->_idAdmin)) {
+            
+                
                     return $this->_modelAdmin->login();
-                }
-
+                
                 break;
 
+                case 'POST':
+                    break;
+    
+                case 'PUT':
+                    break;
+    
+                case 'DELETE':
+                    break;
         
             default:
                 echo "ERRO. REQUISIÇÃO NÃO ENCONTRADA";
