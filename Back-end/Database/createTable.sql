@@ -71,6 +71,7 @@ CREATE TABLE tblProduct (
 
 CREATE TABLE tblImageProduct (
   idImageProduct INT NOT NULL AUTO_INCREMENT,
+  idProduct INT NOT NULL,
   image VARCHAR(500) NOT NULL,
   PRIMARY KEY (idImageProduct),
   UNIQUE INDEX (idImageProduct),
