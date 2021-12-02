@@ -1,5 +1,11 @@
 <?php
 
+function clearImageFromDiretory($fileName) {
+    if ($fileName !== null) {
+        unlink("../UploadProduct/" . $fileName);
+    }
+}
+
 class ModelProduct{
 
     private $_conn;
@@ -142,12 +148,6 @@ class ModelProduct{
 
     public function delete(){
 
-        function clearImageFromDiretory($fileName) {
-            if ($fileName !== null) {
-                unlink("../UploadProduct/" . $fileName);
-            }
-        }
-
         //Deletar imagem da pasta
         $sql = "SELECT image FROM tblImageProduct, tblProduct WHERE tblProduct.idProduct = ?";
         $stmt = $this->_conn->prepare($sql);
@@ -189,6 +189,33 @@ class ModelProduct{
     }
 
     public function update(){
+
+        //Deletar imagem da pasta
+        $sql = "SELECT image FROM tblImageProduct, tblProduct WHERE tblProduct.idProduct = ?";
+        $stmt = $this->_conn->prepare($sql);
+        $stmt->bindValue(1, $this->_idProduct);
+        $stmt->execute();
+
+        if ($stmt->execute()) {
+            $filesName = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            //APAGANDO A PRIMEIRA IMAGEM
+            unlink("../UploadProduct/" . $filesName[0]['image']);
+
+            //VERIFICANDO SE HÁ, E APAGANDO IMAGENS RESTANTES.
+            clearImageFromDiretory($filesName[1]['image']);
+            clearImageFromDiretory($filesName[2]['image']);
+            clearImageFromDiretory($filesName[3]['image']);
+            clearImageFromDiretory($filesName[4]['image']);
+            clearImageFromDiretory($filesName[5]['image']);
+        }
+
+        //DELETE ImageProduct in SQL
+        $sql = "DELETE FROM tblImageProduct WHERE idProduct = ?";
+        $stmt = $this->_conn->prepare($sql);
+        $stmt->bindValue(1, $this->_idProduct);
+
+        $stmt->execute();
 
         $sql = "UPDATE tblProduct SET 
         name = ?,
