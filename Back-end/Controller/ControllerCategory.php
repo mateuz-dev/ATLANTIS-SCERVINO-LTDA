@@ -1,19 +1,19 @@
 <?php
 
-class ControllerAdmin{
+class ControllerCategory{
     private $_method;
-    private $_modelAdmin;
-    private $_idAdmin;
+    private $_modelCategory;
+    private $_idCategory;
 
-    public function __construct($modelAdmin) {
-        $this->_modelAdmin = $modelAdmin;
+    public function __construct($modelCategory) {
+        $this->_modelCategory = $modelCategory;
         $this->_method = $_SERVER['REQUEST_METHOD'];
 
          //PERMITE RECEBER DADOS JSON ATRAVÉS DA REQUISIÇÃO.
          $json = file_get_contents("php://input");
-         $datasAdmin = json_decode($json);
+         $datasCategory = json_decode($json);
  
-         $this->_idAdmin = $datasAdmin->idAdmin ?? null;
+         $this->_idCategory = $datasCategory->idCategory ?? null;
     }
 
     function router(){
@@ -22,17 +22,21 @@ class ControllerAdmin{
             case 'GET':
             
                 
-                    return $this->_modelAdmin->login();
+                    return $this->_modelCategory->findAll();
                 
                 break;
 
                 case 'POST':
+                    return $this->_modelCategory->create();
                     break;
     
                 case 'PUT':
                     break;
     
                 case 'DELETE':
+
+                    return $this->_modelCategory->delete();
+                    
                     break;
         
             default:

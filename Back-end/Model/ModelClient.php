@@ -94,7 +94,7 @@ class ModelClient{
 
             $stmt = $this->_conn->prepare($sql);
 
-            $encryptedPassword = password_hash($this->_password, PASSWORD_DEFAULT);
+            
 
             $stmt->bindValue(1, $this->_name);
             $stmt->bindValue(2, $this->_email);
