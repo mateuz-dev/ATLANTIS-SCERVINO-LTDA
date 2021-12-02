@@ -141,13 +141,6 @@ form input:focus {
     border: none;
 }
 
-h1 {
-    font-family: 'Lustria', serif;
-    font-size: 225%;
-    font-weight: normal;
-    letter-spacing: 7px;
-}
-
 a {
     text-decoration: none;
     color: var(--main-green);

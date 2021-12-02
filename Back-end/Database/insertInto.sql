@@ -1,4 +1,4 @@
-USE dbScervino;
+ USE dbScervino;
 
 INSERT INTO tblAdmin (user, password) values ("admin", "$2y$10$DPMZ.JTBSdnVSknVOhmBV.XseNvj62nuuEFJzrkY3jXcqCIoy9/DS");
 #123456
