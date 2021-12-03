@@ -1,8 +1,11 @@
 <?php
 
-function clearImageFromDiretory($fileName) {
-    if ($fileName !== null) {
-        unlink("../UploadProduct/" . $fileName);
+function saveImageReturnName($imageDatas) {
+    if ($imageDatas['tmp_name'] !== null) {
+    $extension = pathinfo($imageDatas['name'], PATHINFO_EXTENSION);
+    $newFileName = md5(microtime()) . ".$extension";
+    move_uploaded_file($imageDatas['tmp_name'], "../UploadProduct/$newFileName");
+    return $newFileName;
     }
 }
 
@@ -30,11 +33,11 @@ class ModelProduct{
         $this->_mainImage = $_FILES['image1'] ?? $datasProduct->image1 ?? null;
 
         $this->_optionalImages = [
-        $_FILES['image2'] ?? $datasProduct->image2 ?? null,
-        $_FILES['image3'] ?? $datasProduct->image3 ?? null,
-        $_FILES['image4'] ?? $datasProduct->image4 ?? null,
-        $_FILES['image5'] ?? $datasProduct->image5 ?? null,
-        $_FILES['image6'] ?? $datasProduct->image6 ?? null,
+            $_FILES['image2'] ?? $datasProduct->image2 ?? null,
+            $_FILES['image3'] ?? $datasProduct->image3 ?? null,
+            $_FILES['image4'] ?? $datasProduct->image4 ?? null,
+            $_FILES['image5'] ?? $datasProduct->image5 ?? null,
+            $_FILES['image6'] ?? $datasProduct->image6 ?? null,
         ];
     
         $this->_discount = $_POST['discount'] ?? $datasProduct->discount ?? null;
@@ -42,10 +45,19 @@ class ModelProduct{
         $this->_idColor = $_POST['idColor'] ?? $datasProduct->idColor ?? null;
 
         $this->_conn = $conn;
+
+        // exit(var_dump($this->_optionalImages));
     }
 
     public function findAll(){
-        $sql = "SELECT * FROM tblProduct";
+        $sql = "SELECT tblProduct.name AS nameProduct, tblProduct.price, 
+                tblProduct.description, tblProduct.qtdInventory, 
+                tblProduct.discount, tblColor.name AS nameColor, 
+                tblCategory.name AS nameCategory, tblImageProduct.image
+                FROM tblProduct 
+                INNER JOIN tblColor ON tblProduct.idColor = tblcolor.idColor
+                INNER JOIN tblCategory ON tblProduct.idCategory = tblCategory.idCategory
+                INNER JOIN tblImageProduct ON tblProduct.idProduct = tblImageProduct.idProduct";
 
         $stm = $this->_conn->prepare($sql);
 
@@ -56,7 +68,16 @@ class ModelProduct{
 
     public function findById(){
 
-        $sql = "SELECT * FROM tblProduct WHERE idProduct = ?";
+        $sql = "SELECT tblProduct.name AS nameProduct, tblProduct.price, 
+                tblProduct.description, tblProduct.qtdInventory, 
+                tblProduct.discount, tblColor.name AS nameColor, 
+                tblCategory.name AS nameCategory, tblImageProduct.image
+                FROM tblProduct 
+                INNER JOIN tblColor ON tblProduct.idColor = tblcolor.idColor
+                INNER JOIN tblCategory ON tblProduct.idCategory = tblCategory.idCategory
+                INNER JOIN tblImageProduct ON tblProduct.idProduct = tblImageProduct.idProduct
+                WHERE idProduct = ?";
+
         $stm = $this->_conn->prepare($sql);
         $stm->bindValue(1, $this->_idProduct);
         $stm->execute();
@@ -66,14 +87,6 @@ class ModelProduct{
     }
 
     public function create(){
-
-        function saveImageReturnName($imageDatas) {
-            $extension = pathinfo($imageDatas['name'], PATHINFO_EXTENSION);
-            $newFileName = md5(microtime()) . ".$extension";
-            move_uploaded_file($imageDatas['tmp_name'], "../UploadProduct/$newFileName");
-
-            return $newFileName;
-        }
 
         // Manipulação da tabela de produto
         $sql = "INSERT INTO tblProduct (name, price, description, qtdInventory, discount, idColor, idCategory)
@@ -104,8 +117,6 @@ class ModelProduct{
             $this->_optionalImages[$key]['dataBaseName'] = $nameImage;
         }
 
-        // exit(var_dump($this->_optionalImages));
-
         $lastIdProduct = $this->_conn->lastInsertId();
 
         //Apenas a imagem 1 é obrigatória
@@ -120,33 +131,25 @@ class ModelProduct{
             }
         }
 
-            $stm = $this->_conn->prepare($sql);
+        $stm = $this->_conn->prepare($sql);
 
-            $stm->bindValue(1, $lastIdProduct);
-            $stm->bindValue(2, $mainImageName);
+        $stm->bindValue(1, $lastIdProduct);
+        $stm->bindValue(2, $mainImageName);
 
-            $stm->execute();
+        $stm->execute();
 
     }
 
     public function delete(){
-
-        //Deletar imagem da pasta
         $sql = "SELECT image FROM tblImageProduct WHERE idProduct = ?";
-        $stmt = $this->_conn->prepare($sql);
-        $stmt->bindValue(1, $this->_idProduct);
-        $stmt->execute();
+        $stm = $this->_conn->prepare($sql);
+        $stm->bindValue(1, $this->_idProduct);
+        $stm->execute();
+        $AllImages = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-        if ($stmt->execute()) {
-            $filesName = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            //APAGANDO A PRIMEIRA IMAGEM
-            unlink("../UploadProduct/" . $this->_mainImage['dataBaseName']);
-
-            //VERIFICANDO SE HÁ, E APAGANDO IMAGENS RESTANTES.
-            foreach ($this->_optionalImages as $key => $optionalImage) {
-                clearImageFromDiretory($optionalImage['dataBaseName']);
-            }
+        foreach ($AllImages as $key => $image) {
+            $imageName = $image['image'];
+            unlink("../UploadProduct/$imageName");
         }
 
         //DELETE ImageProduct in SQL
@@ -161,49 +164,81 @@ class ModelProduct{
         $stmt = $this->_conn->prepare($sql);
         $stmt->bindValue(1, $this->_idProduct);
         
-        if ($stmt->execute()) {
-            return "Dados excluídos com sucesso!";
-        } else {
-            return "Erro";
-        }
+        $stmt->execute();
 
     }
 
     public function update(){
 
-        //Deletar imagem da pasta
-        $sql = "SELECT image FROM tblImageProduct, tblProduct WHERE tblProduct.idProduct = ?";
-        $stmt = $this->_conn->prepare($sql);
-        $stmt->bindValue(1, $this->_idProduct);
-        $stmt->execute();
+            //EM CASO DE ALTERAÇÃO DE IMAGEM, TODAS ELAS SERÃO EXCLUÍDAS E SOBREPOSTAS.
+            if ($this->_mainImage !== null) {
+                exit('deu bom');
+                $sql = "SELECT image FROM tblImageProduct WHERE idProduct = ?";
+            $stm = $this->_conn->prepare($sql);
+            $stm->bindValue(1, $this->_idProduct);
+            $stm->execute();
+            $AllImages = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-        if ($stmt->execute()) {
-            $filesName = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($AllImages as $key => $image) {
+                $imageName = $image['image'];
+                unlink("../UploadProduct/$imageName");
+            }
 
-            //APAGANDO A PRIMEIRA IMAGEM
-            unlink("../UploadProduct/" . $filesName[0]['image']);
+            //DELETE ImageProduct in SQL
+            $sql = "DELETE FROM tblImageProduct WHERE idProduct = ?";
+            $stmt = $this->_conn->prepare($sql);
+            $stmt->bindValue(1, $this->_idProduct);
 
-            //VERIFICANDO SE HÁ, E APAGANDO IMAGENS RESTANTES.
-            clearImageFromDiretory($filesName[1]['image']);
-            clearImageFromDiretory($filesName[2]['image']);
-            clearImageFromDiretory($filesName[3]['image']);
-            clearImageFromDiretory($filesName[4]['image']);
-            clearImageFromDiretory($filesName[5]['image']);
+            $stmt->execute();
+
+            //Delete product in SQL
+            $sql = "DELETE FROM tblProduct WHERE idProduct = ?";
+            $stmt = $this->_conn->prepare($sql);
+            $stmt->bindValue(1, $this->_idProduct);
+            
+            $stmt->execute();
+
+            //CRIAÇÃO DAS NOVAS IMAGENS
+            //Main image
+            $mainImageName = saveImageReturnName($this->_mainImage);
+            $this->_mainImage['dataBaseName'] = $mainImageName;
+            // exit(var_dump($mainImageName));
+
+            //Optional images
+            foreach ($this->_optionalImages as $key => $optionalImage) {
+                $nameImage = saveImageReturnName($optionalImage);
+                $this->_optionalImages[$key]['dataBaseName'] = $nameImage;
+            }
+
+            $lastIdProduct = $this->_conn->lastInsertId();
+
+            //Apenas a imagem 1 é obrigatória
+            $sql = "INSERT INTO tblimageproduct (idProduct, image)
+                VALUES
+                (?, ?)";
+
+            foreach ($this->_optionalImages as $key => $optionalImage) {
+                $imageName = $optionalImage['dataBaseName'];
+                if ($imageName !== null) {
+                    $sql .= ",($lastIdProduct, '$imageName')";
+                }
+            }
+
+            $stm = $this->_conn->prepare($sql);
+
+            $stm->bindValue(1, $lastIdProduct);
+            $stm->bindValue(2, $mainImageName);
+
+            $stm->execute();
         }
 
-        //DELETE ImageProduct in SQL
-        $sql = "DELETE FROM tblImageProduct WHERE idProduct = ?";
-        $stmt = $this->_conn->prepare($sql);
-        $stmt->bindValue(1, $this->_idProduct);
 
-        $stmt->execute();
 
         $sql = "UPDATE tblProduct SET 
         name = ?,
         price = ?,
         description = ?,
         qtdInventory = ?,
-        image = ?,
         discount = ?,
         idCategory = ?,
         idColor = ?
@@ -215,18 +250,17 @@ class ModelProduct{
         $stmt->bindValue(2, $this->_price);
         $stmt->bindValue(3, $this->_description);
         $stmt->bindValue(4, $this->_qtdInventory);
-        $stmt->bindValue(5, $this->_image);
-        $stmt->bindValue(6, $this->_discount);
-        $stmt->bindValue(7, $this->_idCategory);
-        $stmt->bindValue(8, $this->_idColor);
-        $stmt->bindValue(9, $this->_idProduct);
+        $stmt->bindValue(5, $this->_discount);
+        $stmt->bindValue(6, $this->_idCategory);
+        $stmt->bindValue(7, $this->_idColor);
+        $stmt->bindValue(8, $this->_idProduct);
 
-        if ($stmt->execute()) {
-            return "Dados alterados com sucesso!";
-        }
-
+        $stmt->execute();
     }
 
+    public function returnIdProduct(){
+        return $this->_idProduct;
+    }
 }
 
 ?>

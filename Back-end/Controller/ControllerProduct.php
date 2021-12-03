@@ -13,7 +13,7 @@ class ControllerProduct{
          $json = file_get_contents("php://input");
          $dataProducts = json_decode($json);
  
-         $this->_idProduct = $dataProducts->idProduct ?? null;
+        //  $this->_idProduct = $dataProducts->idProduct ?? null;
     }
 
     function router(){
@@ -29,11 +29,11 @@ class ControllerProduct{
                 break;
 
             case 'POST':
-                return $this->_modelProduct->create();
-                break;
-
-            case 'PUT':
-                return $this->_modelProduct->update();
+                if ($this->_modelProduct->returnIdProduct() !== null) {
+                    return $this->_modelProduct->update();
+                } else {
+                    return $this->_modelProduct->create();
+                }
                 break;
 
             case 'DELETE':
