@@ -1,17 +1,12 @@
 <?php
 
-function clearImageFromDiretory($fileName) {
-    if ($fileName !== null) {
-        unlink("../UploadProduct/" . $fileName);
-    }
-}
-
 function saveImageReturnName($imageDatas) {
+    if ($imageDatas['tmp_name'] !== null) {
     $extension = pathinfo($imageDatas['name'], PATHINFO_EXTENSION);
     $newFileName = md5(microtime()) . ".$extension";
     move_uploaded_file($imageDatas['tmp_name'], "../UploadProduct/$newFileName");
-
     return $newFileName;
+    }
 }
 
 class ModelProduct{
@@ -130,14 +125,15 @@ class ModelProduct{
     }
 
     public function delete(){
+        $sql = "SELECT image FROM tblImageProduct WHERE idProduct = ?";
+        $stm = $this->_conn->prepare($sql);
+        $stm->bindValue(1, $this->_idProduct);
+        $stm->execute();
+        $AllImages = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-        //Deletar imagem da pasta
-        //APAGANDO A PRIMEIRA IMAGEM
-        unlink("../UploadProduct/" . $this->_mainImage['dataBaseName']);
-
-        //VERIFICANDO SE HÁ, E APAGANDO IMAGENS RESTANTES.
-        foreach ($this->_optionalImages as $key => $optionalImage) {
-            clearImageFromDiretory($optionalImage['dataBaseName']);
+        foreach ($AllImages as $key => $image) {
+            $imageName = $image['image'];
+            unlink("../UploadProduct/$imageName");
         }
 
         //DELETE ImageProduct in SQL
@@ -158,15 +154,18 @@ class ModelProduct{
 
     public function update(){
 
-        //EM CASO DE ALTERAÇÃO DE IMAGEM, TODAS ELAS SERÃO EXCLUÍDAS E SOBREPOSTAS.
-        if ($this->_mainImage !== null) {
-            //Deletar imagem da pasta
-            //APAGANDO A PRIMEIRA IMAGEM
-            unlink("../UploadProduct/" . $this->_mainImage['dataBaseName']);
+            //EM CASO DE ALTERAÇÃO DE IMAGEM, TODAS ELAS SERÃO EXCLUÍDAS E SOBREPOSTAS.
+            if ($this->_mainImage !== null) {
+                exit('deu bom');
+                $sql = "SELECT image FROM tblImageProduct WHERE idProduct = ?";
+            $stm = $this->_conn->prepare($sql);
+            $stm->bindValue(1, $this->_idProduct);
+            $stm->execute();
+            $AllImages = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-            //VERIFICANDO SE HÁ, E APAGANDO IMAGENS RESTANTES.
-            foreach ($this->_optionalImages as $key => $optionalImage) {
-                clearImageFromDiretory($optionalImage['dataBaseName']);
+            foreach ($AllImages as $key => $image) {
+                $imageName = $image['image'];
+                unlink("../UploadProduct/$imageName");
             }
 
             //DELETE ImageProduct in SQL

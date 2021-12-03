@@ -93,9 +93,9 @@
 									"type": "text"
 								},
 								{
-									"key": "image",
+									"key": "image1",
 									"type": "file",
-									"src": "/C:/Users/gabri/Downloads/vasin.png"
+									"src": "/C:/Users/21192910/Downloads/vasin.png"
 								},
 								{
 									"key": "discount",
@@ -138,7 +138,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idProduct\" : 28\r\n}",
+							"raw": "{\r\n    \"idProduct\" : 49\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -165,11 +165,57 @@
 				{
 					"name": "UPDATE",
 					"request": {
-						"method": "PUT",
+						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idProduct\" : 2,\r\n    \"name\" : \"Vaso\",\r\n    \"price\" : 119,\r\n    \"description\" : \"Um produto incrível\",\r\n    \"qtdInventory\" : 6,\r\n    \"image\" : \"vasoclaro.jpg\",\r\n    \"discount\" : 22,\r\n    \"idColor\" : 2,\r\n    \"idCategory\" : 1\r\n}",
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idProduct",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Vasos",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "119",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Um produto incrível",
+									"type": "text"
+								},
+								{
+									"key": "qtdInventory",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/21192910/Downloads/vasin.png"
+								},
+								{
+									"key": "discount",
+									"value": "22",
+									"type": "text"
+								},
+								{
+									"key": "idColor",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "idCategory",
+									"value": "1",
+									"type": "text"
+								}
+							],
 							"options": {
 								"raw": {
 									"language": "json"
