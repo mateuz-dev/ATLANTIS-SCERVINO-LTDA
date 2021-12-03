@@ -4,36 +4,38 @@ body{
     align-items: center;
     width: 100vw;
     height: 100vh;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
 
-#div-top{
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 22vh;
+}
+header h1{
+    color: var(--main-green);
+    margin-right: 1%;
+    font-size: 450%;
+    margin-top: 1%;
+}
+header img{
+    width:6vw;
+}
+
+
+
+main{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    flex: 1;
+    margin-bottom: 2%;
 }
-
-#div-title{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 3%;
-    width: 100%;
-    font-size: 1.4vw;
-}
-#div-title h1{
-    color: var(--main-green);
-    margin-right: 1%;
-}
-#div-title img{
-    width: 5%;
-}
-
-
-
 #div-info{
     display: flex;
     flex-direction: column;
@@ -44,29 +46,88 @@ body{
 }
 #info-title{
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.7vw;
+    font-size: 40px;
     color: var(--main-black);
 }
 #div-info hr{
-    width: 6%;
-    border: 2px solid var(--main-green);
+    width: 15%;
+    border: 3px solid var(--main-green);
     border-radius: 7px;
 }
 #info-text{
     text-align: center;
-    margin-top: 1%;
-    width: 15%;
+    margin-top: 3%;
+    width: 35%;
     font-family: 'Montserrat', sans-serif;
-    font-size: 90%;
+    font-size: 100%;
     color: var(--main-black);
 }
-
-
 
 
 form{
     display: flex;
     flex-direction: column;
-    margin-top: 2.7%;
-    width: 20%;
+    margin-top: 3%;
+    width: 65%;
+    font-family: 'Montserrat', sans-serif;
+}
+#input-email, #input-password{
+    border: 1px solid var(--main-black);
+    border-radius: 7px;
+    height: 6vh;
+    margin-top: 3%; margin-bottom: 3%;
+    text-indent: 10px;
+    font-size: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+#input-email:focus, #input-password:focus{
+    outline: none;
+}
+
+#form-options{
+    display: flex;
+}
+#form-options div{
+    width: 50%;
+}
+#div-account{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40px;
+}
+#div-account a{
+    text-decoration: none;
+    text-align: end;
+    color: var(--main-green);
+}
+
+#button-login{
+    background-color: var(--main-green);
+    border: none;
+    border-radius: 7px;
+    height: 6vh;
+    margin-top: 3%; margin-bottom: 3%;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 110%;
+}
+
+main p{
+    width: 67%;
+    color: var(--main-black);
+    text-align: center;
+}
+main p>a{
+    color: var(--main-black);
+}
+
+
+footer{
+    display: flex;
+    justify-content: flex-end;
+    width: 100vw;
+}
+footer img{
+    width: 100%;
 }
