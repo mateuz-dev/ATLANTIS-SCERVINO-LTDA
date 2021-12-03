@@ -8,13 +8,13 @@ document.querySelector('#header').innerHTML =
 
     <a href="">
         <div id="div-title">
-            <img src="./images/logo.png">
+            <img src="../Components/Header/images/logo.png">
             <h1>SCERVINO</h1>
         </div>
     </a>
 
         <form id="form-mobile" action="">
-            <img src="./images/search-icon.png">
+            <img src="../Components/Header/images/search-icon.png">
             <input type="text" name="" id="" placeholder="Buscar">
         </form>
    
@@ -25,41 +25,41 @@ document.querySelector('#header').innerHTML =
 
             <li> <a href="">Nossa História</a> </li>
 
-            <li id="li-catalog"> Catálogo <img src="./images/arrow-icon.svg" id="arrow">
+            <li id="li-catalog"> Catálogo <img src="../Components/Header/images/arrow-icon.svg" id="arrow">
 
 
                 <ul id="ul">
-                    <ul id="ul-triangle"><img src="./images/triangle-icon.png"></ul>
+                    <ul id="ul-triangle"><img src="../Components/Header/images/triangle-icon.png"></ul>
 
                     <ul id="ul-categories">
                         <li>
                             <a href="">
-                                <img src="./images/category-icon.png"> Nome da Categoria
+                                <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                <img src="./images/category-icon.png"> Nome da Categoria
+                                <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                <img src="./images/category-icon.png"> Nome da Categoria
+                                <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                <img src="./images/category-icon.png"> Nome da Categoria
+                                <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                <img src="./images/category-icon.png"> Nome da Categoria
+                                <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                <img src="./images/category-icon.png"> Nome da Categoria
+                                <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
                             </a>
                         </li>
                     </ul>
@@ -68,14 +68,14 @@ document.querySelector('#header').innerHTML =
             </li>
 
             <form action="">
-                <img src="./images/search-icon.png">
+                <img src="../Components/Header/images/search-icon.png">
                 <input type="text" name="" id="" placeholder="Buscar">
             </form>
         </ul>
 
         <ul id="ul-user-options">
-            <a href=""> <img src="./images/cart-icon.png" alt="Carrinho"> </a>
-            <a href=""> <img src="./images/user-icon.png" alt="Login/Cadastrar"> </a>
+            <a href=""> <img src="../Components/Header/images/cart-icon.png" alt="Carrinho"> </a>
+            <a href=""> <img src="../Components/Header/images/user-icon.png" alt="Login/Cadastrar"> </a>
         </ul>
     </nav>
 
@@ -83,39 +83,39 @@ document.querySelector('#header').innerHTML =
             <ul id="menu-options-mobile">
                 <li><a href="">Nossa História</a></li>
                 
-                <li id="li-catalog-mobile"><a href="">Catálogo</a> <img src="./images/arrow-icon.svg" id="arrow-mobile">
+                <li id="li-catalog-mobile"><a href="">Catálogo</a> <img src="../Components/Header/images/arrow-icon.svg" id="arrow-mobile">
                     <ul id="ul-mobile">
-                        <ul id="ul-triangle-mobile"><img src="./images/triangle-icon.png"></ul>
+                        <ul id="ul-triangle-mobile"><img src="../Components/Header/images/triangle-icon.png"></ul>
 
                         <ul id="ul-categories-mobile">
                             <li>
                                 <a href="">
-                                    <img src="./images/category-icon.png"> Nome da Categoria
+                                    <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
                                 </a>
                             </li>
                             <li>
                                 <a href="">
-                                    <img src="./images/category-icon.png"> Nome da Categoria
+                                    <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
                                 </a>
                             </li>
                             <li>
                                 <a href="">
-                                    <img src="./images/category-icon.png"> Nome da Categoria
+                                    <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
                                 </a>
                             </li>
                             <li>
                                 <a href="">
-                                    <img src="./images/category-icon.png"> Nome da Categoria
+                                    <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
                                 </a>
                             </li>
                             <li>
                                 <a href="">
-                                    <img src="./images/category-icon.png"> Nome da Categoria
+                                    <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
                                 </a>
                             </li>
                             <li>
                                 <a href="">
-                                    <img src="./images/category-icon.png"> Nome da Categoria
+                                    <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
                                 </a>
                             </li>
                             
