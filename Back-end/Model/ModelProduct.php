@@ -50,11 +50,13 @@ class ModelProduct{
     }
 
     public function findAll(){
-        $sql = "SELECT tblProduct.name, tblProduct.price, 
+        $sql = "SELECT tblProduct.name AS nameProduct, tblProduct.price, 
                 tblProduct.description, tblProduct.qtdInventory, 
-                tblProduct.discount, tblProduct.idColor, 
-                tblProduct.idCategory, tblImageProduct.image
+                tblProduct.discount, tblColor.name AS nameColor, 
+                tblCategory.name AS nameCategory, tblImageProduct.image
                 FROM tblProduct 
+                INNER JOIN tblColor ON tblProduct.idColor = tblcolor.idColor
+                INNER JOIN tblCategory ON tblProduct.idCategory = tblCategory.idCategory
                 INNER JOIN tblImageProduct ON tblProduct.idProduct = tblImageProduct.idProduct";
 
         $stm = $this->_conn->prepare($sql);
