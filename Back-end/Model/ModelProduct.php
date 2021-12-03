@@ -154,10 +154,9 @@ class ModelProduct{
 
     public function update(){
 
-            //EM CASO DE ALTERAÇÃO DE IMAGEM, TODAS ELAS SERÃO EXCLUÍDAS E SOBREPOSTAS.
-            if ($this->_mainImage !== null) {
-                exit('deu bom');
-                $sql = "SELECT image FROM tblImageProduct WHERE idProduct = ?";
+        //EM CASO DE ALTERAÇÃO DE IMAGEM, TODAS ELAS SERÃO EXCLUÍDAS E SOBREPOSTAS.
+        if ($this->_mainImage !== null) {
+            $sql = "SELECT image FROM tblImageProduct WHERE idProduct = ?";
             $stm = $this->_conn->prepare($sql);
             $stm->bindValue(1, $this->_idProduct);
             $stm->execute();
@@ -172,14 +171,6 @@ class ModelProduct{
             $sql = "DELETE FROM tblImageProduct WHERE idProduct = ?";
             $stmt = $this->_conn->prepare($sql);
             $stmt->bindValue(1, $this->_idProduct);
-
-            $stmt->execute();
-
-            //Delete product in SQL
-            $sql = "DELETE FROM tblProduct WHERE idProduct = ?";
-            $stmt = $this->_conn->prepare($sql);
-            $stmt->bindValue(1, $this->_idProduct);
-            
             $stmt->execute();
 
             //CRIAÇÃO DAS NOVAS IMAGENS
@@ -190,11 +181,11 @@ class ModelProduct{
 
             //Optional images
             foreach ($this->_optionalImages as $key => $optionalImage) {
-                $nameImage = saveImageReturnName($optionalImage);
-                $this->_optionalImages[$key]['dataBaseName'] = $nameImage;
+                if ($optionalImage['name'] !== null) {
+                    $nameImage = saveImageReturnName($optionalImage);
+                    $this->_optionalImages[$key]['dataBaseName'] = $nameImage;
+                }
             }
-
-            $lastIdProduct = $this->_conn->lastInsertId();
 
             //Apenas a imagem 1 é obrigatória
             $sql = "INSERT INTO tblimageproduct (idProduct, image)
@@ -204,19 +195,17 @@ class ModelProduct{
             foreach ($this->_optionalImages as $key => $optionalImage) {
                 $imageName = $optionalImage['dataBaseName'];
                 if ($imageName !== null) {
-                    $sql .= ",($lastIdProduct, '$imageName')";
+                    $sql .= ",($this->_idProduct, '$imageName')";
                 }
             }
 
             $stm = $this->_conn->prepare($sql);
 
-            $stm->bindValue(1, $lastIdProduct);
-            $stm->bindValue(2, $mainImageName);
-
+            $stm->bindValue(1, $this->_idProduct);
+            $stm->bindValue(2, $this->_mainImage['dataBaseName']);
+            
             $stm->execute();
         }
-
-
 
         $sql = "UPDATE tblProduct SET 
         name = ?,
