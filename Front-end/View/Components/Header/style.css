@@ -64,10 +64,19 @@ nav {
 #li-catalog:hover>#ul {
     display: flex;
     flex-direction: column;
+   
+}
+
+#li-catalog{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 4vh;
 }
 
 #ul {
     display: none;
+    top: 6%;
     width: 175px;
     position: absolute;
     margin-left: 50px;
@@ -141,18 +150,6 @@ form input:focus {
     border: none;
 }
 
-#form-mobile{
-    display: none;
-}
-
-#form-mobile img{
-    display: none;
-}
-
-#form-mobile input{
-    display: none;
-}
-
 h1 {
     font-family: 'Lustria', serif;
     font-size: 225%;
@@ -191,12 +188,50 @@ a {
 #menu-options-mobile{
     display: none;
 }
+#form-mobile{
+    display: none;
+}
 
-@media (max-width: 1530px) {
+@media (max-width: 1260px) {
     body {
         overflow-x: hidden;
     }
 
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        width: 100vw;
+    }
+    
+
+   form{
+       display: none;
+       
+
+   }
+
+   #form-mobile{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 40px;
+        padding: 2%;
+        border: 1px solid var(--main-green);
+        border-radius: 24px;
+        font-family: 'Montserrat', sans-serif;
+   }
+
+   #form-mobile input{
+       display: none;
+   }
+
+   #form-mobile img{
+     width: 20px;
+     height: 20px;
+   }
+    
     #nav-mobile{
         display: flex;
         font-size: 70%;
@@ -290,31 +325,13 @@ a {
         color: white;
     }
     
-   #form-mobile{
-       display: flex;
-      
-       width: 3vw;
-       height: 5vh;
-       margin-left: 30px;
-   }
-   #form-mobile img{
-       margin: 0;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       width: 20px;
-       
-
-   }
-    
-   
     
     .mobile-menu {
         display: block;
     }
 
     .mobile-menu div{
-        margin-right: 100px;
+        margin-right: 20px;
     }
     #check:checked~nav {
         left: 0;
@@ -329,6 +346,13 @@ a {
     #ul-user-options {
         display: none;
     }
+
+    #div-title h1{
+        margin-right: 50px;
+       
+    }
+
+
 }
 
 @media (max-width: 468px){
