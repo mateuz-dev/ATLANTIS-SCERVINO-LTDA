@@ -4,7 +4,7 @@ function saveImageReturnName($imageDatas) {
     if ($imageDatas['tmp_name'] !== null) {
     $extension = pathinfo($imageDatas['name'], PATHINFO_EXTENSION);
     $newFileName = md5(microtime()) . ".$extension";
-    move_uploaded_file($imageDatas['tmp_name'], "../UploadProduct/$newFileName");
+    move_uploaded_file($imageDatas['tmp_name'], "../Uploads/UploadProduct/$newFileName");
     return $newFileName;
     }
 }
@@ -146,7 +146,7 @@ class ModelProduct{
 
         foreach ($AllImages as $key => $image) {
             $imageName = $image['image'];
-            unlink("../UploadProduct/$imageName");
+            unlink("../Uploads/UploadProduct/$imageName");
         }
 
         //DELETE ImageProduct in SQL
@@ -177,7 +177,7 @@ class ModelProduct{
 
             foreach ($AllImages as $key => $image) {
                 $imageName = $image['image'];
-                unlink("../UploadProduct/$imageName");
+                unlink("../Uploads/UploadProduct/$imageName");
             }
 
             //DELETE ImageProduct in SQL

@@ -3,7 +3,6 @@
 class ControllerCategory{
     private $_method;
     private $_modelCategory;
-    private $_idCategory;
 
     public function __construct($modelCategory) {
         $this->_modelCategory = $modelCategory;
@@ -32,10 +31,6 @@ class ControllerCategory{
                     } else {
                         return $this->_modelCategory->create();
                     }
-                    break;
-    
-                case 'PUT':
-                   
                     break;
     
                 case 'DELETE':

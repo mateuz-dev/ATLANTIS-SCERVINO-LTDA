@@ -14,8 +14,8 @@ class ModelCategory{
 
         $this->_idCategory = $_REQUEST['idCategory'] ?? $datasCategory->idCategory ??  null;
         $this->_name = $_POST['name'] ?? $datasCategory->name ?? null;
-        $this->_icon = $_FILES['icon']['name'] ?? $datasCategory->icon ?? null;
-        $this->_backgroundImage = $_FILES['backgroundImage']['name'] ?? $datasCategory->backgroundImage ?? null;
+        $this->_icon = $_FILES['icon'] ?? $datasCategory->icon ?? null;
+        $this->_backgroundImage = $_FILES['backgroundImage'] ?? $datasCategory->backgroundImage ?? null;
 
         $this->_conn = $conn;
 
@@ -37,17 +37,18 @@ class ModelCategory{
         $sql = "INSERT INTO tblCategory (name, icon, backgroundImage)
                 VALUES (?, ?, ?)";
 
-                $extension = pathinfo($this->_icon, PATHINFO_EXTENSION);
-                $newIconName = md5(microtime()) . ".$extension";
-                $newBackgroundName = md5(microtime()) . ".$extension";
-                move_uploaded_file($_FILES['icon']['tmp_name'], "../UploadCategory/icon/$newIconName");
-                move_uploaded_file($_FILES['backgroundImage']['tmp_name'], "../UploadCategory/background/$newBackgroundName");
+                $extensionIcon = pathinfo($this->_icon['name'], PATHINFO_EXTENSION);
+                $newIconName = md5(microtime()) . ".$extensionIcon";
+                $extensionBackgroundImage = pathinfo($this->_backgroundImage['name'], PATHINFO_EXTENSION);
+                $newbackgroundName = md5(microtime()) . ".$extensionBackgroundImage";
+                move_uploaded_file($_FILES['icon']['tmp_name'], "../Uploads/UploadCategory/icon/$newIconName");
+                move_uploaded_file($_FILES['backgroundImage']['tmp_name'], "../Uploads/UploadCategory/background/$newbackgroundName");
 
         $stm = $this->_conn->prepare($sql);
 
         $stm->bindValue(1, $this->_name);
         $stm->bindValue(2, $newIconName);
-        $stm->bindValue(3, $newBackgroundName);
+        $stm->bindValue(3, $newbackgroundName);
 
         if ($stm->execute()){
             return "Sucess";
@@ -65,8 +66,8 @@ class ModelCategory{
         $stm->execute();
 
         if ($stm->execute()) {
-            $IconName = $stm->fetchAll()[0]['icon'];
-            unlink("../UploadCategory/icon/" . $IconName);
+            $iconName = $stm->fetchAll()[0]['icon'];
+            unlink("../Uploads/UploadCategory/icon/" . $iconName);
 
         }
 
@@ -77,8 +78,8 @@ class ModelCategory{
         $stm->execute();
 
         if ($stm->execute()) {
-            $BackgroundName = $stm->fetchAll()[0]['backgroundImage'];
-            unlink("../UploadCategory/background/" . $BackgroundName);
+            $backgroundName = $stm->fetchAll()[0]['backgroundImage'];
+            unlink("../Uploads/UploadCategory/background/" . $backgroundName);
         }
 
         //Deletar categoria no sql
@@ -99,24 +100,17 @@ class ModelCategory{
 
     public function update(){
       
-        $sql = "SELECT icon FROM tblCategory WHERE idCategory = ?";
+        $sql = "SELECT icon, backgroundImage FROM tblCategory WHERE idCategory = ?";
         $stm = $this->_conn->prepare($sql);
         $stm->bindValue(1, $this->_idCategory);
-        $stm->execute();
 
         if ($stm->execute()) {
-            $IconName = $stm->fetchAll()[0]['icon'];
-            unlink("../UploadCategory/icon/" . $IconName);
-        }
+            $iconAndBackgroundImage = $stm->fetchAll(PDO::FETCH_ASSOC);
+            $iconName = $iconAndBackgroundImage[0]['icon'];
+            unlink("../Uploads/UploadCategory/icon/" . $iconName);
 
-        $sql = "SELECT backgroundImage FROM tblCategory WHERE idCategory = ?";
-        $stm = $this->_conn->prepare($sql);
-        $stm->bindValue(1, $this->_idCategory);
-        $stm->execute();
-
-        if ($stm->execute()) {
-            $BackgroundName = $stm->fetchAll()[0]['backgroundImage'];
-            unlink("../UploadCategory/background/" . $BackgroundName);
+            $backgroundName = $iconAndBackgroundImage[0]['backgroundImage'];
+            unlink("../Uploads/UploadCategory/background/" . $backgroundName);
         }
 
         $sql = "UPDATE tblCategory SET 
@@ -125,15 +119,15 @@ class ModelCategory{
                 backgroundImage = ?
                 WHERE idCategory = ?";
 
-        $extension = pathinfo($this->_icon, PATHINFO_EXTENSION);
+        $extension = pathinfo($this->_icon['name'], PATHINFO_EXTENSION);
         $iconName = md5(microtime()) . ".$extension";
-        $path = "../UploadCategory/icon/" . $iconName;
-        move_uploaded_file($_FILES["icon"]["tmp_name"], $path);
+        $path = "../Uploads/UploadCategory/icon/" . $iconName;
+        move_uploaded_file($this->_icon["tmp_name"], $path);
 
-        $extension = pathinfo($this->_backgroundImage, PATHINFO_EXTENSION);
+        $extension = pathinfo($this->_backgroundImage['name'], PATHINFO_EXTENSION);
         $backgroundName = md5(microtime()) . ".$extension";
-        $path = "../UploadCategory/background/" . $backgroundName;
-        move_uploaded_file($_FILES["backgroundImage"]["tmp_name"], $path);
+        $path = "../Uploads/UploadCategory/background/" . $backgroundName;
+        move_uploaded_file($this->_backgroundImage["tmp_name"], $path);
 
         $stmt = $this->_conn->prepare($sql);
 
