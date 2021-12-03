@@ -14,15 +14,8 @@ class ModelProduct{
     private $_price;
     private $_description;
     private $_qtdInventory;
-    private $_image1;
-    private $_image2;
-    private $_image3;
-    private $_image4;
-    private $_image5;
-    private $_image6;
-    private $_discount;
-    private $_idCategory;
-    private $_idColor;
+    private $_mainImage;
+    private $_optionalImages;
 
 
     public function __construct($conn){
@@ -34,12 +27,16 @@ class ModelProduct{
         $this->_price = $_POST['price'] ?? $datasProduct->price ?? null;
         $this->_description = $_POST['description'] ?? $datasProduct->description ?? null;
         $this->_qtdInventory = $_POST['qtdInventory'] ?? $datasProduct->qtdInventory ?? null;
-        $this->_image1 = $_FILES['image1']['name'] ?? $datasProduct->image1 ?? null;
-        $this->_image2 = $_FILES['image2']['name'] ?? $datasProduct->image2 ?? null;
-        $this->_image3 = $_FILES['image3']['name'] ?? $datasProduct->image3 ?? null;
-        $this->_image4 = $_FILES['image4']['name'] ?? $datasProduct->image4 ?? null;
-        $this->_image5 = $_FILES['image5']['name'] ?? $datasProduct->image5 ?? null;
-        $this->_image6 = $_FILES['image6']['name'] ?? $datasProduct->image6 ?? null;
+        $this->_mainImage = $_FILES['image1'] ?? $datasProduct->image1 ?? null;
+
+        $this->_optionalImages = [
+        $_FILES['image2'] ?? $datasProduct->image2 ?? null,
+        $_FILES['image3'] ?? $datasProduct->image3 ?? null,
+        $_FILES['image4'] ?? $datasProduct->image4 ?? null,
+        $_FILES['image5'] ?? $datasProduct->image5 ?? null,
+        $_FILES['image6'] ?? $datasProduct->image6 ?? null,
+        ];
+    
         $this->_discount = $_POST['discount'] ?? $datasProduct->discount ?? null;
         $this->_idCategory = $_POST['idCategory'] ?? $datasProduct->idCategory ?? null;
         $this->_idColor = $_POST['idColor'] ?? $datasProduct->idColor ?? null;
@@ -70,10 +67,10 @@ class ModelProduct{
 
     public function create(){
 
-        function saveImageReturnName($image, $requestName) {
-            $extension = pathinfo($image, PATHINFO_EXTENSION);
+        function saveImageReturnName($imageDatas) {
+            $extension = pathinfo($imageDatas['name'], PATHINFO_EXTENSION);
             $newFileName = md5(microtime()) . ".$extension";
-            move_uploaded_file($_FILES[$requestName]['tmp_name'], "../UploadProduct/$newFileName");
+            move_uploaded_file($imageDatas['tmp_name'], "../UploadProduct/$newFileName");
 
             return $newFileName;
         }
@@ -96,23 +93,18 @@ class ModelProduct{
 
         //Manipulação das imagens
 
-        //First image
-        $nameImage1 = saveImageReturnName($this->_image1, "image1");
+        //Main image
+        $mainImageName = saveImageReturnName($this->_mainImage);
+        $this->_mainImage['dataBaseName'] = $mainImageName;
+        // exit(var_dump($mainImageName));
 
-        //Second image
-        $nameImage2 = saveImageReturnName($this->_image2, "image2");
+        //Optional images
+        foreach ($this->_optionalImages as $key => $optionalImage) {
+            $nameImage = saveImageReturnName($optionalImage);
+            $this->_optionalImages[$key]['dataBaseName'] = $nameImage;
+        }
 
-        //Third image
-        $nameImage3 = saveImageReturnName($this->_image3, "image3");
-
-        //Fourth image
-        $nameImage4 = saveImageReturnName($this->_image4, "image4");
-
-        //Fifth image
-        $nameImage5 = saveImageReturnName($this->_image5, "image5");
-
-        //Sixth image
-        $nameImage6 = saveImageReturnName($this->_image6, "image6");
+        // exit(var_dump($this->_optionalImages));
 
         $lastIdProduct = $this->_conn->lastInsertId();
 
@@ -121,26 +113,17 @@ class ModelProduct{
             VALUES
             (?, ?)";
 
-            if ($nameImage2 !== null) {
-                $sql .= ",($lastIdProduct, '$nameImage2')";
+        foreach ($this->_optionalImages as $key => $optionalImage) {
+            $imageName = $optionalImage['dataBaseName'];
+            if ($imageName !== null) {
+                $sql .= ",($lastIdProduct, '$imageName')";
             }
-            if ($nameImage3 !== null) {
-                $sql .= ",($lastIdProduct, '$nameImage3')";
-            }
-            if ($nameImage4 !== null) {
-                $sql .= ",($lastIdProduct, '$nameImage4')";
-            }
-            if ($nameImage5 !== null) {
-                $sql .= ",($lastIdProduct, '$nameImage5')";
-            }
-            if ($nameImage6 !== null) {
-                $sql .= ",($lastIdProduct, '$nameImage6')";
-            }
+        }
 
             $stm = $this->_conn->prepare($sql);
 
             $stm->bindValue(1, $lastIdProduct);
-            $stm->bindValue(2, $nameImage1);
+            $stm->bindValue(2, $mainImageName);
 
             $stm->execute();
 
@@ -149,7 +132,7 @@ class ModelProduct{
     public function delete(){
 
         //Deletar imagem da pasta
-        $sql = "SELECT image FROM tblImageProduct, tblProduct WHERE tblProduct.idProduct = ?";
+        $sql = "SELECT image FROM tblImageProduct WHERE idProduct = ?";
         $stmt = $this->_conn->prepare($sql);
         $stmt->bindValue(1, $this->_idProduct);
         $stmt->execute();
@@ -158,14 +141,12 @@ class ModelProduct{
             $filesName = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             //APAGANDO A PRIMEIRA IMAGEM
-            unlink("../UploadProduct/" . $filesName[0]['image']);
+            unlink("../UploadProduct/" . $this->_mainImage['dataBaseName']);
 
             //VERIFICANDO SE HÁ, E APAGANDO IMAGENS RESTANTES.
-            clearImageFromDiretory($filesName[1]['image']);
-            clearImageFromDiretory($filesName[2]['image']);
-            clearImageFromDiretory($filesName[3]['image']);
-            clearImageFromDiretory($filesName[4]['image']);
-            clearImageFromDiretory($filesName[5]['image']);
+            foreach ($this->_optionalImages as $key => $optionalImage) {
+                clearImageFromDiretory($optionalImage['dataBaseName']);
+            }
         }
 
         //DELETE ImageProduct in SQL
