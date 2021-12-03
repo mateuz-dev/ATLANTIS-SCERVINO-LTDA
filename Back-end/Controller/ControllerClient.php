@@ -29,11 +29,12 @@ class ControllerClient{
                 break;
 
             case 'POST':
-                return $this->_modelClient->create();
-                break;
 
-            case 'PUT':
-                return $this->_modelClient->update();
+                if ($this->_modelClient->returnIdClient() !== null) {
+                    return $this->_modelClient->update();
+                } else {
+                    return $this->_modelClient->create();
+                }
                 break;
 
             case 'DELETE':

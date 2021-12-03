@@ -20,8 +20,9 @@ CREATE TABLE tblClient (
   password VARCHAR(500) NOT NULL,
   cpf VARCHAR(18) NOT NULL,
   birthDate DATE NOT NULL,
+  profilePhoto VARCHAR(250) NOT NULL,
   PRIMARY KEY (idClient),
-  UNIQUE INDEX (idClient)
+  UNIQUE INDEX (idClient, profilePhoto)
   );
 
 
@@ -30,10 +31,10 @@ CREATE TABLE tblClient (
 CREATE TABLE tblCategory (
   idCategory INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(80) NOT NULL,
-  icon VARCHAR(500) NOT NULL,
-  backgroundImage VARCHAR(500) NOT NULL,
+  icon VARCHAR(250) NOT NULL,
+  backgroundImage VARCHAR(250) NOT NULL,
   PRIMARY KEY (idCategory),
-  UNIQUE INDEX (idCategory)
+  UNIQUE INDEX (idCategory, backgroundImage, icon)
   );
   
   
@@ -75,7 +76,7 @@ CREATE TABLE tblImageProduct (
   image VARCHAR(500) NOT NULL,
   idProduct INT NOT NULL,
   PRIMARY KEY (idImageProduct),
-  UNIQUE INDEX (idImageProduct),
+  UNIQUE INDEX (idImageProduct, image),
   CONSTRAINT fk_tblImageProduct_tblProduct
   FOREIGN KEY (idProduct)
   REFERENCES tblProduct (idProduct)
@@ -116,6 +117,8 @@ REFERENCES tblClient (idClient),
     FOREIGN KEY (idProduct)
     REFERENCES tblProduct (idProduct)
     );
+    
+#INSERTS IN THE DATABASE
     
 USE dbScervino;
 

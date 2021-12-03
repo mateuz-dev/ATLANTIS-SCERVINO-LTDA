@@ -30,14 +30,14 @@ class ModelProduct{
         $this->_price = $_POST['price'] ?? $datasProduct->price ?? null;
         $this->_description = $_POST['description'] ?? $datasProduct->description ?? null;
         $this->_qtdInventory = $_POST['qtdInventory'] ?? $datasProduct->qtdInventory ?? null;
-        $this->_mainImage = $_FILES['image1'] ?? $datasProduct->image1 ?? null;
+        $this->_mainImage = $_FILES['image1'] ?? null;
 
         $this->_optionalImages = [
-            $_FILES['image2'] ?? $datasProduct->image2 ?? null,
-            $_FILES['image3'] ?? $datasProduct->image3 ?? null,
-            $_FILES['image4'] ?? $datasProduct->image4 ?? null,
-            $_FILES['image5'] ?? $datasProduct->image5 ?? null,
-            $_FILES['image6'] ?? $datasProduct->image6 ?? null,
+            $_FILES['image2'] ?? null,
+            $_FILES['image3'] ?? null,
+            $_FILES['image4'] ?? null,
+            $_FILES['image5'] ?? null,
+            $_FILES['image6'] ?? null,
         ];
     
         $this->_discount = $_POST['discount'] ?? $datasProduct->discount ?? null;
@@ -168,7 +168,8 @@ class ModelProduct{
     public function update(){
 
         //EM CASO DE ALTERAÇÃO DE IMAGEM, TODAS ELAS SERÃO EXCLUÍDAS E SOBREPOSTAS.
-        if ($this->_mainImage !== null) {
+        if ($this->_mainImage['name'] !== null &&
+            $this->_mainImage['name'] !== "") {
             $sql = "SELECT image FROM tblImageProduct WHERE idProduct = ?";
             $stm = $this->_conn->prepare($sql);
             $stm->bindValue(1, $this->_idProduct);

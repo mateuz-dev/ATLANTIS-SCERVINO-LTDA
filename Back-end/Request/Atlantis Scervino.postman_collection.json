@@ -387,11 +387,47 @@
 				{
 					"name": "UPDATE",
 					"request": {
-						"method": "PUT",
+						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idClient\" : 2,\r\n    \"name\": \"Josezao da Fonseca\",\r\n    \"email\": \"josezao@gmail.com\",\r\n    \"password\": \"\",\r\n    \"cpf\": \"274.928.726-83\",\r\n    \"birthDate\": \"2000-02-21\"\r\n}",
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idClient",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Josezao Silva",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "josezao@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "cpf",
+									"value": "274.928.726-83",
+									"type": "text"
+								},
+								{
+									"key": "birthDate",
+									"value": "2000-02-21",
+									"type": "text"
+								},
+								{
+									"key": "profilePhoto",
+									"type": "file",
+									"src": "/C:/Users/gabri/Downloads/profile.png"
+								}
+							],
 							"options": {
 								"raw": {
 									"language": "json"

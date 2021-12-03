@@ -15,7 +15,7 @@ class ModelCategory{
         $this->_idCategory = $_REQUEST['idCategory'] ?? $datasCategory->idCategory ??  null;
         $this->_name = $_POST['name'] ?? $datasCategory->name ?? null;
         $this->_icon = $_FILES['icon'] ?? $datasCategory->icon ?? null;
-        $this->_backgroundImage = $_FILES['backgroundImage'] ?? $datasCategory->backgroundImage ?? null;
+        $this->_backgroundImage = $_FILES['backgroundImage'] ?? null;
 
         $this->_conn = $conn;
 
