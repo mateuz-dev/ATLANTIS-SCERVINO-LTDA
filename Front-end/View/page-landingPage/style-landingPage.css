@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    display: flex;
+    width: 100vw;
+    height: 75vh;
+    flex-direction: column;
+    background: url(images/waves-landingPage\ \(1\).svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#onda-main{
+    display: flex;
+    top: 66%;
+    height: 14vh;
+    width: 100vw;
+    background: url(images/Onda\ branca.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+}
+
+#container-imagemETexto{
+   /* background-color: tomato; */
+   display: flex;
+
+}
+
+
+
+#texto-landingPage{
+    display: flex;
+    flex-direction: column;
+    padding: 8%;
+    font-family: 'Montserrat', sans-serif;
+    /* background-color: violet; */  
+    flex-grow: 1;
+
+}
+
+#texto-landingPage button{
+   background-color: #4AAD41;
+   height: 7vh;
+   width: 13vw;
+   font-family: 'Montserrat', sans-serif;
+   color: white;
+   font-size: 160%;
+}
+
+#texto-landingPage h1{
+    font-size: 250%;
+    color: white;
+    margin-bottom: 6%;
+}
+
+#texto-landingPage p{
+    color: white;
+    width: 22vw;
+    font-size: 120%;
+    margin-bottom: 6%;
+}
+
+#image-LandingPage{
+    display: flex;
+    justify-content: flex-start;
+    /* s */
+    height: 75vh;
+    flex-grow: 1;
+}
+
+#container-imagemETexto{
+    display: flex;
+    flex-direction: row;
+   
+}
+
+#image-LandingPage img{
+   /* min-width: 75vw;
+   min-height: 75vh; */
+}
