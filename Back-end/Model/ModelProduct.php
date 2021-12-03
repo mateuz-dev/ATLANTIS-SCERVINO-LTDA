@@ -1,11 +1,12 @@
 <?php
 
 function saveImageReturnName($imageDatas) {
-    if ($imageDatas['tmp_name'] !== null) {
-    $extension = pathinfo($imageDatas['name'], PATHINFO_EXTENSION);
-    $newFileName = md5(microtime()) . ".$extension";
-    move_uploaded_file($imageDatas['tmp_name'], "../Uploads/UploadProduct/$newFileName");
-    return $newFileName;
+    if ($imageDatas['tmp_name'] !== null &&
+    $imageDatas['tmp_name'] !== "") {
+        $extension = pathinfo($imageDatas['name'], PATHINFO_EXTENSION);
+        $newFileName = md5(microtime()) . ".$extension";
+        move_uploaded_file($imageDatas['tmp_name'], "../Uploads/UploadProduct/$newFileName");
+        return $newFileName;
     }
 }
 
@@ -123,7 +124,8 @@ class ModelProduct{
 
         foreach ($this->_optionalImages as $key => $optionalImage) {
             $imageName = $optionalImage['dataBaseName'];
-            if ($imageName !== null) {
+            if ($imageName !== null &&
+            $imageName !== "") {
                 $sql .= ",($lastIdProduct, '$imageName')";
             }
         }
@@ -194,7 +196,8 @@ class ModelProduct{
 
             //Optional images
             foreach ($this->_optionalImages as $key => $optionalImage) {
-                if ($optionalImage['name'] !== null) {
+                if ($optionalImage['name'] !== null &&
+                    $optionalImage['name'] !== '') {
                     $nameImage = saveImageReturnName($optionalImage);
                     $this->_optionalImages[$key]['dataBaseName'] = $nameImage;
                 }
@@ -207,7 +210,8 @@ class ModelProduct{
 
             foreach ($this->_optionalImages as $key => $optionalImage) {
                 $imageName = $optionalImage['dataBaseName'];
-                if ($imageName !== null) {
+                if ($imageName !== null &&
+                $imageName !== '') {
                     $sql .= ",($this->_idProduct, '$imageName')";
                 }
             }

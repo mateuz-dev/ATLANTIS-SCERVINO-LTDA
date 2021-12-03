@@ -20,7 +20,7 @@ CREATE TABLE tblClient (
   password VARCHAR(500) NOT NULL,
   cpf VARCHAR(18) NOT NULL,
   birthDate DATE NOT NULL,
-  profilePhoto VARCHAR(250) NOT NULL,
+  profilePhoto VARCHAR(250),
   PRIMARY KEY (idClient),
   UNIQUE INDEX (idClient, profilePhoto)
   );

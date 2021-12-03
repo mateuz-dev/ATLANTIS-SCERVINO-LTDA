@@ -49,28 +49,41 @@ class ModelClient{
 
     public function create(){
 
-        $sql = "INSERT INTO tblClient (name, email, password, cpf, birthDate, profilePhoto)
-            VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO tblClient (name, email, password, cpf, birthDate)
+            VALUES (?, ?, ?, ?, ?)";
 
         $stm = $this->_conn->prepare($sql);
 
         $encryptedPassword = password_hash($this->_password, PASSWORD_DEFAULT);
-
-        $extension = pathinfo($this->_profilePhoto['name'], PATHINFO_EXTENSION);
-        $newPhotoName = md5(microtime()) . ".$extension";
-        move_uploaded_file($this->_profilePhoto['tmp_name'], "../Uploads/UploadClient/$newPhotoName");
 
         $stm->bindValue(1, $this->_name);
         $stm->bindValue(2, $this->_email);
         $stm->bindValue(3, $encryptedPassword);
         $stm->bindValue(4, $this->_cpf);
         $stm->bindValue(5, $this->_birthDate);
-        $stm->bindValue(6, $newPhotoName);
 
-        if ($stm->execute()){
-            return "Sucess";
-        } else {
-            return "Error";
+        $stm->execute();
+
+        if ($this->_profilePhoto['name'] !== "" &&
+            $this->_profilePhoto['name'] !== null) {
+
+            $extension = pathinfo($this->_profilePhoto['name'], PATHINFO_EXTENSION);
+            $profilePhotoName = md5(microtime()) . ".$extension";
+            $path = "../Uploads/UploadClient/" . $profilePhotoName;
+            move_uploaded_file($this->_profilePhoto["tmp_name"], $path);
+
+            $sql = "UPDATE tblClient SET 
+            profilePhoto = ?
+            WHERE idClient = ?";
+
+            $stmt = $this->_conn->prepare($sql);
+
+            $lastIdClient = $this->_conn->lastInsertId();
+
+            $stmt->bindValue(1, $profilePhotoName);
+            $stmt->bindValue(2, $lastIdClient);
+
+            $stmt->execute();
         }
     }
 
@@ -83,8 +96,13 @@ class ModelClient{
         $stm->execute();
 
         if ($stm->execute()) {
+
             $photoName = $stm->fetchAll()[0]['profilePhoto'];
-            unlink("../Uploads/UploadClient/" . $photoName);
+
+            if ($photoName !== null &&
+            $photoName !== '') {
+                unlink("../Uploads/UploadClient/" . $photoName);
+            }
 
         }
 
@@ -109,9 +127,12 @@ class ModelClient{
             $stm->bindValue(1, $this->_idClient);
 
             if ($stm->execute()) {
-                $profilePhotoName = $stm->fetchAll(PDO::FETCH_ASSOC)[0]['profilePhoto'];
+                $photoName = $stm->fetchAll()[0]['profilePhoto'];
 
-                unlink("../Uploads/UploadClient/" . $profilePhotoName);
+                if ($photoName !== null &&
+                $photoName !== '') {
+                    unlink("../Uploads/UploadClient/" . $photoName);
+                }
 
                 $extension = pathinfo($this->_profilePhoto['name'], PATHINFO_EXTENSION);
                 $profilePhotoName = md5(microtime()) . ".$extension";
