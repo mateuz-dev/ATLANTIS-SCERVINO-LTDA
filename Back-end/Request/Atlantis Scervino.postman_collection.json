@@ -172,12 +172,12 @@
 							"formdata": [
 								{
 									"key": "idProduct",
-									"value": "50",
+									"value": "54",
 									"type": "text"
 								},
 								{
 									"key": "name",
-									"value": "Vasos",
+									"value": "Vaso",
 									"type": "text"
 								},
 								{
@@ -196,11 +196,6 @@
 									"type": "text"
 								},
 								{
-									"key": "image",
-									"type": "file",
-									"src": "/C:/Users/21192910/Downloads/vasin.png"
-								},
-								{
 									"key": "discount",
 									"value": "22",
 									"type": "text"
@@ -214,6 +209,16 @@
 									"key": "idCategory",
 									"value": "1",
 									"type": "text"
+								},
+								{
+									"key": "image1",
+									"type": "file",
+									"src": "/C:/Users/21192910/Downloads/vasin.png"
+								},
+								{
+									"key": "image2",
+									"type": "file",
+									"src": "/C:/Users/21192910/Downloads/vasin.png"
 								}
 							],
 							"options": {
