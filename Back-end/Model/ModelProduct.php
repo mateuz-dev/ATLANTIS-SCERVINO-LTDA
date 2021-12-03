@@ -50,7 +50,14 @@ class ModelProduct{
     }
 
     public function findAll(){
-        $sql = "SELECT * FROM tblProduct";
+        $sql = "SELECT tblProduct.name AS nameProduct, tblProduct.price, 
+                tblProduct.description, tblProduct.qtdInventory, 
+                tblProduct.discount, tblColor.name AS nameColor, 
+                tblCategory.name AS nameCategory, tblImageProduct.image
+                FROM tblProduct 
+                INNER JOIN tblColor ON tblProduct.idColor = tblcolor.idColor
+                INNER JOIN tblCategory ON tblProduct.idCategory = tblCategory.idCategory
+                INNER JOIN tblImageProduct ON tblProduct.idProduct = tblImageProduct.idProduct";
 
         $stm = $this->_conn->prepare($sql);
 
@@ -61,7 +68,16 @@ class ModelProduct{
 
     public function findById(){
 
-        $sql = "SELECT * FROM tblProduct WHERE idProduct = ?";
+        $sql = "SELECT tblProduct.name AS nameProduct, tblProduct.price, 
+                tblProduct.description, tblProduct.qtdInventory, 
+                tblProduct.discount, tblColor.name AS nameColor, 
+                tblCategory.name AS nameCategory, tblImageProduct.image
+                FROM tblProduct 
+                INNER JOIN tblColor ON tblProduct.idColor = tblcolor.idColor
+                INNER JOIN tblCategory ON tblProduct.idCategory = tblCategory.idCategory
+                INNER JOIN tblImageProduct ON tblProduct.idProduct = tblImageProduct.idProduct
+                WHERE idProduct = ?";
+
         $stm = $this->_conn->prepare($sql);
         $stm->bindValue(1, $this->_idProduct);
         $stm->execute();
