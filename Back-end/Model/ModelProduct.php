@@ -45,8 +45,6 @@ class ModelProduct{
         $this->_idColor = $_POST['idColor'] ?? $datasProduct->idColor ?? null;
 
         $this->_conn = $conn;
-
-        // exit(var_dump($this->_optionalImages));
     }
 
     public function findAll(){
@@ -76,7 +74,7 @@ class ModelProduct{
                 INNER JOIN tblColor ON tblProduct.idColor = tblcolor.idColor
                 INNER JOIN tblCategory ON tblProduct.idCategory = tblCategory.idCategory
                 INNER JOIN tblImageProduct ON tblProduct.idProduct = tblImageProduct.idProduct
-                WHERE idProduct = ?";
+                WHERE tblProduct.idProduct = ?";
 
         $stm = $this->_conn->prepare($sql);
         $stm->bindValue(1, $this->_idProduct);
@@ -109,7 +107,6 @@ class ModelProduct{
         //Main image
         $mainImageName = saveImageReturnName($this->_mainImage);
         $this->_mainImage['dataBaseName'] = $mainImageName;
-        // exit(var_dump($mainImageName));
 
         //Optional images
         foreach ($this->_optionalImages as $key => $optionalImage) {
@@ -193,7 +190,6 @@ class ModelProduct{
             //Main image
             $mainImageName = saveImageReturnName($this->_mainImage);
             $this->_mainImage['dataBaseName'] = $mainImageName;
-            // exit(var_dump($mainImageName));
 
             //Optional images
             foreach ($this->_optionalImages as $key => $optionalImage) {
