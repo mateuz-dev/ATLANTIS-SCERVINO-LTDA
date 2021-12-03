@@ -40,8 +40,8 @@ class ModelCategory{
                 $extension = pathinfo($this->_icon, PATHINFO_EXTENSION);
                 $newIconName = md5(microtime()) . ".$extension";
                 $newBackgroundName = md5(microtime()) . ".$extension";
-                move_uploaded_file($_FILES['icon']['tmp_name'], "../UploadCategory/$newIconName");
-                move_uploaded_file($_FILES['backgroundImage']['tmp_name'], "../UploadCategory/$newBackgroundName");
+                move_uploaded_file($_FILES['icon']['tmp_name'], "../UploadCategory/icon/$newIconName");
+                move_uploaded_file($_FILES['backgroundImage']['tmp_name'], "../UploadCategory/background/$newBackgroundName");
 
         $stm = $this->_conn->prepare($sql);
 
@@ -64,24 +64,21 @@ class ModelCategory{
         $stm->bindValue(1, $this->_idCategory);
         $stm->execute();
 
-        
-
         if ($stm->execute()) {
             $IconName = $stm->fetchAll()[0]['icon'];
-            unlink("../UploadCategory/" . $IconName);
+            unlink("../UploadCategory/icon/" . $IconName);
 
         }
+
 
         $sql = "SELECT backgroundImage FROM tblCategory WHERE idCategory = ?";
         $stm = $this->_conn->prepare($sql);
         $stm->bindValue(1, $this->_idCategory);
         $stm->execute();
 
-        
-
         if ($stm->execute()) {
             $BackgroundName = $stm->fetchAll()[0]['backgroundImage'];
-            unlink("../UploadCategory/" . $BackgroundName);
+            unlink("../UploadCategory/background/" . $BackgroundName);
         }
 
         //Deletar categoria no sql
@@ -101,18 +98,48 @@ class ModelCategory{
     }
 
     public function update(){
+      
+        $sql = "SELECT icon FROM tblCategory WHERE idCategory = ?";
+        $stm = $this->_conn->prepare($sql);
+        $stm->bindValue(1, $this->_idCategory);
+        $stm->execute();
+
+        if ($stm->execute()) {
+            $IconName = $stm->fetchAll()[0]['icon'];
+            unlink("../UploadCategory/icon/" . $IconName);
+        }
+
+        $sql = "SELECT backgroundImage FROM tblCategory WHERE idCategory = ?";
+        $stm = $this->_conn->prepare($sql);
+        $stm->bindValue(1, $this->_idCategory);
+        $stm->execute();
+
+        if ($stm->execute()) {
+            $BackgroundName = $stm->fetchAll()[0]['backgroundImage'];
+            unlink("../UploadCategory/background/" . $BackgroundName);
+        }
 
         $sql = "UPDATE tblCategory SET 
-        name = ?,
-        icon = ?,
-        backgroundImage = ?
-        WHERE idCategory = ?";
+                name = ?,
+                icon = ?,
+                backgroundImage = ?
+                WHERE idCategory = ?";
+
+        $extension = pathinfo($this->_icon, PATHINFO_EXTENSION);
+        $iconName = md5(microtime()) . ".$extension";
+        $path = "../UploadCategory/icon/" . $iconName;
+        move_uploaded_file($_FILES["icon"]["tmp_name"], $path);
+
+        $extension = pathinfo($this->_backgroundImage, PATHINFO_EXTENSION);
+        $backgroundName = md5(microtime()) . ".$extension";
+        $path = "../UploadCategory/background/" . $backgroundName;
+        move_uploaded_file($_FILES["backgroundImage"]["tmp_name"], $path);
 
         $stmt = $this->_conn->prepare($sql);
 
         $stmt->bindValue(1, $this->_name);
-        $stmt->bindValue(2, $this->_icon);
-        $stmt->bindValue(3, $this->_backgroundImage);
+        $stmt->bindValue(2, $iconName);
+        $stmt->bindValue(3, $backgroundName);
         $stmt->bindValue(4, $this->_idCategory);
 
         if ($stmt->execute()) {
@@ -121,5 +148,8 @@ class ModelCategory{
 
     }
 
+        public function returnIdCategory(){
+            return $this->_idCategory;
+        }
 
 }    

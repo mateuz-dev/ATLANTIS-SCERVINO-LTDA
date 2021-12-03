@@ -27,10 +27,15 @@ class ControllerCategory{
                 break;
 
                 case 'POST':
-                    return $this->_modelCategory->create();
+                    if($this->_modelCategory->returnIdCategory() !== null){
+                        return $this->_modelCategory->update();
+                    } else {
+                        return $this->_modelCategory->create();
+                    }
                     break;
     
                 case 'PUT':
+                   
                     break;
     
                 case 'DELETE':
