@@ -1,69 +1,15 @@
 {
 	"info": {
-		"_postman_id": "54b26e25-7a8d-4a4f-a0a6-f29b6beaec9e",
-		"name": "Atlantis Scervino",
+		"_postman_id": "d5ef1ec8-157e-4785-8fac-3f6035e65fde",
+		"name": "API PHP",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Product",
+			"name": "v1",
 			"item": [
 				{
-					"name": "FIND_ALL",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"ATLANTIS-SCERVINO-LTDA",
-								"Back-end",
-								"Product",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "FIND_BY_ID",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idProduct\" : 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"ATLANTIS-SCERVINO-LTDA",
-								"Back-end",
-								"Product",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "CREATE_UPLOAD",
+					"name": "READ_ID",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -71,58 +17,86 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "name",
-									"value": "Vaso",
-									"type": "text"
-								},
-								{
-									"key": "price",
-									"value": "299.45",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "A linha de vasos rotomoldados da mercadoshop são robustos, firmes, leves e fáceis de transportar, podem ser utilizados tanto em áreas externas como internas, não fazem sujeira, não acumulam bactérias ou poeira. Possuem um acabamento perfeito e dão um charme todo especial no seu jardim. Nossos vasos não possuem prato, os pratos além de acumular água fazem muita sujeira, por este motivo escolher um vaso rotomoldado é a melhor opção.",
-									"type": "text"
-								},
-								{
-									"key": "qtdInventory",
-									"value": "3",
-									"type": "text"
-								},
-								{
-									"key": "image1",
-									"type": "file",
-									"src": "/C:/Users/gabri/Downloads/vasin.png"
-								},
-								{
-									"key": "discount",
-									"value": "10",
-									"type": "text"
-								},
-								{
-									"key": "idCategory",
+									"key": "cod_pessoa",
 									"value": "1",
 									"type": "text"
 								},
 								{
-									"key": "idColor",
-									"value": "1",
+									"key": "acao",
+									"value": "readID",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
-							"protocol": "http",
+							"raw": "localhost/gabriel-tavares/php_projects/aula-14/API-php/v1/",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"ATLANTIS-SCERVINO-LTDA",
-								"Back-end",
-								"Product",
+								"gabriel-tavares",
+								"php_projects",
+								"aula-14",
+								"API-php",
+								"v1",
 								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nome",
+									"value": "Juscelino",
+									"type": "text"
+								},
+								{
+									"key": "sobrenome",
+									"value": "Uncreudo",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "cleitin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "celular",
+									"value": "+5511976346578",
+									"type": "text"
+								},
+								{
+									"key": "fotografia",
+									"value": "c://path",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/gabriel-tavares/php_projects/API-php/v1/?acao=create",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gabriel-tavares",
+								"php_projects",
+								"API-php",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "acao",
+									"value": "create"
+								}
 							]
 						}
 					},
@@ -131,28 +105,60 @@
 				{
 					"name": "DELETE",
 					"request": {
-						"method": "DELETE",
+						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idProduct\" : 49\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cod_pessoa",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "nome",
+									"value": "Juscelin",
+									"type": "text"
+								},
+								{
+									"key": "sobrenome",
+									"value": "Uncreudo",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "cleitin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "celular",
+									"value": "+5511976346578",
+									"type": "text"
+								},
+								{
+									"key": "fotografia",
+									"value": "c://path",
+									"type": "text"
 								}
-							}
+							]
 						},
 						"url": {
-							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
-							"protocol": "http",
+							"raw": "localhost/gabriel-tavares/php_projects/API-php/v1/?acao=update",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"ATLANTIS-SCERVINO-LTDA",
-								"Back-end",
-								"Product",
+								"gabriel-tavares",
+								"php_projects",
+								"API-php",
+								"v1",
 								""
+							],
+							"query": [
+								{
+									"key": "acao",
+									"value": "update"
+								}
 							]
 						}
 					},
@@ -167,68 +173,54 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "idProduct",
-									"value": "17",
+									"key": "cod_pessoa",
+									"value": "20",
 									"type": "text"
 								},
 								{
-									"key": "name",
-									"value": "Vaso",
+									"key": "nome",
+									"value": "Juscelin",
 									"type": "text"
 								},
 								{
-									"key": "price",
-									"value": "119",
+									"key": "sobrenome",
+									"value": "Uncreudo",
 									"type": "text"
 								},
 								{
-									"key": "description",
-									"value": "Um produto incrível",
+									"key": "email",
+									"value": "cleitin@gmail.com",
 									"type": "text"
 								},
 								{
-									"key": "qtdInventory",
-									"value": "6",
+									"key": "celular",
+									"value": "+5511976346578",
 									"type": "text"
 								},
 								{
-									"key": "discount",
-									"value": "22",
+									"key": "fotografia",
+									"value": "c://path",
 									"type": "text"
-								},
-								{
-									"key": "idColor",
-									"value": "2",
-									"type": "text"
-								},
-								{
-									"key": "idCategory",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "image1",
-									"type": "file",
-									"src": "/C:/Users/gabri/Downloads/vasin.png"
-								},
-								{
-									"key": "image2",
-									"type": "file",
-									"src": "/C:/Users/gabri/Downloads/vasin.png"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
-							"protocol": "http",
+							"raw": "localhost/gabriel-tavares/php_projects/API-php/v1/?acao=update",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"ATLANTIS-SCERVINO-LTDA",
-								"Back-end",
-								"Product",
+								"gabriel-tavares",
+								"php_projects",
+								"API-php",
+								"v1",
 								""
+							],
+							"query": [
+								{
+									"key": "acao",
+									"value": "update"
+								}
 							]
 						}
 					},
@@ -237,23 +229,54 @@
 			]
 		},
 		{
-			"name": "Client",
+			"name": "v2",
 			"item": [
 				{
-					"name": "FIND_ALL",
+					"name": "READ",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
+							"raw": "http://127.0.0.1/gabriel-tavares/php_projects/aula-14/API-php/v2",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
 							"path": [
-								"ATLANTIS-SCERVINO-LTDA",
-								"Back-end",
-								"Client",
+								"gabriel-tavares",
+								"php_projects",
+								"aula-14",
+								"API-php",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PESSOA_FIND_ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/gabriel-tavares/php_projects/aula-14/API-php/v2/pessoa/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"gabriel-tavares",
+								"php_projects",
+								"aula-14",
+								"API-php",
+								"v2",
+								"pessoa",
 								""
 							]
 						}
@@ -261,7 +284,7 @@
 					"response": []
 				},
 				{
-					"name": "FIND_BY_ID",
+					"name": "PESSOA_FIND_BY_ID",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -270,7 +293,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idClient\" : 1\r\n}",
+							"raw": "{\r\n    \"cod_pessoa\" : 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -278,15 +301,21 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
+							"raw": "http://127.0.0.1/gabriel-tavares/php_projects/aula-14/API-php/v2/pessoa/",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
 							"path": [
-								"ATLANTIS-SCERVINO-LTDA",
-								"Back-end",
-								"Client",
+								"gabriel-tavares",
+								"php_projects",
+								"aula-14",
+								"API-php",
+								"v2",
+								"pessoa",
 								""
 							]
 						}
@@ -294,7 +323,7 @@
 					"response": []
 				},
 				{
-					"name": "CREATE_UPLOAD",
+					"name": "PESSOA_CREATE_UPLOAD",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -302,52 +331,48 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "name",
-									"value": "José da Fonseca",
+									"key": "nome",
+									"value": "João",
+									"type": "text"
+								},
+								{
+									"key": "sobrenome",
+									"value": "da Silva",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "josezao@gmail.com",
+									"value": "jogao.silva@gmail.com",
 									"type": "text"
 								},
 								{
-									"key": "password",
-									"value": "123456",
+									"key": "celular",
+									"value": "1194355-98472",
 									"type": "text"
 								},
 								{
-									"key": "cpf",
-									"value": "274.928.726-83",
-									"type": "text"
-								},
-								{
-									"key": "birthDate",
-									"value": "2000-02-21",
-									"type": "text"
-								},
-								{
-									"key": "idCategory",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "idColor",
-									"value": "1",
-									"type": "text"
+									"key": "fotografia",
+									"type": "file",
+									"src": "/C:/Users/21192910/Desktop/cavalos.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
+							"raw": "http://127.0.0.1/gabriel-tavares/php_projects/aula-14/API-php/v2/pessoa/",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
 							"path": [
-								"ATLANTIS-SCERVINO-LTDA",
-								"Back-end",
-								"Client",
+								"gabriel-tavares",
+								"php_projects",
+								"aula-14",
+								"API-php",
+								"v2",
+								"pessoa",
 								""
 							]
 						}
@@ -355,114 +380,57 @@
 					"response": []
 				},
 				{
-					"name": "DELETE",
+					"name": "PESSOA_DELETE",
 					"request": {
 						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idClient\" : 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"ATLANTIS-SCERVINO-LTDA",
-								"Back-end",
-								"Client",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UPDATE",
-					"request": {
-						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "idClient",
-									"value": "3",
-									"type": "text"
-								},
-								{
-									"key": "name",
-									"value": "Josezao Silva",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "josezao@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "cpf",
-									"value": "274.928.726-83",
-									"type": "text"
-								},
-								{
-									"key": "birthDate",
-									"value": "2000-02-21",
-									"type": "text"
-								},
-								{
-									"key": "profilePhoto",
-									"type": "file",
-									"src": "/C:/Users/gabri/Downloads/profile.png"
+									"key": "cod_pessoa",
+									"value": "36",
+									"type": "text",
+									"disabled": true
 								}
-							],
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							]
 						},
 						"url": {
-							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
+							"raw": "http://127.0.0.1/gabriel-tavares/php_projects/aula-14/API-php/v2/pessoa/?cod_pessoa=36",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
 							"path": [
-								"ATLANTIS-SCERVINO-LTDA",
-								"Back-end",
-								"Client",
+								"gabriel-tavares",
+								"php_projects",
+								"aula-14",
+								"API-php",
+								"v2",
+								"pessoa",
 								""
+							],
+							"query": [
+								{
+									"key": "cod_pessoa",
+									"value": "36"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "Category",
-			"item": [
+				},
 				{
-					"name": "CREATE_UPLOAD",
+					"name": "PESSOA_UPDATE",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"user\": \"admin\",\r\n    \"password\": \"dfdsjibkibsg\"\r\n}",
+							"raw": "{\r\n    \"cod_pessoa\" : 37,\r\n    \"nome\" : \"João\",\r\n    \"sobrenome\" : \"da Silva\",\r\n    \"email\" : \"jogao.silva@gmail.com\",\r\n    \"celular\" : \"1194355-98472\",\r\n    \"fotografia\" : \"joaozin.jpg\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -470,117 +438,21 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/",
+							"raw": "http://127.0.0.1/gabriel-tavares/php_projects/aula-14/API-php/v2/pessoa/",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
 							"path": [
-								"ATLANTIS-SCERVINO-LTDA",
-								"Back-end",
-								"Category",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "FIND_ALL",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"ATLANTIS-SCERVINO-LTDA",
-								"Back-end",
-								"Category",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idCategory\": 27\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"ATLANTIS-SCERVINO-LTDA",
-								"Back-end",
-								"Category",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UPDATE",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "idCategory",
-									"value": "9",
-									"type": "text"
-								},
-								{
-									"key": "backgroundImage",
-									"type": "file",
-									"src": "/C:/Users/gabri/Downloads/Banner inicial.png"
-								},
-								{
-									"key": "icon",
-									"type": "file",
-									"src": "/C:/Users/gabri/Downloads/icone categoria.png"
-								},
-								{
-									"key": "name",
-									"value": "Pet",
-									"type": "text"
-								}
-							],
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"ATLANTIS-SCERVINO-LTDA",
-								"Back-end",
-								"Category",
+								"gabriel-tavares",
+								"php_projects",
+								"aula-14",
+								"API-php",
+								"v2",
+								"pessoa",
 								""
 							]
 						}
