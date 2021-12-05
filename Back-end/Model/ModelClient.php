@@ -27,7 +27,7 @@ class ModelClient{
     }
 
     public function findAll(){
-        $sql = "SELECT idClient, name, email, cpf, birthDate, profilePhoto FROM tblClient";
+        $sql = "SELECT idClient, name, birthDate, profilePhoto FROM tblClient";
 
         $stm = $this->_conn->prepare($sql);
 
@@ -38,7 +38,7 @@ class ModelClient{
 
     public function findById(){
 
-        $sql = "SELECT idClient, name, email, cpf, birthDate, profilePhoto FROM tblClient WHERE idClient = ?";
+        $sql = "SELECT idClient, name, birthDate, profilePhoto FROM tblClient WHERE idClient = ?";
         $stm = $this->_conn->prepare($sql);
         $stm->bindValue(1, $this->_idClient);
         $stm->execute();
@@ -89,6 +89,8 @@ class ModelClient{
 
     public function delete(){
 
+        $photoName = null;
+
         //Deletar imagem da pasta
         $sql = "SELECT profilePhoto FROM tblClient WHERE idClient = ?";
         $stm = $this->_conn->prepare($sql);
@@ -96,14 +98,7 @@ class ModelClient{
         $stm->execute();
 
         if ($stm->execute()) {
-
             $photoName = $stm->fetchAll()[0]['profilePhoto'];
-
-            if ($photoName !== null &&
-            $photoName !== '') {
-                unlink("../Uploads/UploadClient/" . $photoName);
-            }
-
         }
 
         $sql = "DELETE FROM tblClient WHERE idClient = ?";
@@ -111,6 +106,10 @@ class ModelClient{
         $stmt->bindValue(1, $this->_idClient);
 
         if ($stmt->execute()) {
+            if ($photoName !== null &&
+            $photoName !== '') {
+                unlink("../Uploads/UploadClient/" . $photoName);
+            }   
             return "Dados excluídos com sucesso!";
         } else {
             return "Erro";
@@ -152,6 +151,7 @@ class ModelClient{
             }
         }
 
+        //Caso seja perceptível requisição para alterar senha
         if ($this->_password !== "" &&
             $this->_password !== null) {
             $sql = "UPDATE tblClient SET 
@@ -167,10 +167,24 @@ class ModelClient{
 
             $stmt->execute();
         }
+
+        //Caso seja perceptível requisição para alterar email
+        if ($this->_email !== "" &&
+            $this->_email !== null) {
+            $sql = "UPDATE tblClient SET 
+            email = ?
+            WHERE idClient = ?";
+
+            $stmt = $this->_conn->prepare($sql);
+
+            $stmt->bindValue(1, $this->_email);
+            $stmt->bindValue(2, $this->_idClient);
+
+            $stmt->execute();
+        }
         
         $sql = "UPDATE tblClient SET 
         name = ?, 
-        email = ?, 
         cpf = ?, 
         birthDate = ?
         WHERE idClient = ?";
@@ -178,10 +192,9 @@ class ModelClient{
         $stmt = $this->_conn->prepare($sql);
 
         $stmt->bindValue(1, $this->_name);
-        $stmt->bindValue(2, $this->_email);
-        $stmt->bindValue(3, $this->_cpf);
-        $stmt->bindValue(4, $this->_birthDate);
-        $stmt->bindValue(5, $this->_idClient);
+        $stmt->bindValue(2, $this->_cpf);
+        $stmt->bindValue(3, $this->_birthDate);
+        $stmt->bindValue(4, $this->_idClient);
         
 
         $stmt->execute();

@@ -20,9 +20,11 @@ class ControllerProduct{
 
         switch ($this->_method) {
             case 'GET':
-
-                if (isset($this->_idProduct)) {
+                
+                if ($this->_modelProduct->returnIdProduct() !== null) {
                     return $this->_modelProduct->findById();
+                } else if ($this->_modelProduct->returnIdCategory() !== null) {
+                    return $this->_modelProduct->findByCategoryId();
                 }
 
                 return $this->_modelProduct->findAll();

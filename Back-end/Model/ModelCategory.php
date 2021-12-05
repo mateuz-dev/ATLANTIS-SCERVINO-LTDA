@@ -65,22 +65,14 @@ class ModelCategory{
         $stm->bindValue(1, $this->_idCategory);
         $stm->execute();
 
-        if ($stm->execute()) {
-            $iconName = $stm->fetchAll()[0]['icon'];
-            unlink("../Uploads/UploadCategory/icon/" . $iconName);
-
-        }
-
+        $iconName = $stm->fetchAll()[0]['icon'];
 
         $sql = "SELECT backgroundImage FROM tblCategory WHERE idCategory = ?";
         $stm = $this->_conn->prepare($sql);
         $stm->bindValue(1, $this->_idCategory);
         $stm->execute();
 
-        if ($stm->execute()) {
-            $backgroundName = $stm->fetchAll()[0]['backgroundImage'];
-            unlink("../Uploads/UploadCategory/background/" . $backgroundName);
-        }
+        $backgroundName = $stm->fetchAll()[0]['backgroundImage'];
 
         //Deletar categoria no sql
 
@@ -91,7 +83,9 @@ class ModelCategory{
         $stm->bindValue(1, $this->_idCategory);
 
         if ($stm->execute()) {
-            return "Dados excluídos com sucesso!";
+            unlink("../Uploads/UploadCategory/icon/" . $iconName);
+            unlink("../Uploads/UploadCategory/background/" . $backgroundName);
+            
         } else {
             return "Erro";
         }

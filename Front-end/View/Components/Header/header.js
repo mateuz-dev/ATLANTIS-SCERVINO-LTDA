@@ -1,6 +1,7 @@
 'use strict'
 
 import { getCategories } from '../../serverData/categories.js'
+const iconsDirectory = 'http://25.91.74.61/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/icon/'
 
 document.querySelector('#header').innerHTML = `<input type="checkbox" id="check">
     <label for="check" class="mobile-menu">
@@ -61,37 +62,6 @@ document.querySelector('#header').innerHTML = `<input type="checkbox" id="check"
                         <ul id="ul-triangle-mobile"><img src="../Components/Header/images/triangle-icon.png"></ul>
 
                         <ul id="ul-categories-mobile">
-                            <li>
-                                <a href="">
-                                    <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
-                                </a>
-                            </li>
-                            
                         </ul>
                     </ul>
                 </li>
@@ -101,30 +71,24 @@ document.querySelector('#header').innerHTML = `<input type="checkbox" id="check"
             </ul>
     </nav>`
 
+const putLineInContainer = (stringHTML, idContainer) => {
+    const container = document.querySelector(idContainer)
+    const li = document.createElement('li')
+
+    li.innerHTML = stringHTML
+    container.appendChild(li)
+}
+
 const writeCategoriesInHeader = (category) => {
-    const containerDesktop = document.querySelector('#ul-categories')
-    const eachCategoryLi = document.createElement('li')
+    const contentLine = `
+    <li>
+        <a href="../page-vitrine/index.html?idCategory=${category.idCategory}">
+        <img src="${iconsDirectory}${category.icon}"> ${category.name}
+        </a>
+    </li>`
 
-    eachCategoryLi.innerHTML = `
-        <li>
-            <a href="">
-                <img src="../Components/Header/images/category-icon.png"> ${category.name}
-            </a>
-        </li>`
-
-    containerDesktop.appendChild(eachCategoryLi)
-
-    const containerMobile = document.querySelector('#ul-categories-mobile')
-    const eachCategoryLiMobile = document.createElement('li')
-
-    eachCategoryLi.innerHTML = `
-        <li>
-            <a href="">
-                <img src="../Components/Header/images/category-icon.png"> ${category.name}
-            </a>
-        </li>`
-
-    containerMobile.appendChild(eachCategoryLiMobile)
+    putLineInContainer(contentLine, '#ul-categories')
+    putLineInContainer(contentLine, '#ul-categories-mobile')
 }
 
 const categories = await getCategories()

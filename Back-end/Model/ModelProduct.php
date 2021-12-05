@@ -20,6 +20,9 @@ class ModelProduct{
     private $_qtdInventory;
     private $_mainImage;
     private $_optionalImages;
+    private $_discount;
+    private $_idCategory;
+    private $_idColor;
 
 
     public function __construct($conn){
@@ -42,17 +45,18 @@ class ModelProduct{
         ];
     
         $this->_discount = $_POST['discount'] ?? $datasProduct->discount ?? null;
-        $this->_idCategory = $_POST['idCategory'] ?? $datasProduct->idCategory ?? null;
+        $this->_idCategory = $_REQUEST['idCategory'] ?? $datasProduct->idCategory ?? null;
         $this->_idColor = $_POST['idColor'] ?? $datasProduct->idColor ?? null;
 
         $this->_conn = $conn;
     }
 
     public function findAll(){
-        $sql = "SELECT tblProduct.name AS nameProduct, tblProduct.price, 
+        $sql = "SELECT tblProduct.idProduct, tblProduct.name AS nameProduct, tblProduct.price, 
                 tblProduct.description, tblProduct.qtdInventory, 
-                tblProduct.discount, tblColor.name AS nameColor, 
-                tblCategory.name AS nameCategory, tblImageProduct.image
+                tblProduct.discount, tblColor.name AS nameColor,
+                tblColor.hexa, tblCategory.name AS nameCategory, 
+                tblImageProduct.image
                 FROM tblProduct 
                 INNER JOIN tblColor ON tblProduct.idColor = tblcolor.idColor
                 INNER JOIN tblCategory ON tblProduct.idCategory = tblCategory.idCategory
@@ -67,10 +71,12 @@ class ModelProduct{
 
     public function findById(){
 
-        $sql = "SELECT tblProduct.name AS nameProduct, tblProduct.price, 
+        $sql = "SELECT tblProduct.idProduct, 
+                tblProduct.name AS nameProduct, tblProduct.price, 
                 tblProduct.description, tblProduct.qtdInventory, 
-                tblProduct.discount, tblColor.name AS nameColor, 
-                tblCategory.name AS nameCategory, tblImageProduct.image
+                tblProduct.discount, tblColor.name AS nameColor,
+                tblColor.hexa, tblCategory.name AS nameCategory, 
+                tblImageProduct.image
                 FROM tblProduct 
                 INNER JOIN tblColor ON tblProduct.idColor = tblcolor.idColor
                 INNER JOIN tblCategory ON tblProduct.idCategory = tblCategory.idCategory
@@ -83,6 +89,27 @@ class ModelProduct{
 
         return $stm->fetchAll(\PDO::FETCH_ASSOC);
 
+    }
+
+    public function findByCategoryId(){
+
+        $sql = "SELECT tblProduct.idProduct,
+                tblProduct.name AS nameProduct, tblProduct.price, 
+                tblProduct.description, tblProduct.qtdInventory, 
+                tblProduct.discount, tblColor.name AS nameColor,
+                tblColor.hexa, tblCategory.name AS nameCategory, 
+                tblImageProduct.image
+                FROM tblProduct 
+                INNER JOIN tblColor ON tblProduct.idColor = tblcolor.idColor
+                INNER JOIN tblCategory ON tblProduct.idCategory = tblCategory.idCategory
+                INNER JOIN tblImageProduct ON tblProduct.idProduct = tblImageProduct.idProduct
+                WHERE tblCategory.idCategory = ?";
+
+        $stm = $this->_conn->prepare($sql);
+        $stm->bindValue(1, $this->_idCategory);
+        $stm->execute();
+
+        return $stm->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function create(){
@@ -101,9 +128,8 @@ class ModelProduct{
         $stm->bindValue(6, $this->_idColor);
         $stm->bindValue(7, $this->_idCategory);
 
-        $stm->execute();
-
-        //Manipulação das imagens
+        if ($stm->execute()) {
+            //Manipulação das imagens
 
         //Main image
         $mainImageName = saveImageReturnName($this->_mainImage);
@@ -136,6 +162,7 @@ class ModelProduct{
         $stm->bindValue(2, $mainImageName);
 
         $stm->execute();
+        };
 
     }
 
@@ -250,6 +277,10 @@ class ModelProduct{
 
     public function returnIdProduct(){
         return $this->_idProduct;
+    }
+
+    public function returnIdCategory(){
+        return $this->_idCategory;
     }
 }
 

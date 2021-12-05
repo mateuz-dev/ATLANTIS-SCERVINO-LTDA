@@ -10,4 +10,17 @@ const getCategories = async() => {
     }
 }
 
-export { getCategories }
+const deleteCategory = async(idCategory) => {
+    const options = {
+        method: 'DELETE',
+        body: JSON.stringify({
+            idCategory: idCategory,
+        }),
+        headers: {
+            'content-type': 'application/json',
+        },
+    }
+    fetch(`${url}`, options)
+}
+
+export { getCategories, deleteCategory }

@@ -21,7 +21,7 @@ class ControllerClient{
         switch ($this->_method) {
             case 'GET':
 
-                if (isset($this->_idClient)) {
+                if ($this->_modelClient->returnIdClient() !== null) {
                     return $this->_modelClient->findById();
                 }
 
