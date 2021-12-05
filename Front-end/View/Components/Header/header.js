@@ -1,5 +1,8 @@
-document.querySelector('#header').innerHTML =
-    `<input type="checkbox" id="check">
+'use strict'
+
+import { getCategories } from '../../serverData/categories.js'
+
+document.querySelector('#header').innerHTML = `<input type="checkbox" id="check">
     <label for="check" class="mobile-menu">
         <div class="line1"></div>
         <div class="line2"></div>
@@ -32,36 +35,6 @@ document.querySelector('#header').innerHTML =
                     <ul id="ul-triangle"><img src="../Components/Header/images/triangle-icon.png"></ul>
 
                     <ul id="ul-categories">
-                        <li>
-                            <a href="">
-                                <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../Components/Header/images/category-icon.png"> Nome da Categoria
-                            </a>
-                        </li>
                     </ul>
                 </ul>
 
@@ -127,3 +100,32 @@ document.querySelector('#header').innerHTML =
                 <li><a href="">Login</a></li>
             </ul>
     </nav>`
+
+const writeCategoriesInHeader = (category) => {
+    const containerDesktop = document.querySelector('#ul-categories')
+    const eachCategoryLi = document.createElement('li')
+
+    eachCategoryLi.innerHTML = `
+        <li>
+            <a href="">
+                <img src="../Components/Header/images/category-icon.png"> ${category.name}
+            </a>
+        </li>`
+
+    containerDesktop.appendChild(eachCategoryLi)
+
+    const containerMobile = document.querySelector('#ul-categories-mobile')
+    const eachCategoryLiMobile = document.createElement('li')
+
+    eachCategoryLi.innerHTML = `
+        <li>
+            <a href="">
+                <img src="../Components/Header/images/category-icon.png"> ${category.name}
+            </a>
+        </li>`
+
+    containerMobile.appendChild(eachCategoryLiMobile)
+}
+
+const categories = await getCategories()
+categories.map(writeCategoriesInHeader)

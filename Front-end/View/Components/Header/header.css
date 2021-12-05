@@ -7,7 +7,9 @@ header {
     padding-left: 7%;
     padding-right: 7%;
     color: var(--main-green);
-    box-shadow: 0 0 1em rgba(0, 0, 0, 0.250);
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
+    position: fixed;
+    top: 0%;
 }
 
 div {
@@ -64,10 +66,10 @@ nav {
 #li-catalog:hover>#ul {
     display: flex;
     flex-direction: column;
-   
+    padding-top: 60px;
 }
 
-#li-catalog{
+#li-catalog {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -176,19 +178,19 @@ a {
     transition: 0.3s;
 }
 
-
 #check {
     display: none;
 }
 
-#nav-mobile{
+#nav-mobile {
     display: none;
 }
 
-#menu-options-mobile{
+#menu-options-mobile {
     display: none;
 }
-#form-mobile{
+
+#form-mobile {
     display: none;
 }
 
@@ -196,22 +198,16 @@ a {
     body {
         overflow-x: hidden;
     }
-
     header {
         display: flex;
         align-items: center;
         justify-content: end;
         width: 100vw;
     }
-    
-
-   form{
-       display: none;
-       
-
-   }
-
-   #form-mobile{
+    form {
+        display: none;
+    }
+    #form-mobile {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -221,18 +217,15 @@ a {
         border: 1px solid var(--main-green);
         border-radius: 24px;
         font-family: 'Montserrat', sans-serif;
-   }
-
-   #form-mobile input{
-       display: none;
-   }
-
-   #form-mobile img{
-     width: 20px;
-     height: 20px;
-   }
-    
-    #nav-mobile{
+    }
+    #form-mobile input {
+        display: none;
+    }
+    #form-mobile img {
+        width: 20px;
+        height: 20px;
+    }
+    #nav-mobile {
         display: flex;
         font-size: 70%;
         color: white;
@@ -244,8 +237,7 @@ a {
         background-color: var(--main-green);
         transition: transform 5.3s ease-in-out;
     }
-
-    #menu-options-mobile{
+    #menu-options-mobile {
         color: white;
         font-size: 30px;
         display: flex;
@@ -254,39 +246,26 @@ a {
         gap: 40px;
         height: 60%;
     }
-
-    #menu-options-mobile li>a{
+    #menu-options-mobile li>a {
         margin-left: 30px;
         font-family: 'Montserrat', sans-serif;
         color: white;
     }
-
-    #ul-menu-options{
+    #ul-menu-options {
         display: none;
     }
-
-    #li-catalog-mobile{
-   
-    }
-
-    #ul-categories-mobile li{
-    
-    }
-
+    #li-catalog-mobile {}
+    #ul-categories-mobile li {}
     #ul-categories-mobile li:hover {
         background-color: var(--main-black);
-     
     }
-
-    #ul-mobile{
-        
+    #ul-mobile {
         height: 100%;
         display: none;
         width: 25px;
         position: absolute;
     }
-
-    #ul-categories-mobile{
+    #ul-categories-mobile {
         display: flex;
         flex-direction: column;
         background-color: var(--main-green);
@@ -295,72 +274,52 @@ a {
         height: 35vh;
         border-radius: 5px;
     }
-
-    #ul-triangle-mobile{
+    #ul-triangle-mobile {
         display: flex;
         width: 175px;
-    
     }
-
-
     #li-catalog-mobile:hover>#ul-mobile {
         display: flex;
         flex-direction: column;
     }
-
     #ul-categories-mobile li>a img {
         width: 3%;
         margin-right: 3%;
-    
     }
-
-    #ul-categories-mobile li>a{
+    #ul-categories-mobile li>a {
         font-size: 20px;
-       
     }
-
     #arrow-mobile {
         width: 10%;
         margin-left: 5%;
         color: white;
     }
-    
-    
     .mobile-menu {
         display: block;
     }
-
-    .mobile-menu div{
+    .mobile-menu div {
         margin-right: 20px;
     }
     #check:checked~nav {
         left: 0;
     }
-
-
     #ul-triangle-mobile img {
         width: 7%;
         margin-left: 7%;
     }
-    
     #ul-user-options {
         display: none;
     }
-
-    #div-title h1{
+    #div-title h1 {
         margin-right: 50px;
-       
     }
-
-
 }
 
-@media (max-width: 468px){
-    #div-title h1{
+@media (max-width: 468px) {
+    #div-title h1 {
         font-size: 110%;
     }
-
-    #div-title img{
+    #div-title img {
         width: 35px;
     }
 }
