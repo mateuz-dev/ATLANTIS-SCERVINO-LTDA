@@ -10,6 +10,21 @@ header {
     box-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
     position: fixed;
     top: 0%;
+    color: white;
+    text-align: center;
+}
+
+header p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 70px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+header p:hover {
+    background-color: var(--main-green);
 }
 
 div {

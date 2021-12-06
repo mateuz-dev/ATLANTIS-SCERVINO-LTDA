@@ -92,4 +92,10 @@ const writeCategoriesInHeader = (category) => {
 }
 
 const categories = await getCategories()
-categories.map(writeCategoriesInHeader)
+
+if (categories.length > 0) {
+    categories.map(writeCategoriesInHeader)
+} else {
+    const errorMessage = '<p>Não encontramos as categorias</p>'
+    putLineInContainer(errorMessage, '#ul-categories')
+}
