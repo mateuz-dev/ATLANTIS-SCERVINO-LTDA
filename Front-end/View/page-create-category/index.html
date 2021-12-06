@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style-global.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../Components/Header/header.css" />
+    <link rel="stylesheet" href="../Components/Footer/footerManagement.css" />
+    <script type="module" src="script.js" defer></script>
+    <title>Criar categoria</title>
+</head>
+
+<body>
+    <header id="header">
+        <script src="../Components/Header/header.js" type="module"></script>
+    </header>
+    <main>
+        <h1 class="title-page">ADICIONAR CATEGORIA</h1>
+
+        <form action="http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/" method="POST" id="form-category">
+            <input name="name" class="input-text" id="name-field" type="text" placeholder="NOME" />
+            <div id="images-field">
+                <div class="image-field">
+                    <p>Ícone da categoria</p>
+                    <input name="icon" class="input-image" id="inputFileIcon" type="file" accept="image/*" />
+                    <label class="input-text" for="inputFileIcon">
+                            <img src="../images/more-icon.png" id="imagePreviewIcon" />
+                        </label>
+                </div>
+                <div class="image-field">
+                    <p>Imagem da categoria</p>
+                    <input name="backgroundImage" class="input-image" id="inputFileImage" type="file" accept="image/*" />
+                    <label class="input-text" for="inputFileImage">
+                            <img src="../images/more-icon.png" id="imagePreviewCategory" />
+                        </label>
+                </div>
+            </div>
+            <button type="button" id="submit">Cadastrar</button>
+        </form>
+    </main>
+    <footer id="footer">
+        <script src="../Components/Footer/footerManagement.js" type="module"></script>
+    </footer>
+</body>
+
+</html>

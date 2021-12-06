@@ -5,7 +5,7 @@
     header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
     header('Content-Type: application/json');
 
-    include('../Connection.php');
+    include('../Database/connection.php');
     include('../Model/ModelClient.php');
     include('../Controller/ControllerClient.php');
 

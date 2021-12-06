@@ -1,6 +1,6 @@
 'use strict'
 
-import { getCategories } from '../../serverData/categories.js'
+import { getCategories } from '../../request/categories.js'
 const iconsDirectory = 'http://25.91.74.61/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/icon/'
 
 document.querySelector('#header').innerHTML = `<input type="checkbox" id="check">
@@ -79,11 +79,11 @@ const putLineInContainer = (stringHTML, idContainer) => {
     container.appendChild(li)
 }
 
-const writeCategoriesInHeader = (category) => {
+const writeCategoriesInHeader = ({ idCategory, icon, name }) => {
     const contentLine = `
     <li>
-        <a href="../page-vitrine/index.html?idCategory=${category.idCategory}">
-        <img src="${iconsDirectory}${category.icon}"> ${category.name}
+        <a href="../page-vitrine/index.html?idCategory=${idCategory}">
+        <img src="${iconsDirectory}${icon}"> ${name}
         </a>
     </li>`
 

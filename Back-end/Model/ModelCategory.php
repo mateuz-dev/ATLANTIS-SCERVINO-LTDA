@@ -37,23 +37,29 @@ class ModelCategory{
         $sql = "INSERT INTO tblCategory (name, icon, backgroundImage)
                 VALUES (?, ?, ?)";
 
-                $extensionIcon = pathinfo($this->_icon['name'], PATHINFO_EXTENSION);
-                $newIconName = md5(microtime()) . ".$extensionIcon";
-                $extensionBackgroundImage = pathinfo($this->_backgroundImage['name'], PATHINFO_EXTENSION);
-                $newbackgroundName = md5(microtime()) . ".$extensionBackgroundImage";
-                move_uploaded_file($_FILES['icon']['tmp_name'], "../Uploads/UploadCategory/icon/$newIconName");
-                move_uploaded_file($_FILES['backgroundImage']['tmp_name'], "../Uploads/UploadCategory/background/$newbackgroundName");
+        var_dump($_FILES['icon']);
 
-        $stm = $this->_conn->prepare($sql);
+        if ($this->_icon !== null && 
+            $this->_backgroundImage !== null) {
+        
+            $extensionIcon = pathinfo($this->_icon['name'], PATHINFO_EXTENSION);
+            $newIconName = md5(microtime()) . ".$extensionIcon";
+            $extensionBackgroundImage = pathinfo($this->_backgroundImage['name'], PATHINFO_EXTENSION);
+            $newbackgroundName = md5(microtime()) . ".$extensionBackgroundImage";
+            move_uploaded_file($_FILES['icon']['tmp_name'], "../Uploads/UploadCategory/icon/$newIconName");
+            move_uploaded_file($_FILES['backgroundImage']['tmp_name'], "../Uploads/UploadCategory/background/$newbackgroundName");
 
-        $stm->bindValue(1, $this->_name);
-        $stm->bindValue(2, $newIconName);
-        $stm->bindValue(3, $newbackgroundName);
+            $stm = $this->_conn->prepare($sql);
 
-        if ($stm->execute()){
-            return "Sucess";
-        } else {
-            return "Error";
+            $stm->bindValue(1, $this->_name);
+            $stm->bindValue(2, $newIconName);
+            $stm->bindValue(3, $newbackgroundName);
+
+            if ($stm->execute()){
+                return "Sucess";
+            } else {
+                return "Error";
+            }
         }
     }
 
