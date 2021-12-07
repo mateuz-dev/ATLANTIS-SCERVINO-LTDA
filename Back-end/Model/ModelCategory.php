@@ -37,8 +37,6 @@ class ModelCategory{
         $sql = "INSERT INTO tblCategory (name, icon, backgroundImage)
                 VALUES (?, ?, ?)";
 
-        var_dump($_FILES['icon']);
-
         if (
             isset($this->_icon) && 
             $this->_icon['tmp_name'] !== '' && 
