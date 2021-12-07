@@ -1,5 +1,9 @@
 document.querySelector('#footer').innerHTML =
-    `<div id="div-top">
+    `
+    
+
+    
+    <div id="div-top">
 
 <div id="div-title">
     <img src="../images/logo-branco.png">
@@ -51,4 +55,5 @@ document.querySelector('#footer').innerHTML =
 
 <div id="footer-bottom">
 <p>© Scervino 2021. Todos os direitos reservados</p>
-</div>`
+</div>
+`

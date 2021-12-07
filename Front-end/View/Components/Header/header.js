@@ -11,7 +11,7 @@ document.querySelector('#header').innerHTML = `<input type="checkbox" id="check"
     </label>
 
     <a href="">
-        <div id="div-title">
+        <div id="div-title-header">
             <img src="../Components/Header/images/logo.png">
             <h1>SCERVINO</h1>
         </div>

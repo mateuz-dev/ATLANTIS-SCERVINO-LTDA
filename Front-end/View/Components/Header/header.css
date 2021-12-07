@@ -32,8 +32,13 @@ div {
     align-items: center;
 }
 
-#div-title img {
-    width: 100px;
+#div-title-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#div-title-header img {
+    width: 10%;
     margin-right: 5%;
 }
 
@@ -325,16 +330,24 @@ a {
     #ul-user-options {
         display: none;
     }
-    #div-title h1 {
+    #div-title-header h1 {
         margin-right: 50px;
     }
 }
 
+#container-categorias{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: tomato;
+}
+
+
 @media (max-width: 468px) {
-    #div-title h1 {
+    #div-title-header h1 {
         font-size: 110%;
     }
-    #div-title img {
+    #div-title-header img {
         width: 35px;
     }
 }

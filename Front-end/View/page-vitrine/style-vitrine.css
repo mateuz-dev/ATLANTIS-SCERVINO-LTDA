@@ -1,0 +1,38 @@
+#div-banner{
+    width: 100vw;
+    height: 60%;
+    background-image: url(./images/img-banner.svg);
+    background-position: inherit;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-attachment: fixed; */
+    background-blend-mode: darken;
+    background-color: rgb(0, 0, 0, 0.4);
+}
+
+#div-banner-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding-left: 15%;
+}
+#div-banner-content h1, #div-banner-content p{
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+#white-waves{
+    display: flex;
+    top: 55%;
+    height: 7vh;
+    width: 100%;
+    background: url(./images/white-waves.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+}

@@ -1,9 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
 }
-
 main {
     display: flex;
     width: 100vw;
@@ -12,11 +12,12 @@ main {
     background: url(images/waves-landingPage\ \(1\).svg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 #onda-main {
     display: flex;
-    top: 70%;
+    top: 65%;
     height: 14vh;
     width: 100vw;
     background: url(images/Onda\ branca.svg);
@@ -27,7 +28,6 @@ main {
 }
 
 #container-imagemETexto {
-    /* background-color: tomato; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,9 +68,8 @@ main {
 #image-LandingPage {
     display: flex;
     justify-content: flex-start;
-    /* s */
-    height: 75vh;
     flex-grow: 1;
+    margin-top: 6%;
 }
 
 #container-imagemETexto {
@@ -79,6 +78,56 @@ main {
 }
 
 #image-LandingPage img {
-    /* min-width: 75vw;
-   min-height: 75vh; */
+    width: 60vw;
+    height: 60vh; 
+}
+
+#div-texto-categoria{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    /* position: absolute; */
+    z-index: 2;
+    width: 30%;
+  
+    gap: 10px;
+    color:black;
+   
+    font-family: 'Montserrat', sans-serif;
+  
+}
+
+
+
+#div-texto-categoria p {
+    font-weight: bold;
+   
+    width: 100%;
+    text-align: center;
+}
+
+#p-busqueOqueDesejar, #p-categorias-landingPage{
+    font-size: 1vw;
+}
+
+
+#div-texto-categoria hr{
+   border: solid 2px var(--main-green) ;
+   width: 10%;
+   border-radius: 5px;
+   
+}
+
+
+@media (max-width: 1630px) {
+    #image-LandingPage{
+        margin-top: 7%;
+    }
+}
+
+@media (max-width: 1430px){
+    #image-LandingPage{
+        margin-top: 8%;
+    }
 }
