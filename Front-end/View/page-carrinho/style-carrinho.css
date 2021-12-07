@@ -11,8 +11,13 @@ body{
     width: 100vw;
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
+    padding: 100px;
 }
 
+.title-page{
+    margin-left: 95px;
+    margin-bottom: 20px;
+}
 #headerCart{
     width: 100vw;
     height: 35px;
@@ -52,7 +57,7 @@ body{
     align-items: center;
     justify-content: space-between;
     padding-left: 80px;
-    border-bottom: 5px #C4C4C4 solid;
+    border-bottom: 10px #C4C4C4 solid;
 }
 
 #contentCart h2{
@@ -150,7 +155,8 @@ body{
     height: 40px;
     border-radius: 15px;
     text-align: center;
-
+    font-size: 20px;
+    
 }
 
 input[type=number]::-webkit-inner-spin-button { 
@@ -193,7 +199,7 @@ input[type=number] {
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    padding: 20px;
+    padding: 50px;
 }
 
 #frete{
@@ -266,6 +272,7 @@ input[type=number] {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    gap: 5px;
 }
 
 #precoApagar{
@@ -276,9 +283,24 @@ input[type=number] {
     gap: 10px;
 }
 
+#precoApagar h2{
+    font-size: 25px;
+}
+
 #pagar p{
-    font-size: 12px;
-    max-width: 300px;
+    font-size: 15px;
+    max-width: 250px;
+}
+
+#pagar button{
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    width: 350px;
+    height: 70px;
+    font-size: 35px;
+    color: white;
+    background-color: #4aad41;
 }
 
 
