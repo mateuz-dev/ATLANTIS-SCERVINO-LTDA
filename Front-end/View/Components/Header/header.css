@@ -123,6 +123,7 @@ nav {
     list-style: none;
     width: 250px;
     border-radius: 5px;
+    box-shadow: 0 0 1em black;
 }
 
 #ul-categories li {
