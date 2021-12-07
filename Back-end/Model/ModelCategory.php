@@ -114,42 +114,79 @@ class ModelCategory{
     }
 
     public function update(){
-      
-        $sql = "SELECT icon, backgroundImage FROM tblCategory WHERE idCategory = ?";
-        $stm = $this->_conn->prepare($sql);
-        $stm->bindValue(1, $this->_idCategory);
 
-        if ($stm->execute()) {
-            $iconAndBackgroundImage = $stm->fetchAll(PDO::FETCH_ASSOC);
-            $iconName = $iconAndBackgroundImage[0]['icon'];
-            unlink("../Uploads/UploadCategory/icon/" . $iconName);
+        if ($this->_icon['name'] !== "" &&
+            isset($this->_icon['name'])) {
+            $sql = "SELECT icon FROM tblCategory WHERE idCategory = ?";
+            $stm = $this->_conn->prepare($sql);
+            $stm->bindValue(1, $this->_idCategory);
 
-            $backgroundName = $iconAndBackgroundImage[0]['backgroundImage'];
-            unlink("../Uploads/UploadCategory/background/" . $backgroundName);
+            if ($stm->execute()) {
+                $photoName = $stm->fetchAll()[0]['icon'];
+
+                if (isset($photoName) &&
+                $photoName !== '') {
+                    unlink("../Uploads/UploadCategory/icon/" . $photoName);
+                }
+
+                $extension = pathinfo($this->_icon['name'], PATHINFO_EXTENSION);
+                $iconName = md5(microtime()) . ".$extension";
+                $path = "../Uploads/UploadCategory/icon/" . $iconName;
+                move_uploaded_file($this->_icon["tmp_name"], $path);
+
+                $sql = "UPDATE tblCategory SET 
+                icon = ?
+                WHERE idCategory = ?";
+
+                $stmt = $this->_conn->prepare($sql);
+
+                $stmt->bindValue(1, $iconName);
+                $stmt->bindValue(2, $this->_idCategory);
+
+                $stmt->execute();
+            }
         }
 
-        $sql = "UPDATE tblCategory SET 
-                name = ?,
-                icon = ?,
+        if ($this->_backgroundImage['name'] !== "" &&
+            isset($this->_backgroundImage['name'])) {
+            $sql = "SELECT backgroundImage FROM tblCategory WHERE idCategory = ?";
+            $stm = $this->_conn->prepare($sql);
+            $stm->bindValue(1, $this->_idCategory);
+
+            if ($stm->execute()) {
+                $photoName = $stm->fetchAll()[0]['backgroundImage'];
+
+                if (isset($photoName) &&
+                $photoName !== '') {
+                    unlink("../Uploads/UploadCategory/background/" . $photoName);
+                }
+
+                $extension = pathinfo($this->_backgroundImage['name'], PATHINFO_EXTENSION);
+                $backgroundImageName = md5(microtime()) . ".$extension";
+                $path = "../Uploads/UploadCategory/background/" . $backgroundImageName;
+                move_uploaded_file($this->_backgroundImage["tmp_name"], $path);
+
+                $sql = "UPDATE tblCategory SET 
                 backgroundImage = ?
                 WHERE idCategory = ?";
 
-        $extension = pathinfo($this->_icon['name'], PATHINFO_EXTENSION);
-        $iconName = md5(microtime()) . ".$extension";
-        $path = "../Uploads/UploadCategory/icon/" . $iconName;
-        move_uploaded_file($this->_icon["tmp_name"], $path);
+                $stmt = $this->_conn->prepare($sql);
 
-        $extension = pathinfo($this->_backgroundImage['name'], PATHINFO_EXTENSION);
-        $backgroundName = md5(microtime()) . ".$extension";
-        $path = "../Uploads/UploadCategory/background/" . $backgroundName;
-        move_uploaded_file($this->_backgroundImage["tmp_name"], $path);
+                $stmt->bindValue(1, $backgroundImageName);
+                $stmt->bindValue(2, $this->_idCategory);
+
+                $stmt->execute();
+            }
+        }
+
+        $sql = "UPDATE tblCategory SET 
+                name = ?
+                WHERE idCategory = ?";
 
         $stmt = $this->_conn->prepare($sql);
 
         $stmt->bindValue(1, $this->_name);
-        $stmt->bindValue(2, $iconName);
-        $stmt->bindValue(3, $backgroundName);
-        $stmt->bindValue(4, $this->_idCategory);
+        $stmt->bindValue(2, $this->_idCategory);
 
         if ($stmt->execute()) {
             return "Dados alterados com sucesso!";

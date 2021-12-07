@@ -54,8 +54,8 @@ class ModelProduct{
     public function findAll(){
         $sql = "SELECT tblProduct.idProduct, tblProduct.name AS nameProduct, tblProduct.price, 
                 tblProduct.description, tblProduct.qtdInventory, 
-                tblProduct.discount, tblColor.name AS nameColor,
-                tblColor.hexa, tblCategory.name AS nameCategory, 
+                tblProduct.discount, tblColor.idColor, tblColor.name AS nameColor,
+                tblColor.hexa, tblCategory.idCategory, tblCategory.name AS nameCategory, 
                 tblImageProduct.image
                 FROM tblProduct 
                 INNER JOIN tblColor ON tblProduct.idColor = tblcolor.idColor
@@ -75,8 +75,9 @@ class ModelProduct{
                 tblProduct.name AS nameProduct, tblProduct.price, 
                 tblProduct.description, tblProduct.qtdInventory, 
                 tblProduct.discount, tblColor.name AS nameColor,
-                tblColor.hexa, tblCategory.name AS nameCategory, 
-                tblImageProduct.image
+                tblColor.hexa, tblColor.idColor,
+                tblCategory.name AS nameCategory, 
+                tblCategory.idCategory, tblImageProduct.image
                 FROM tblProduct 
                 INNER JOIN tblColor ON tblProduct.idColor = tblcolor.idColor
                 INNER JOIN tblCategory ON tblProduct.idCategory = tblCategory.idCategory
@@ -223,7 +224,7 @@ class ModelProduct{
 
             //Optional images
             foreach ($this->_optionalImages as $key => $optionalImage) {
-                if ($optionalImage['name'] !== null &&
+                if (isset($optionalImage['name']) &&
                     $optionalImage['name'] !== '') {
                     $nameImage = saveImageReturnName($optionalImage);
                     $this->_optionalImages[$key]['dataBaseName'] = $nameImage;

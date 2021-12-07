@@ -2,6 +2,9 @@
 
 import { getCategoryById } from '../request/categories.js'
 
+const iconDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/icon/'
+const mainImageDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/background/'
+
 const saveDatasSendByGet = (parte) => {
     const keyValue = parte.split('=')
     const key = keyValue[0]
@@ -21,9 +24,16 @@ const putIdCategoryInInput = () => (document.getElementById('idCategory-field').
 
 const writeCategoryName = () => (document.getElementById('name-field').value = category.name)
 
+const putCategoryImage = () =>
+    (document.getElementById('imagePreviewCategory').src = `${mainImageDirectory}${category.backgroundImage}`)
+
+const putCategoryIcon = () => (document.getElementById('imagePreviewIcon').src = `${iconDirectory}${category.icon}`)
+
 const fillInputsWithCategoryData = () => {
     putIdCategoryInInput()
     writeCategoryName()
+    putCategoryImage()
+    putCategoryIcon()
 }
 
 fillInputsWithCategoryData()

@@ -1,6 +1,8 @@
 'use strict'
 
 import { imagePreview } from '../image-preview.js'
+import { getCategories } from '../request/categories.js'
+import { getColors } from '../request/color.js'
 
 const configureImagePreview = () => {
     const inputImage1 = document.querySelector('#inputImage1')
@@ -28,7 +30,39 @@ const configureImagePreview = () => {
     inputImage6.addEventListener('change', handleFileImage6)
 }
 
-configureImagePreview()
+const putOptionColorInContainer = (stringHTML, idContainer, { idColor, hexa }) => {
+    const container = document.getElementById(idContainer)
+    const option = document.createElement('option')
+    option.style.backgroundColor = `${hexa}`
+    option.value = idColor
+    option.innerHTML = stringHTML
+    container.appendChild(option)
+}
+const putOptionCategoryInContainer = (stringHTML, idContainer, idCategory) => {
+    const container = document.getElementById(idContainer)
+    const option = document.createElement('option')
+    option.value = idCategory
+    option.innerHTML = stringHTML
+    container.appendChild(option)
+}
 
-writeColors()
-writeCategories()
+//Preenchimento das opções de cor e categoria
+const writeColorsInSelect = ({ idColor, name, hexa }) => {
+    const contentOption = `${name}`
+
+    putOptionColorInContainer(contentOption, 'color-field', { idColor, hexa })
+}
+
+const writeCategoriesInSelect = ({ idCategory, name }) => {
+    const contentOption = `${name}`
+
+    putOptionCategoryInContainer(contentOption, 'category-field', idCategory)
+}
+
+const colors = await getColors()
+colors.map(writeColorsInSelect)
+
+const categories = await getCategories()
+categories.map(writeCategoriesInSelect)
+
+configureImagePreview()

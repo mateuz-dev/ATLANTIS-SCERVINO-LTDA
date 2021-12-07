@@ -115,6 +115,10 @@ main {
     height: 100%;
 }
 
+#color-field option {
+    font-weight: bolder;
+}
+
 button {
     display: flex;
     align-items: center;

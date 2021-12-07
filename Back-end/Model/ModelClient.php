@@ -120,7 +120,7 @@ class ModelClient{
     public function update(){
         
         if ($this->_profilePhoto['name'] !== "" &&
-            $this->_profilePhoto['name'] !== null) {
+            isset($this->_profilePhoto['name'])) {
             $sql = "SELECT profilePhoto FROM tblClient WHERE idClient = ?";
             $stm = $this->_conn->prepare($sql);
             $stm->bindValue(1, $this->_idClient);
@@ -128,7 +128,7 @@ class ModelClient{
             if ($stm->execute()) {
                 $photoName = $stm->fetchAll()[0]['profilePhoto'];
 
-                if ($photoName !== null &&
+                if (isset($photoName) &&
                 $photoName !== '') {
                     unlink("../Uploads/UploadClient/" . $photoName);
                 }
@@ -153,7 +153,7 @@ class ModelClient{
 
         //Caso seja perceptível requisição para alterar senha
         if ($this->_password !== "" &&
-            $this->_password !== null) {
+            isset($this->_password)) {
             $sql = "UPDATE tblClient SET 
             password = ?
             WHERE idClient = ?";
@@ -170,7 +170,7 @@ class ModelClient{
 
         //Caso seja perceptível requisição para alterar email
         if ($this->_email !== "" &&
-            $this->_email !== null) {
+            isset($this->_email)) {
             $sql = "UPDATE tblClient SET 
             email = ?
             WHERE idClient = ?";

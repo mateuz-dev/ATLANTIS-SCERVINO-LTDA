@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../style-global.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../page-create-product/style.css" />
     <link rel="stylesheet" href="../Components/Header/header.css" />
     <link rel="stylesheet" href="../Components/Footer/footerManagement.css" />
+    <script type="module" src="../page-create-product/script.js" defer></script>
     <script type="module" src="script.js" defer></script>
     <title>Criar produto</title>
 </head>
@@ -22,6 +23,7 @@
 
         <iframe style="display: none" name="server"></iframe>
         <form target="server" action="http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/" enctype="multipart/form-data" method="POST" id="form-product">
+            <input name="idProduct" id="idProduct-field" type="hidden" required />
             <div id="top-inputs">
                 <div id="left-input">
                     <input name="name" class="input-text" id="name-field" type="text" placeholder="NOME" required />
@@ -42,7 +44,7 @@
 
                     <div class="image-field">
                         <p>IMAGEM OBRIGATÓRIA</p>
-                        <input name="image1" class="input-image" id="inputImage1" type="file" accept="image/*" required />
+                        <input name="image1" class="input-image" id="inputImage1" type="file" accept="image/*" />
                         <label class="input-text" for="inputImage1">
                                 <img src="../images/more-icon.png" id="imagePreview1" />
                             </label>

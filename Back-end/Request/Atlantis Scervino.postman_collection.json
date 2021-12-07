@@ -272,16 +272,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
-								"Product",
+								"Client",
 								""
 							]
 						}
@@ -334,16 +333,15 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
-								"Product",
+								"Client",
 								""
 							]
 						}
@@ -365,16 +363,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
-								"Product",
+								"Client",
 								""
 							]
 						}
@@ -396,13 +393,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
 								"Client",
