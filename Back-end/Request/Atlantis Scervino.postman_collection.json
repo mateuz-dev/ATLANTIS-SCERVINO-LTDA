@@ -14,13 +14,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
 								"Product",
@@ -32,33 +31,26 @@
 				},
 				{
 					"name": "FIND_BY_ID",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idProduct\" : 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/?idProduct=20",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
 								"Product",
 								""
+							],
+							"query": [
+								{
+									"key": "idProduct",
+									"value": "20"
+								}
 							]
 						}
 					},
@@ -95,7 +87,7 @@
 								{
 									"key": "image1",
 									"type": "file",
-									"src": "/C:/Users/21192910/Downloads/vasin.png"
+									"src": "/C:/Users/gabri/Downloads/vasin.png"
 								},
 								{
 									"key": "discount",
@@ -104,24 +96,28 @@
 								},
 								{
 									"key": "idCategory",
-									"value": "1",
+									"value": "14",
 									"type": "text"
 								},
 								{
 									"key": "idColor",
 									"value": "1",
 									"type": "text"
+								},
+								{
+									"key": "image2",
+									"type": "file",
+									"src": "/C:/Users/gabri/Downloads/vasin.png"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
 								"Product",
@@ -138,7 +134,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idProduct\" : 49\r\n}",
+							"raw": "{\r\n    \"idProduct\" : 20\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -146,13 +142,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
 								"Product",
@@ -218,16 +213,15 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Color/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
-								"Product",
+								"Color",
 								""
 							]
 						}
@@ -245,13 +239,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
 								"Client",
@@ -434,7 +427,7 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Vaso",
+									"value": "Pet",
 									"type": "text"
 								},
 								{
@@ -493,7 +486,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idCategory\": 27\r\n}",
+							"raw": "{\r\n    \"idCategory\": 13\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -526,7 +519,7 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Vaso",
+									"value": "Pet",
 									"type": "text"
 								},
 								{
@@ -556,6 +549,71 @@
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
 								"Category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FIND_BY_ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/?idCategory=13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ATLANTIS-SCERVINO-LTDA",
+								"Back-end",
+								"Category",
+								""
+							],
+							"query": [
+								{
+									"key": "idCategory",
+									"value": "13"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Color",
+			"item": [
+				{
+					"name": "FIND_ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Color/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ATLANTIS-SCERVINO-LTDA",
+								"Back-end",
+								"Color",
 								""
 							]
 						}

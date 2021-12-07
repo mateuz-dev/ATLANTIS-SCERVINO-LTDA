@@ -10,6 +10,14 @@ const getCategories = async() => {
     }
 }
 
+const getCategoryById = async(idCategory) => {
+    const response = await fetch(url + '?idCategory=' + idCategory)
+    const result = await response.json()
+    if (result['status'] === 'Sucess') {
+        return result['data'][0]
+    }
+}
+
 const deleteCategory = async(idCategory) => {
     const options = {
         method: 'DELETE',
@@ -23,4 +31,4 @@ const deleteCategory = async(idCategory) => {
     fetch(`${url}`, options)
 }
 
-export { getCategories, deleteCategory }
+export { getCategories, getCategoryById, deleteCategory }

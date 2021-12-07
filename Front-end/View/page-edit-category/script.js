@@ -1,6 +1,6 @@
 'use strict'
 
-import { getCategories } from '../request/categories.js'
+import { getCategoryById } from '../request/categories.js'
 
 const saveDatasSendByGet = (parte) => {
     const keyValue = parte.split('=')
@@ -10,13 +10,20 @@ const saveDatasSendByGet = (parte) => {
 }
 
 //Coletando dados via GET e definindo categoria a ser editada
-var query = location.search.slice(1)
-var parts = query.split('&')
-var datasByGet = {}
+const query = location.search.slice(1)
+const parts = query.split('&')
+const datasByGet = {}
 parts.forEach(saveDatasSendByGet)
 
-const putIdCategoryInInput = () => {
-    document.getElementById('idCategory-field').value = parseInt(datasByGet['idCategory'])
+const category = await getCategoryById(datasByGet['idCategory'])
+
+const putIdCategoryInInput = () => (document.getElementById('idCategory-field').value = category.idCategory)
+
+const writeCategoryName = () => (document.getElementById('name-field').value = category.name)
+
+const fillInputsWithCategoryData = () => {
+    putIdCategoryInInput()
+    writeCategoryName()
 }
 
-putIdCategoryInInput()
+fillInputsWithCategoryData()

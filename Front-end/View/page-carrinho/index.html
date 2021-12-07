@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../style-global.css">
-    <link rel="stylesheet" href="style-carrinho.css">
-</head>
-<body>
 
-    <header>
-        
-    </header>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../style-global.css" />
+    <link rel="stylesheet" href="style-carrinho.css" />
+</head>
+
+<body>
+    <header></header>
 
     <main>
-
         <h1 class="title-page">CARRINHO</h1>
 
         <div id="headerCart">
@@ -25,84 +23,86 @@
                 <p>Quantidade</p>
                 <p>Preço</p>
             </div>
-
         </div>
 
         <div id="contentCart">
-
             <div id="product">
-                <img src="./images/vaso_ceramica_comum_terracota_45x44cm_89499935_0001_300x300.jpg" alt="">
+                <img src="./images/vaso_ceramica_comum_terracota_45x44cm_89499935_0001_300x300.jpg" alt="" />
 
                 <div id="textProduct">
+                    <b><h2>Nome produto -</h2>
+                            Modelo</b
+                        >
 
-                    <b><h2>Nome produto -</h2>Modelo</b>
-
-                    <div id="rowColor">
-                        <img src="./images/icone-cercle-rempli-rose.png" alt="">
-                        <h2>Rosa</h2>
+                        <div id="rowColor">
+                            <img src="./images/icone-cercle-rempli-rose.png" alt="" />
+                            <h2>Rosa</h2>
+                        </div>
+                        <p>Código do Produto: aK971bf421</p>
                     </div>
-                    <p>Código do Produto: aK971bf421</p>
-                    
                 </div>
 
-            </div>
-
-            <div id="qtdPrice">
-                <div id="quantity">
-                    <div id="slider">
-                        <button>&#9001;</button>
-                        <input type="number" id="quantityProducts" value="1" name="quantityProducts" min="1" max="100" oninput="validity.valid||(value='1');">
-                        <button>&#9002;</button>
+                <div id="qtdPrice">
+                    <div id="quantity">
+                        <div id="slider">
+                            <button>&#9001;</button>
+                            <input
+                                type="number"
+                                id="quantityProducts"
+                                value="1"
+                                name="quantityProducts"
+                                min="1"
+                                max="100"
+                                oninput="validity.valid||(value='1');"
+                            />
+                            <button>&#9002;</button>
+                        </div>
+                        <img id="deleteProduct" src="./images/img_216917.png" alt="" />
                     </div>
-                    <img id="deleteProduct" src="./images/img_216917.png" alt="">
-                </div>
 
-                <div id="price">
-                    <p>De <b>R$500,00</b></p>
+                    <div id="price">
+                        <p>De <b>R$500,00</b></p>
                     <p class="actualPrice">Por R$450,00 ou R$375,00 á vista</p>
                 </div>
             </div>
         </div>
 
-    <div id="row">
+        <div id="row">
+            <div id="frete">
+                <div id="frete1">
+                    <h2>Frete para</h2>
+                    <input type="number" placeholder="00000-000" id="inputFrete" min="1" max="99999999" oninput="validity.valid||(value='')" />
+                </div>
 
-        <div id="frete">
-
-            <div id="frete1">
-                <h2>Frete para</h2>
-                <input type="number"  placeholder="00000-000" id="inputFrete" min="1" max="99999999" oninput="validity.valid||(value='');">
+                <div id="frete2">
+                    <h3>&#9992; Tiradentes 4979 [Casa 6], São Cristóvão</h3>
+                    <div id="envioExpresso">
+                        <p>ENVIO EXPRESSO <em>2 dias uteis</em></p>
+                        <b>R$10,50</b>
+                    </div>
+                    <div id="envioComum">
+                        <p>ENVIO COMUM <em>5 dias uteis</em></p>
+                        <b>R$5,00</b>
+                    </div>
+                </div>
             </div>
 
-            <div id="frete2">
-                <h3>&#9992; Tiradentes 4979 [Casa 6], São Cristóvão</h3>
-                <div id="envioExpresso">
-                    <p>ENVIO EXPRESSO <em>2 dias uteis</em></p>
-                    <b>R$10,50</b>
+            <div id="pagar">
+                <h2>SUBTOTAL(1 ITEM)</h2>
+                <div id="precoApagar">
+                    <h2>R$900,00</h2>
+                    <p>OU</p>
+                    <h2>R$750,00</h2>
+                    <p>á vista</p>
                 </div>
-                <div id="envioComum">
-                    <p>ENVIO COMUM <em>5 dias uteis</em></p>
-                    <b>R$5,00</b>
-                </div>
-            </div>    
-        </div>
 
-        <div id="pagar">
-            <h2>SUBTOTAL(1 ITEM)</h2>
-            <div id="precoApagar">
-                <h2>R$900,00</h2> <p>OU </p> <h2>R$750,00</h2> <p>á vista</p>
+                <p>(Em até 12x de R$ 75 sem juros e 5% de desconto no Cartão Scervino)</p>
+                <button>CONTINUAR</button>
             </div>
-            
-            <p>(Em até 12x de R$ 75 sem juros e 5% de desconto no Cartão Scervino)</p>
-            <button>CONTINUAR</button>
         </div>
-
-    </div>
-
     </main>
 
-    <footer>
-
-    </footer>
-    
+    <footer></footer>
 </body>
+
 </html>
