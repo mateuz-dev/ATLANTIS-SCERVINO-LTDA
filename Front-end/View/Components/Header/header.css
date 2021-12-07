@@ -21,6 +21,7 @@ header p {
     height: 70px;
     text-align: center;
     border-radius: 5px;
+    color: white;
 }
 
 header p:hover {
@@ -32,11 +33,12 @@ div {
     align-items: center;
 }
 
-#div-title-header{
+#div-title-header {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 #div-title-header img {
     width: 10%;
     margin-right: 5%;
@@ -335,13 +337,12 @@ a {
     }
 }
 
-#container-categorias{
+#container-categorias {
     display: flex;
     flex-direction: column;
     width: 30%;
     background-color: tomato;
 }
-
 
 @media (max-width: 468px) {
     #div-title-header h1 {

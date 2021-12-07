@@ -21,21 +21,21 @@
     <main>
         <h1 class="title-page">EDITAR CATEGORIA</h1>
 
-        <iframe style="display:none;" name="server"></iframe>
+        <iframe style="display: none" name="server"></iframe>
         <form target="server" action="http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/" enctype="multipart/form-data" method="POST" id="form-category">
-            <input name="idCategory" id="idCategory-field" type="hidden"/>
+            <input name="idCategory" id="idCategory-field" type="hidden" required />
             <input name="name" class="input-text" id="name-field" type="text" placeholder="NOME" />
             <div id="images-field">
                 <div class="image-field">
                     <p>Ícone da categoria</p>
-                    <input name="icon" class="input-image" id="inputFileIcon" type="file" accept="image/*" />
+                    <input name="icon" class="input-image" id="inputFileIcon" type="file" accept="image/*" required />
                     <label class="input-text" for="inputFileIcon">
                             <img src="../images/more-icon.png" id="imagePreviewIcon" />
                         </label>
                 </div>
                 <div class="image-field">
                     <p>Imagem da categoria</p>
-                    <input name="backgroundImage" class="input-image" id="inputFileImage" type="file" accept="image/*" />
+                    <input name="backgroundImage" class="input-image" id="inputFileImage" type="file" accept="image/*" required />
                     <label class="input-text" for="inputFileImage">
                             <img src="../images/more-icon.png" id="imagePreviewCategory" />
                         </label>
