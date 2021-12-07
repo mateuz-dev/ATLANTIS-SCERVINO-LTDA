@@ -1,6 +1,6 @@
 'use strict'
 
-const url = 'http://25.91.74.61/ATLANTIS-SCERVINO-LTDA/Back-end/Category/'
+const url = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/'
 
 const getCategories = async() => {
     const response = await fetch(url)

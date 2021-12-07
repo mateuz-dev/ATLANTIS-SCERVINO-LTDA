@@ -1,6 +1,5 @@
 CREATE DATABASE dbScervino;
 USE dbScervino;
-show databases;
 
 
 CREATE TABLE tblAdmin (

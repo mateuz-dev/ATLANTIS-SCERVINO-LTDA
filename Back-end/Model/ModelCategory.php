@@ -14,7 +14,7 @@ class ModelCategory{
 
         $this->_idCategory = $_REQUEST['idCategory'] ?? $datasCategory->idCategory ??  null;
         $this->_name = $_POST['name'] ?? $datasCategory->name ?? null;
-        $this->_icon = $_FILES['icon'] ?? $datasCategory->icon ?? null;
+        $this->_icon = $_FILES['icon'] ?? null;
         $this->_backgroundImage = $_FILES['backgroundImage'] ?? null;
 
         $this->_conn = $conn;
@@ -37,10 +37,14 @@ class ModelCategory{
         $sql = "INSERT INTO tblCategory (name, icon, backgroundImage)
                 VALUES (?, ?, ?)";
 
-        var_dump($_FILES['icon']);
-
-        if ($this->_icon !== null && 
-            $this->_backgroundImage !== null) {
+        if (
+            isset($this->_icon) && 
+            $this->_icon['tmp_name'] !== '' && 
+            isset($this->_backgroundImage) &&
+            $this->_backgroundImage['tmp_name'] !== '' &&
+            isset($this->_name) &&
+            $this->_name !== ''
+            ) {
         
             $extensionIcon = pathinfo($this->_icon['name'], PATHINFO_EXTENSION);
             $newIconName = md5(microtime()) . ".$extensionIcon";
