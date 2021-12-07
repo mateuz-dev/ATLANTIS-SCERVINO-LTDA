@@ -22,15 +22,26 @@ class ModelCategory{
     }
 
     public function findAll(){
-
+        
         $sql = "SELECT * FROM tblCategory";
 
         $stm = $this->_conn->prepare($sql);
-
+        
         $stm->execute();
 
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     
+    }
+
+    public function findById(){
+
+        $sql = "SELECT * FROM tblCategory WHERE idCategory=?";
+
+        $stm = $this->_conn->prepare($sql);
+        $stm->bindValue(1, $this->_idCategory);
+        $stm->execute();
+
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function create(){
@@ -146,8 +157,8 @@ class ModelCategory{
 
     }
 
-        public function returnIdCategory(){
-            return $this->_idCategory;
-        }
+    public function returnIdCategory(){
+        return $this->_idCategory;
+    }
 
 }    

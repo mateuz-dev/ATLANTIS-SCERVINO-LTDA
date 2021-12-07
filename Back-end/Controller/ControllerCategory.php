@@ -19,9 +19,11 @@ class ControllerCategory{
 
         switch ($this->_method) {
             case 'GET':
-            
-                
+                if ($this->_modelCategory->returnIdCategory() !== null) {
+                    return $this->_modelCategory->findById();
+                } else {
                     return $this->_modelCategory->findAll();
+                }
                 
                 break;
 

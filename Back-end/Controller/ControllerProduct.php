@@ -13,7 +13,7 @@ class ControllerProduct{
          $json = file_get_contents("php://input");
          $dataProducts = json_decode($json);
  
-        //  $this->_idProduct = $dataProducts->idProduct ?? null;
+         $this->_idProduct = $dataProducts->idProduct ?? null;
     }
 
     function router(){
