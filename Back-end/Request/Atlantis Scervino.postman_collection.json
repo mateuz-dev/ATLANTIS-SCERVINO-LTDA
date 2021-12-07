@@ -215,12 +215,7 @@
 									"value": "1",
 									"type": "text"
 								}
-							],
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							]
 						},
 						"url": {
 							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
@@ -444,20 +439,15 @@
 								},
 								{
 									"key": "icon",
-									"value": "299.45",
-									"type": "text"
+									"type": "file",
+									"src": "/C:/Users/gabri/Downloads/icone categoria.png"
 								},
 								{
 									"key": "backgroundImage",
-									"value": "A linha de vasos rotomoldados da mercadoshop são robustos, firmes, leves e fáceis de transportar, podem ser utilizados tanto em áreas externas como internas, não fazem sujeira, não acumulam bactérias ou poeira. Possuem um acabamento perfeito e dão um charme todo especial no seu jardim. Nossos vasos não possuem prato, os pratos além de acumular água fazem muita sujeira, por este motivo escolher um vaso rotomoldado é a melhor opção.",
-									"type": "text"
+									"type": "file",
+									"src": "/C:/Users/gabri/Downloads/Banner inicial.png"
 								}
-							],
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							]
 						},
 						"url": {
 							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/",
@@ -509,6 +499,47 @@
 									"language": "json"
 								}
 							}
+						},
+						"url": {
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ATLANTIS-SCERVINO-LTDA",
+								"Back-end",
+								"Category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Vaso",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"value": "299.45",
+									"type": "text"
+								},
+								{
+									"key": "backgroundImage",
+									"value": "A linha de vasos rotomoldados da mercadoshop são robustos, firmes, leves e fáceis de transportar, podem ser utilizados tanto em áreas externas como internas, não fazem sujeira, não acumulam bactérias ou poeira. Possuem um acabamento perfeito e dão um charme todo especial no seu jardim. Nossos vasos não possuem prato, os pratos além de acumular água fazem muita sujeira, por este motivo escolher um vaso rotomoldado é a melhor opção.",
+									"type": "text"
+								}
+							]
 						},
 						"url": {
 							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/",
