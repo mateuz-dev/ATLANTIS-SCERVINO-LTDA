@@ -1,7 +1,7 @@
 'use strict'
 
 import { getCategories } from '../../request/categories.js'
-const iconsDirectory = 'http://25.91.74.61/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/icon/'
+const iconsDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/icon/'
 
 document.querySelector('#header').innerHTML = `<input type="checkbox" id="check">
     <label for="check" class="mobile-menu">

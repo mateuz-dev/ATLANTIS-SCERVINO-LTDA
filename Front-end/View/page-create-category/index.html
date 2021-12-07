@@ -20,7 +20,7 @@
     <main>
         <h1 class="title-page">ADICIONAR CATEGORIA</h1>
 
-        <form action="http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/" method="POST" id="form-category">
+        <form action="http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/" enctype="multipart/form-data" method="POST" id="form-category">
             <input name="name" class="input-text" id="name-field" type="text" placeholder="NOME" />
             <div id="images-field">
                 <div class="image-field">
@@ -38,7 +38,7 @@
                         </label>
                 </div>
             </div>
-            <button type="button" id="submit">Cadastrar</button>
+            <button id="submit">Cadastrar</button>
         </form>
     </main>
     <footer id="footer">

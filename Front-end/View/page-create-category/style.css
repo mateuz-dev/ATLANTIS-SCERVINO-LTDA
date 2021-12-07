@@ -93,9 +93,17 @@ button {
     #images-field {
         flex-direction: column;
     }
-    .image-field label {
+
+    .image-field{
         width: 50vw;
         height: 50vw;
+    }
+
+
+    .image-field label {
+        padding-top: 20px;
+        width: 90%;
+        height: 90%;
     }
     button {
         width: 50vw;

@@ -8,7 +8,7 @@ const imagePreview = (idFile, idImagem) => {
     if (file) {
         fileReader.readAsDataURL(file)
     } else {
-        preview.src = './images/more-icon.png'
+        preview.src = '../images/more-icon.png'
     }
 
     fileReader.onloadend = () => (preview.src = fileReader.result)
