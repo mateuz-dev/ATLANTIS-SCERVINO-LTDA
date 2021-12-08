@@ -1,7 +1,7 @@
 footer {
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
     background-color: var(--main-green);
     color: white;
     font-family: 'Montserrat', sans-serif;
@@ -41,6 +41,7 @@ footer {
 
 #div-comunication {
     display: flex;
+    align-items: flex-start;
     width: 60%;
     padding-left: 10%;
     gap: 30%;
@@ -60,9 +61,20 @@ footer {
     font-size: 99%;
 }
 
+#div-social-media, #div-contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+#div-social-media a, #div-contact a{
+    width: 100%;
+}
+
 #footer-bottom {
     display: flex;
     align-items: center;
+    justify-content: center;
     background-color: var(--main-black);
     font-size: 100%;
     padding: 1%;
