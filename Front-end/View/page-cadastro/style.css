@@ -12,6 +12,7 @@ header {
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-top: 20px;
     height: 22vh;
 }
 
@@ -40,6 +41,15 @@ main {
     justify-content: center;
     flex: 1;
     margin-bottom: 2%;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 #div-info {
@@ -81,6 +91,7 @@ form {
     font-family: 'Montserrat', sans-serif;
 }
 
+#input-name,
 #input-email,
 #input-birth-date,
 #input-cpf,
@@ -96,6 +107,7 @@ form {
     font-family: 'Montserrat', sans-serif;
 }
 
+#input-name:focus,
 #input-email:focus,
 #input-birth-date:focus,
 #input-cpf:focus,

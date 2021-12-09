@@ -7,6 +7,7 @@
     <title>SCERVINO | CADASTRO</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="../style-global.css" />
+    <script type="module" src="script.js" defer></script>
     <link rel="stylesheet" href="../Components/Footer/footerManagement.css" />
     <link rel="shortcut icon" href="../images/logo-verde.png" type="image/x-icon" />
 </head>
@@ -28,17 +29,18 @@
 
         <iframe style="display: none" name="server"></iframe>
         <form target="server" action="http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/" enctype="multipart/form-data" method="POST" id="form-client">
-            <input type="text" name="user-email" id="input-email" placeholder="E-mail" />
-            <input type="date" name="user-birth-date" id="input-birth-date" placeholder="Data de nascimento" />
-            <input type="number" name="user-cpf" id="input-cpf" placeholder="CPF" />
-            <input type="password" name="user-password" id="input-password" placeholder="Senha" />
-            <input type="password" name="user-password-confirmation" id="input-password-confirmation" placeholder="Confirma a senha" />
+            <input type="text" name="name" id="input-name" placeholder="Nome" required />
+            <input type="text" name="email" id="input-email" placeholder="E-mail" required />
+            <input type="date" name="birthDate" id="input-birth-date" placeholder="Data de nascimento" required />
+            <input type="number" name="cpf" id="input-cpf" placeholder="CPF" required />
+            <input type="password" name="password" id="input-password" placeholder="Senha" required />
+            <input type="password" x-moz-errormessage="Por favor, especifique um endereço de e-mail." id="input-password-confirmation" placeholder="Confirma a senha" required />
 
             <label for="inputProfilePhoto" id="label-foto" for="">Foto de perfil</label>
             <div class="image-field">
-                <input name="profilePhoto" class="input-image" id="inputProfilePhoto" type="file" accept="image/*" required />
+                <input name="profilePhoto" class="input-image" id="inputProfilePhoto" type="file" accept="image/*" />
                 <label class="input-text" for="inputProfilePhoto">
-                        <img src="../images/more-icon.png" id="profilePhoto" />
+                        <img src="../images/more-icon.png" id="profilePhotoPreview" />
                     </label>
             </div>
 
