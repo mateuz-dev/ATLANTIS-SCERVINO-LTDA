@@ -24,12 +24,9 @@ const putIdProductInInput = () => (document.getElementById('idProduct-field').va
 
 const writeInInputText = (idInput, value) => (document.getElementById(idInput).value = value)
 
-const putValueInSelect = (idSelect, value) => {
-    const select = document.getElementById(idSelect)
-    console.log(select)
-    console.log(value)
-
-    select.value = value
+const putValueInSelect = () => {
+    document.getElementById('category-field').value = 4
+    document.getElementById('color-field').value = product.idColor
 }
 
 const fillInputsWithProductData = () => {
@@ -40,9 +37,7 @@ const fillInputsWithProductData = () => {
     writeInInputText('discount-field', product.discount)
     writeInInputText('description-field', product.description)
 
-    putValueInSelect('category-field', product.idCategory)
-
-    putValueInSelect('color-field', product.idColor)
+    putValueInSelect()
 }
 
 fillInputsWithProductData()
