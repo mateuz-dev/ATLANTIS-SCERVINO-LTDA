@@ -70,10 +70,11 @@ main {
 }
 
 .image-field img {
-    background-color: #4C4E5F;
+    background-color: #4c4e5f;
     object-fit: contain;
     width: 100%;
     height: 100%;
+    border-radius: 5px;
 }
 
 button {

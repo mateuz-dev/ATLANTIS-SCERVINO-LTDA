@@ -1,5 +1,11 @@
 <?php
 
+function dateBrazilToDate($dateBrazil){
+    $ano= substr($dateBrazil, 6);
+    $mes= substr($dateBrazil, 3,-5);
+    $dia= substr($dateBrazil, 0,-8);
+    return $ano."-".$mes."-".$dia;
+}
 class ModelClient{
 
     private $_conn;
@@ -20,7 +26,14 @@ class ModelClient{
         $this->_email = $_POST['email'] ?? $datasClient->email ?? null;
         $this->_password = $_POST['password'] ?? $datasClient->password ?? null;
         $this->_cpf = $_POST['cpf'] ?? $datasClient->cpf ?? null;
+        
         $this->_birthDate = $_POST['birthDate'] ?? $datasClient->birthDate ?? null;
+        //Convertendo a data que chega para o formato padrão de datas
+        if (isset($this->_birthDate) &&
+            $this->_birthDate !== '') {
+                $this->_birthDate = dateBrazilToDate($this->_birthDate);
+        }
+
         $this->_profilePhoto = $_FILES['profilePhoto'] ?? null;
 
         $this->_conn = $conn;

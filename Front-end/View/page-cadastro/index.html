@@ -2,57 +2,68 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SCERVINO | CADASTRO</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../style-global.css">
-    <link rel="shortcut icon" href="../images/logo-verde.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style-global.css" />
+    <link rel="stylesheet" href="../Components/Footer/footerManagement.css" />
+    <link rel="shortcut icon" href="../images/logo-verde.png" type="image/x-icon" />
 </head>
-
 
 <body>
     <header>
         <a href="../page-landingPage/">
             <h1 class="title">SCERVINO</h1>
-            <img src="../images/logo-verde.png">
+            <img src="../images/logo-verde.png" />
         </a>
     </header>
 
-
     <main>
-
         <div id="div-info">
             <p id="info-title">Cadastrar</p>
-            <hr>
+            <hr />
             <p id="info-text">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
         </div>
 
-        <form action="">
-            <input type="text" name="user-email" id="input-email" placeholder="E-mail">
-            <input type="date" name="user-birth-date" id="input-birth-date" placeholder="Data de nascimento">
-            <input type="number" name="user-cpf" id="input-cpf" placeholder="CPF">
-            <input type="password" name="user-password" id="input-password" placeholder="Senha">
-            <input type="password" name="user-password-confirmation" id="input-password-confirmation" placeholder="Confirma a senha">
-            
-    
+        <iframe style="display: none" name="server"></iframe>
+        <form target="server" action="http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/" enctype="multipart/form-data" method="POST" id="form-client">
+            <input type="text" name="user-email" id="input-email" placeholder="E-mail" />
+            <input type="date" name="user-birth-date" id="input-birth-date" placeholder="Data de nascimento" />
+            <input type="number" name="user-cpf" id="input-cpf" placeholder="CPF" />
+            <input type="password" name="user-password" id="input-password" placeholder="Senha" />
+            <input type="password" name="user-password-confirmation" id="input-password-confirmation" placeholder="Confirma a senha" />
+
+            <label for="inputProfilePhoto" id="label-foto" for="">Foto de perfil</label>
+            <div class="image-field">
+                <input name="profilePhoto" class="input-image" id="inputProfilePhoto" type="file" accept="image/*" required />
+                <label class="input-text" for="inputProfilePhoto">
+                        <img src="../images/more-icon.png" id="profilePhoto" />
+                    </label>
+            </div>
+
             <div id="form-options">
                 <div id="div-remember-me">
-                    <input type="checkbox" name="remeber-me" id="remeber-me">
+                    <input type="checkbox" name="remeber-me" id="remeber-me" />
                     <label for="remeber-me">Lembrar-me</label>
                 </div>
-    
+
                 <div id="div-account">
                     <a href="../page-login/">Já possui uma conta?</a>
                 </div>
             </div>
-    
+
             <button type="submit" id="button-cadastrar">Cadastrar</button>
         </form>
-    
-        <p>Ao se autenticar você concorda com as <a href="">Políticas de privacidade</a> e <a href="">Termos de serviço</a> de Scervino. </p>
-    </main>
 
+        <p>
+            Ao se autenticar você concorda com as <a href="">Políticas de privacidade</a> e
+            <a href="">Termos de serviço</a> de Scervino.
+        </p>
+    </main>
+    <footer id="footer">
+        <script src="../Components/Footer/footerManagement.js" type="module"></script>
+    </footer>
 </body>
 
 </html>
