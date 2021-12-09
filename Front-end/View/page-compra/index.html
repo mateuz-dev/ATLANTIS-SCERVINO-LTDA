@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="../Components/Footer/footer.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-</head>
 
 
 <body>
@@ -100,7 +99,7 @@
                 <div class="div-produto-tipo-formas-pagamento">
                     <p class="p-produto-tipo-formas-pagamento-top">BOLETO</p>
                     <img src="images/icon-boleto.svg">
-                    <p id="p-produto-tipo-formas-pagamento-top">parcelado em 12x</p>
+                    <p class="p-produto-tipo-formas-pagamento-bottom">parcelado em 12x</p>
                 </div>
 
                 <div class="div-produto-tipo-formas-pagamento">
@@ -113,7 +112,7 @@
                     <p class="p-produto-tipo-formas-pagamento-top">CARTÃO</p>
                     <p class="p-produto-tipo-cartao">SCERVINO</p>
                     <img src="images/icon-cartao.svg">
-                    <p id="p-produto-tipo-formas-pagamento-top">desconto de 5%</p>
+                    <p class="p-produto-tipo-formas-pagamento-bottom">desconto de 5%</p>
                 </div>
 
                 <div class="div-produto-tipo-formas-pagamento">
@@ -127,19 +126,19 @@
         <div id="div-avaliacao-produto">
             <h3>Avaliar Produto</h3>
             <form action="">
-                <div id="div-avaliacao-produto-estrelas">
-                    <input type="radio" name="star" id="star1"> <label for="star1" class="estrelas-avaliacao"></label>
-                    <input type="radio" name="star" id="star2"> <label for="star2" class="estrelas-avaliacao"></label>
-                    <input type="radio" name="star" id="star3"> <label for="star3" class="estrelas-avaliacao"></label>
-                    <input type="radio" name="star" id="star4"> <label for="star4" class="estrelas-avaliacao"></label>
-                    <input type="radio" name="star" id="star5"> <label for="star5" class="estrelas-avaliacao"></label>
+                <div class="rating">
+                    <a href="#5" title="5 estrelas">★</a>
+                    <a href="#4" title="4 estrelas">★</a>
+                    <a href="#3" title="3 estrelas">★</a>
+                    <a href="#2" title="2 estrelas">★</a>
+                    <a href="#1" title="1 estrelas">★</a>
                 </div>
 
-                <input type="text" name="" id="">
-
-                <button type="submit">ENVIAR</button>
+                <div id="div-avaliacao-produto-bottom">
+                    <textarea name="avaliacao-produto-texto" id="avaliacao-produto-texto" cols="30" rows="10">Diga-nos o que achou do produto...</textarea>
+                    <button type="submit">ENVIAR</button>
+                </div>
             </form>
-        </div>
         </div>
 
     </main>
