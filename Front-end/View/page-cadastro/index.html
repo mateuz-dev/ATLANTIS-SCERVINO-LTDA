@@ -31,12 +31,14 @@
         <form target="server" action="http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/" enctype="multipart/form-data" method="POST" id="form-client">
             <input type="text" name="name" id="input-name" placeholder="Nome" required />
             <input type="text" name="email" id="input-email" placeholder="E-mail" required />
-            <input type="date" name="birthDate" id="input-birth-date" placeholder="Data de nascimento" required />
             <input type="number" name="cpf" id="input-cpf" placeholder="CPF" required />
             <input type="password" name="password" id="input-password" placeholder="Senha" required />
             <input type="password" x-moz-errormessage="Por favor, especifique um endereço de e-mail." id="input-password-confirmation" placeholder="Confirma a senha" required />
 
-            <label for="inputProfilePhoto" id="label-foto" for="">Foto de perfil</label>
+            <label for="input-birth-date" id="label-foto">Data de nascimento</label>
+            <input type="date" name="birthDate" id="input-birth-date" required />
+
+            <label for="inputProfilePhoto" id="label-foto">Foto de perfil</label>
             <div class="image-field">
                 <input name="profilePhoto" class="input-image" id="inputProfilePhoto" type="file" accept="image/*" />
                 <label class="input-text" for="inputProfilePhoto">
