@@ -18,24 +18,34 @@
         <script src="../Components/Header/header.js" type="module"></script>
     </header>
     <main>
-        <h1 class="title-page">ADICIONAR PRODUTO</h1>
+        <div class="title-container">
+            <h1 class="title-page">ADICIONAR PRODUTO</h1>
+            <div class="green-line"></div>
+        </div>
 
         <iframe style="display: none" name="server"></iframe>
         <form target="server" action="http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/" enctype="multipart/form-data" method="POST" id="form-product">
             <div id="top-inputs">
                 <div id="left-input">
+                    <label for="name-field">NOME</label>
                     <input name="name" class="input-text" id="name-field" type="text" placeholder="NOME" required />
+                    <label for="quantity-field">QUANTIDADE</label>
                     <input name="qtdInventory" class="input-text" id="quantity-field" type="number" min="0" placeholder="QUANTIDADE" required />
+                    <label for="discount-field">DESCONTO (%)</label>
                     <input name="discount" class="input-text" id="discount-field" type="number" min="0" placeholder="DESCONTO (%)" required />
+                    <label for="description-field">DESCRIÇÃO</label>
                     <textarea maxlength="840" rows="14" cols="60" wrap="hard" name="description" class="input-text" id="description-field" placeholder="DESCRIÇÃO" required></textarea>
                 </div>
                 <div id="right-input">
+                    <label for="price-field">PREÇO (R$ - SEM DESCONTO)</label>
                     <input name="price" class="input-text" id="price-field" type="number" min="1" placeholder="PREÇO (R$ - SEM DESCONTO)" required />
 
+                    <label for="color-field">COR</label>
                     <select name="idColor" class="input-text" id="color-field" required>
                             <option value="">SELECIONE UMA COR DOMINANTE</option>
                         </select>
 
+                    <label for="category-field">CATEGORIA</label>
                     <select name="idCategory" class="input-text" id="category-field" required>
                             <option value="">SELECIONE UMA CATEGORIA</option>
                         </select>
