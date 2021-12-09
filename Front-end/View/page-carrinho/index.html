@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../style-global.css" />
-    <link rel="stylesheet" href="style-carrinho.css"/>
+    <link rel="stylesheet" href="style-carrinho.css" />
     <link rel="stylesheet" href="../Components/Footer/footer.css" />
     <link rel="stylesheet" href="../Components/Header/header.css" />
+    <link rel="shortcut icon" href="../images/logo-verde.png" type="image/x-icon" />
     <script src="script.js" defer></script>
 </head>
 
 <body>
-
     <header id="header">
         <script src="../Components/Header/header.js" type="module"></script>
     </header>
@@ -40,43 +40,32 @@
                         <h2>Nome produto -</h2>
                         <b>Modelo</b>
                     </div>
-                        <div id="rowColor">
-                            <img src="./images/icone-cercle-rempli-rose.png" alt="" />
-                            <h2>Rosa</h2>
-                        </div>
-                        <p>Código do Produto: aK971bf421</p>
+                    <div id="rowColor">
+                        <img src="./images/icone-cercle-rempli-rose.png" alt="" />
+                        <h2>Rosa</h2>
+                    </div>
+                    <p>Código do Produto: aK971bf421</p>
                 </div>
             </div>
 
-                <div id="qtdPrice">
-                        <div id="quantity">
-                            <div id="slider">
-                                <button id="menos">&#9001;</button>
-                                <input
-                                    type="number"
-                                    id="quantityProducts"
-                                    value="1"
-                                    name="quantityProducts"
-                                    min="1"
-                                    max="100"
-                                    oninput="validity.valid||(value='1');"
-                                    readonly
-                                />
-                                <button id="mais">&#9002;</button>
-                            </div>
-                            <img id="deleteProduct" src="./images/img_216917.png" alt="" />
-                        </div>
-
-                        <div id="price">
-                            <p>De <b>R$500,00</b></p>
-                            <p class="actualPrice">Por R$450,00 ou R$375,00 á vista</p>
-                        </div>
+            <div id="qtdPrice">
+                <div id="quantity">
+                    <div id="slider">
+                        <button id="menos">&#9001;</button>
+                        <input type="number" id="quantityProducts" value="1" name="quantityProducts" min="1" max="100" oninput="validity.valid||(value='1');" readonly />
+                        <button id="mais">&#9002;</button>
+                    </div>
+                    <img id="deleteProduct" src="./images/img_216917.png" alt="" />
                 </div>
+
+                <div id="price">
+                    <p>De <b>R$500,00</b></p>
+                    <p class="actualPrice">Por R$450,00 ou R$375,00 á vista</p>
+                </div>
+            </div>
         </div>
 
         <div id="rowFretePagar">
-      
-
             <div id="pagar">
                 <h2 id="subtotal">SUBTOTAL(1 ITEM)</h2>
                 <div id="precoApagar">
@@ -93,7 +82,7 @@
             <div id="frete">
                 <div id="frete1">
                     <h2>Frete para</h2>
-                    <input type="number" placeholder="00000-000" id="inputFrete" min="1" max="99999999" oninput="validity.valid||(value='')"/>
+                    <input type="number" placeholder="00000-000" id="inputFrete" min="1" max="99999999" oninput="validity.valid||(value='')" />
                 </div>
 
                 <div id="frete2">
@@ -108,14 +97,12 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </main>
 
     <footer id="footer">
         <script src="../Components/Footer/footer.js" type="module"></script>
     </footer>
-
 </body>
 
 </html>
