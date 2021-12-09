@@ -174,7 +174,7 @@ main p>a {
     flex-direction: column;
     align-items: flex-start;
     justify-content: start;
-    width: 65%;
+    width: 30vw;
     min-width: 250px;
     min-height: 250px;
 }
@@ -201,6 +201,6 @@ main p>a {
 
 @media (max-width: 878px) {
     .image-field {
-        width: 65%;
+        width: 63.1vw;
     }
 }
