@@ -139,6 +139,7 @@ class ModelProduct{
         //Optional images
         foreach ($this->_optionalImages as $key => $optionalImage) {
             $nameImage = saveImageReturnName($optionalImage);
+
             $this->_optionalImages[$key]['dataBaseName'] = $nameImage;
         }
 
@@ -151,8 +152,10 @@ class ModelProduct{
 
         foreach ($this->_optionalImages as $key => $optionalImage) {
             $imageName = $optionalImage['dataBaseName'];
+
             if ($imageName !== null &&
             $imageName !== "") {
+
                 $sql .= ",($lastIdProduct, '$imageName')";
             }
         }

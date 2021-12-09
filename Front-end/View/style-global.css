@@ -15,12 +15,24 @@ body {
     height: 100vh;
 }
 
+header {
+    z-index: 900;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 h2 {
     font-family: 'Montserrat', sans-serif;
 }
 
 p {
     font-family: 'Montserrat', sans-serif;
+}
+
+.cursor-pointer:hover {
+    cursor: pointer;
 }
 
 .title-container {

@@ -34,7 +34,8 @@ const configureImagePreview = () => {
 const putOptionColorInContainer = (stringHTML, idContainer, { idColor, hexa }) => {
     const container = document.getElementById(idContainer)
     const option = document.createElement('option')
-    option.style.backgroundColor = `${hexa}`
+    option.style.color = `${hexa}`
+    option.style.backgroundColor = '#eeeeee'
     option.value = idColor
     option.innerHTML = stringHTML
     container.appendChild(option)
