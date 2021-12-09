@@ -29,8 +29,10 @@ main{
 
 #div-compra-produto-imagens{
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    justify-content: space-between;
     width: 20%;
+    height: 100%;
 }
 #div-compra-produto-imagens img{
     width: 100%;
@@ -69,7 +71,7 @@ main{
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    width: 100%;
+    width: 50%;
     height: 100%;
     margin: 2%;
 }

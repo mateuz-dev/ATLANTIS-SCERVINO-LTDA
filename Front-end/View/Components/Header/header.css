@@ -224,17 +224,19 @@ a {
     header {
         display: flex;
         align-items: center;
-        justify-content: end;
-        width: 100vw;
+        justify-content: space-between;
+        width: 100%;
     }
     header form {
+        display: none;
+    }
+    #nav-list{
         display: none;
     }
     #form-mobile {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 45px;
         height: 40px;
         padding: 2%;
         border: 1px solid var(--main-green);
@@ -259,6 +261,9 @@ a {
         left: -10000px;
         background-color: var(--main-green);
         transition: transform 5.3s ease-in-out;
+    }
+    #form-mobile:hover{
+        cursor: pointer;
     }
     #menu-options-mobile {
         color: white;
@@ -307,7 +312,6 @@ a {
     }
     #ul-categories-mobile li>a img {
         width: 3%;
-        margin-right: 3%;
     }
     #ul-categories-mobile li>a {
         font-size: 20px;
@@ -320,9 +324,6 @@ a {
     .mobile-menu {
         display: block;
     }
-    .mobile-menu div {
-        margin-right: 20px;
-    }
     #check:checked~nav {
         left: 0;
     }
@@ -334,7 +335,8 @@ a {
         display: none;
     }
     #div-title-header h1 {
-        margin-right: 50px;
+        padding-left: 10%;
+        padding-right: 10%;
     }
 }
 
@@ -352,4 +354,14 @@ a {
     #div-title-header img {
         width: 35px;
     }
+}
+
+
+
+
+
+.aumentar-tamanho-barra-pesquisa{
+    position: absolute;
+    width: 80vw;
+    padding: 0;
 }

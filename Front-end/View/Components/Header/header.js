@@ -1,5 +1,11 @@
 'use strict'
 
+function searchBar() {
+    form_mobile.classList.add('aumentar-tamanho-barra-pesquisa');
+    a_header.style.display="none";
+    mobile_menu.style.display="none"
+}
+
 import { getCategories } from '../../request/categories.js'
 const iconsDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/icon/'
 
@@ -10,7 +16,7 @@ document.querySelector('#header').innerHTML = `<input type="checkbox" id="check"
         <div class="line3"></div>
     </label>
 
-    <a href="">
+    <a id="a-header" href="">
         <div id="div-title-header">
             <img src="../Components/Header/images/logo.png">
             <h1>SCERVINO</h1>
@@ -99,3 +105,10 @@ if (categories.length > 0) {
     const errorMessage = '<p>Não encontramos as categorias</p>'
     putLineInContainer(errorMessage, '#ul-categories')
 }
+
+
+const form_mobile = document.querySelector("#form-mobile")
+const mobile_menu = document.querySelector(".mobile-menu")
+const a_header = document.querySelector("#a-header")
+
+form_mobile.addEventListener('click', searchBar)
