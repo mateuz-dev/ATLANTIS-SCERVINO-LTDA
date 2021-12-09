@@ -1,0 +1,1 @@
+document.querySelector('#footer').innerHTML = `<p>© Scervino 2021. Todos os direitos reservados</p>`

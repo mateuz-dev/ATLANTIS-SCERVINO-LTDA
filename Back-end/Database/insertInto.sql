@@ -3,14 +3,14 @@
 INSERT INTO tblAdmin (user, password) values ("admin", "$2y$10$DPMZ.JTBSdnVSknVOhmBV.XseNvj62nuuEFJzrkY3jXcqCIoy9/DS");
 #123456
 
-INSERT INTO tblColor (name, hexa) VALUES ("Azul", "#0000FF"),
-											("Vermelho", "#FF0000 "),
-											("Amarelo", "#FFF00"),
-											("Laranja", "#FFA500"),
+INSERT INTO tblColor (name, hexa) VALUES ("Azul", "#0000ff"),
+											("Vermelho", "#ff5e49 "),
+											("Amarelo", "#fcff49"),
+											("Laranja", "#ffb949"),
 											("Preto", "#000000"),
-											("Branco", "#EEEEEE"),
-											("Verde", "#008000"),
-											("Marrom", "#0000FF"),
-											("Cinza", "#964B00"),
-											("Roxo", "#993399"),
-											("Rosa", "#FFCBDB");
+											("Branco", "#ffffff"),
+											("Verde", "#79ff2c"),
+											("Marrom", "#a73d00"),
+											("Cinza", "#7e7e7e"),
+											("Roxo", "#a538ff"),
+											("Rosa", "#ff38ff");

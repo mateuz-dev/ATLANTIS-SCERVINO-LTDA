@@ -1,19 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Lustria&family=Montserrat&display=swap');
-
-:root{
-    --main-green: #4AAD41;
-    --main-black: #2B2D3C;
+:root {
+    --main-green: #4aad41;
+    --main-black: #2b2d3c;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    width: 100%;
+    height: 100vh;
+}
+
 .title {
     font-family: 'Lustria', serif;
-    font-size: 225%;
     font-weight: normal;
     letter-spacing: 7px;
+}
+
+.title-page {
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: var(--main-black);
+    text-transform: uppercase;
+}
+
+.input-text {
+    border: 1px solid var(--main-black);
+    border-radius: 7px;
+    height: 40px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-indent: 10px;
+    font-size: 100%;
+    font-family: 'Montserrat', sans-serif;
 }

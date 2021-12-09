@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5ac92e89-c1d9-4fc1-b297-3ca0d10b6ab5",
+		"_postman_id": "cfcddd33-897c-476c-b358-f1b8042dbf93",
 		"name": "Atlantis Scervino",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -14,13 +14,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
 								"Product",
@@ -32,33 +31,26 @@
 				},
 				{
 					"name": "FIND_BY_ID",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idProduct\" : 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/?idProduct=20",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
 								"Product",
 								""
+							],
+							"query": [
+								{
+									"key": "idProduct",
+									"value": "20"
+								}
 							]
 						}
 					},
@@ -93,7 +85,7 @@
 									"type": "text"
 								},
 								{
-									"key": "image",
+									"key": "image1",
 									"type": "file",
 									"src": "/C:/Users/gabri/Downloads/vasin.png"
 								},
@@ -104,24 +96,28 @@
 								},
 								{
 									"key": "idCategory",
-									"value": "1",
+									"value": "14",
 									"type": "text"
 								},
 								{
 									"key": "idColor",
 									"value": "1",
 									"type": "text"
+								},
+								{
+									"key": "image2",
+									"type": "file",
+									"src": "/C:/Users/gabri/Downloads/vasin.png"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
 								"Product",
@@ -138,7 +134,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idProduct\" : 28\r\n}",
+							"raw": "{\r\n    \"idProduct\" : 20\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -146,13 +142,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
 								"Product",
@@ -165,28 +160,68 @@
 				{
 					"name": "UPDATE",
 					"request": {
-						"method": "PUT",
+						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idProduct\" : 2,\r\n    \"name\" : \"Vaso\",\r\n    \"price\" : 119,\r\n    \"description\" : \"Um produto incrível\",\r\n    \"qtdInventory\" : 6,\r\n    \"image\" : \"vasoclaro.jpg\",\r\n    \"discount\" : 22,\r\n    \"idColor\" : 2,\r\n    \"idCategory\" : 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idProduct",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Vasos",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "119",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Um produto incrível",
+									"type": "text"
+								},
+								{
+									"key": "qtdInventory",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/21192910/Downloads/vasin.png"
+								},
+								{
+									"key": "discount",
+									"value": "22",
+									"type": "text"
+								},
+								{
+									"key": "idColor",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "idCategory",
+									"value": "1",
+									"type": "text"
 								}
-							}
+							]
 						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Color/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
-								"Product",
+								"Color",
 								""
 							]
 						}
@@ -204,13 +239,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
 								"Client",
@@ -238,16 +272,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
-								"Product",
+								"Client",
 								""
 							]
 						}
@@ -300,16 +333,15 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
-								"Product",
+								"Client",
 								""
 							]
 						}
@@ -331,16 +363,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Product/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
-								"Product",
+								"Client",
 								""
 							]
 						}
@@ -362,16 +393,223 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost/gabriel-tavares/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Client/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
-								"gabriel-tavares",
 								"ATLANTIS-SCERVINO-LTDA",
 								"Back-end",
 								"Client",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "CREATE_CATEGORY",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Pet",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"type": "file",
+									"src": "/C:/Users/gabri/Downloads/icone categoria.png"
+								},
+								{
+									"key": "backgroundImage",
+									"type": "file",
+									"src": "/C:/Users/gabri/Downloads/Banner inicial.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ATLANTIS-SCERVINO-LTDA",
+								"Back-end",
+								"Category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FIND_ALL_CATEGORY",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ATLANTIS-SCERVINO-LTDA",
+								"Back-end",
+								"Category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE_CATEGORY",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCategory\": 13\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ATLANTIS-SCERVINO-LTDA",
+								"Back-end",
+								"Category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Pet",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"type": "file",
+									"src": "/C:/Users/gabri/Downloads/icone categoria.png"
+								},
+								{
+									"key": "backgroundImage",
+									"type": "file",
+									"src": "/C:/Users/gabri/Downloads/Banner inicial.png"
+								},
+								{
+									"key": "idCategory",
+									"value": "100",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ATLANTIS-SCERVINO-LTDA",
+								"Back-end",
+								"Category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FIND_BY_ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Category/?idCategory=13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ATLANTIS-SCERVINO-LTDA",
+								"Back-end",
+								"Category",
+								""
+							],
+							"query": [
+								{
+									"key": "idCategory",
+									"value": "13"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Color",
+			"item": [
+				{
+					"name": "FIND_ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Color/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ATLANTIS-SCERVINO-LTDA",
+								"Back-end",
+								"Color",
 								""
 							]
 						}

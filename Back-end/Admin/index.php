@@ -1,10 +1,10 @@
 <?php
-    header('Acess-Control-Allow-Origin: *');
-    header('Acess-Control-Allow-Headers: *');
-    header('Acess-Control-Allow-Methods: GET, POST, PUT, DELETE');
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Headers: *');
+    header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
     header('Content-Type: application/json');
 
-    include('../Connection.php');
+    include('../Database/connection.php');
     include('../Model/ModelAdmin.php');
     include('../Controller/ControllerAdmin.php');
 

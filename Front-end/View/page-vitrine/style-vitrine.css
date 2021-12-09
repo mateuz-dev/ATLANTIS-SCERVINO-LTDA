@@ -1,0 +1,272 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 100%;
+}
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+#header{
+    position: fixed;
+    z-index: 2;
+}
+
+
+#div-banner{
+    width: 100%;
+    min-height: 60vh;
+    background-image: url(./images/img-banner.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    background-color: rgb(0, 0, 0, 0.4);
+}
+
+
+#div-banner-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding-left: 15%;
+    margin-top: 5%;
+}
+#div-banner-content h1, #div-banner-content p{
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 3vw;
+    letter-spacing: normal;
+}
+#div-banner-content span{
+    font-size: 5vw; 
+    font-weight: 700;  
+}
+
+
+#white-waves{
+    display: flex;
+    top: 55%;
+    height: 7vh;
+    width: 100%;
+    background: url(./images/white-waves.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+}
+
+
+#classificacao-produto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 5%;
+    width: 50%
+}
+#classificacao-produto p{
+    width: 100%;
+    font-weight: 600;
+    font-size: 1.7vw;
+    text-align: center;
+}
+#classificacao-produto-opcoes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5%;
+}
+#classificacao-produto-opcoes a{
+    color: var(--main-black);
+    font-size: 1.2vw;
+}
+#classificacao-produto-opcoes a:hover{
+    cursor: pointer;
+    color: var(--main-green);
+}
+#classificacao-produto-opcoes a:focus{
+    background-color: tomato;
+}
+
+
+#div-catalogo-produtos{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 20vw));
+    object-fit: cover;
+    align-items: center;
+    justify-content: space-around;
+    width: 70%;
+    margin-top: 5%;
+    gap: 1vw;
+}
+
+.vitrine-produto{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50vh;
+    background-color: var(--main-black);
+    border: none;
+    border-radius: 15px;
+}
+#vitrine-produto-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60%;
+    background-color: #4C4E5F;
+    border: none;
+    border-radius: 15px;
+}
+#vitrine-produto-img img{
+    width: 12vw;
+}
+#vitrine-produto-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40%;
+}
+#vitrine-produto-info h1{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: normal;
+    font-weight: 700;
+    font-size: 125%;
+}
+#vitrine-produto-info img{
+    width: 50%;
+    margin-top: 1vw;
+}
+#vitrine-produto-precos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 1vw;
+    padding-left: 2vw; padding-right: 2vw;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+#p-preco-antigo{
+    text-decoration: line-through;
+}
+#p-porcentagem-deconto{
+    font-weight: bold;
+    color: var(--main-green);
+}
+#p-preco-produto{
+    font-weight: bold;
+    font-size: 175%;
+}
+
+
+#button-ver-mais{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    margin-top: 2%;
+    gap: 0.5vw;
+    border: none;
+    background: transparent;
+}
+#button-ver-mais:hover{
+    cursor: pointer;
+}
+#button-ver-mais p{
+    font-family: 'Montserrat', sans-serif;
+    color: var(--main-green);
+    font-size: 125%;
+}
+#button-ver-mais hr{
+    border: 2px solid var(--main-green);
+    border-radius: 5px;
+    width: 20%;
+}
+#button-ver-mais img{
+    width: 2vw;
+}
+
+
+#black-waves{
+    display: flex;
+    height: 7vh;
+    width: 100%;
+    background: url(./images/black-waves.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 3%;
+}
+
+
+#footer-black-friday{
+    display: flex;
+    justify-content: center;
+    background-color: var(--main-black);
+    width: 100%;
+    height: 60vh;
+    padding: 3%;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+#footer-black-friday-content{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 40%;
+    height: 40%;
+    gap: 30%;
+    font-size: 150%;
+}
+#footer-black-friday-content h2{
+    font-size: 175%;
+}
+#footer-black-friday-content p{
+    font-size: 100%;
+}
+#footer-black-friday-content a{
+    background-color: var(--main-green);
+    padding: 1vw;
+    color: white;
+    
+}
+#footer-black-friday-img{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 60%;
+}
+#footer-black-friday-img img{
+    width: 100%;
+}
+
+
+#green-waves{
+    display: flex;
+    height: 7vh;
+    width: 100%;
+    background: url(../images/green-waves.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--main-black);
+}

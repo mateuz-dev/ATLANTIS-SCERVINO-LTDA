@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style-global.css">
-    <link rel="stylesheet" href="style-landingPage.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOME</title>
+    <link rel="stylesheet" href="../style-global.css" />
+    <link rel="stylesheet" href="./style-landingPage.css" />
+    <link rel="stylesheet" href="../Components/Header/header.css" />
+    <link rel="stylesheet" href="../Components/Footer/footer.css" />
 </head>
+
 <body>
-    
+    <header id="header">
+        <script type="module" src="../Components/Header/header.js"></script>
+    </header>
+
+    <main>
+        <div id="container-imagemETexto">
+            <div id="texto-landingPage">
+                <h1 id="h1-nomeEmpresa-landingPage">ATLANTIS SCERVINO SUSTENTÁVEIS.</h1>
+                <p>A sustentabilidade é a abertura para o futuro. Se fecharmos, não existirá futuro.</p>
+                <button id="button-saibaMais">SAIBA MAIS</button>
+            </div>
+
+            <div id="image-LandingPage"><img src="images/dog-and-tree.svg" alt="" /></div>
+        </div>
+
+        <div id="onda-main"></div>
+    </main>
+
+    <div id="div-texto-categoria">
+        <hr id="linha-categoria">
+        <p id="p-categorias-landingPage">CATEGORIAS</p>
+        <p id="p-busqueOqueDesejar">BUSQUE O QUE DESEJAR</p>
+    </div>
+
+    <footer id="footer">
+        <script src="../Components/Footer/footer.js"></script>
+    </footer>
 </body>
+
 </html>

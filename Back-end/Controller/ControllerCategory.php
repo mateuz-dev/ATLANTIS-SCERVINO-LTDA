@@ -3,7 +3,6 @@
 class ControllerCategory{
     private $_method;
     private $_modelCategory;
-    private $_idCategory;
 
     public function __construct($modelCategory) {
         $this->_modelCategory = $modelCategory;
@@ -20,17 +19,20 @@ class ControllerCategory{
 
         switch ($this->_method) {
             case 'GET':
-            
-                
+                if ($this->_modelCategory->returnIdCategory() !== null) {
+                    return $this->_modelCategory->findById();
+                } else {
                     return $this->_modelCategory->findAll();
+                }
                 
                 break;
 
                 case 'POST':
-                    return $this->_modelCategory->create();
-                    break;
-    
-                case 'PUT':
+                    if($this->_modelCategory->returnIdCategory() !== null){
+                        return $this->_modelCategory->update();
+                    } else {
+                        return $this->_modelCategory->create();
+                    }
                     break;
     
                 case 'DELETE':

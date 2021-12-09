@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style-global.css" />
+    <link rel="stylesheet" href="../page-create-product/style.css" />
+    <link rel="stylesheet" href="../Components/Header/header.css" />
+    <link rel="stylesheet" href="../Components/Footer/footerManagement.css" />
+    <script type="module" src="../page-create-product/script.js" defer></script>
+    <script type="module" src="script.js" defer></script>
+    <title>Criar produto</title>
+</head>
+
+<body>
+    <header id="header">
+        <script src="../Components/Header/header.js" type="module"></script>
+    </header>
+    <main>
+        <h1 class="title-page">ADICIONAR PRODUTO</h1>
+
+        <iframe style="display: none" name="server"></iframe>
+        <form target="server" action="http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Product/" enctype="multipart/form-data" method="POST" id="form-product">
+            <input name="idProduct" id="idProduct-field" type="hidden" required />
+            <div id="top-inputs">
+                <div id="left-input">
+                    <input name="name" class="input-text" id="name-field" type="text" placeholder="NOME" required />
+                    <input name="qtdInventory" class="input-text" id="quantity-field" type="number" min="0" placeholder="QUANTIDADE" required />
+                    <input name="discount" class="input-text" id="discount-field" type="number" min="0" placeholder="DESCONTO (%)" required />
+                    <textarea maxlength="840" rows="14" cols="60" wrap="hard" name="description" class="input-text" id="description-field" placeholder="DESCRIÇÃO" required></textarea>
+                </div>
+                <div id="right-input">
+                    <input name="price" class="input-text" id="price-field" type="number" min="1" placeholder="PREÇO (R$ - SEM DESCONTO)" required />
+
+                    <select name="idColor" class="input-text" id="color-field" required>
+                            <option value="">SELECIONE UMA COR DOMINANTE</option>
+                        </select>
+
+                    <select name="idCategory" class="input-text" id="category-field" required>
+                            <option value="">SELECIONE UMA CATEGORIA</option>
+                        </select>
+
+                    <div class="image-field">
+                        <p>IMAGEM OBRIGATÓRIA</p>
+                        <input name="image1" class="input-image" id="inputImage1" type="file" accept="image/*" />
+                        <label class="input-text" for="inputImage1">
+                                <img src="../images/more-icon.png" id="imagePreview1" />
+                            </label>
+                    </div>
+                </div>
+            </div>
+            <div id="images-field">
+                <div class="image-field">
+                    <p>SEGUNDA IMAGEM</p>
+                    <input name="image2" class="input-image" id="inputImage2" type="file" accept="image/*" />
+                    <label class="input-text" for="inputImage2">
+                            <img src="../images/more-icon.png" id="imagePreview2" />
+                        </label>
+                </div>
+                <div class="image-field">
+                    <p>TERCEIRA IMAGEM</p>
+                    <input name="image3" class="input-image" id="inputImage3" type="file" accept="image/*" />
+                    <label class="input-text" for="inputImage3">
+                            <img src="../images/more-icon.png" id="imagePreview3" />
+                        </label>
+                </div>
+                <div class="image-field">
+                    <p>QUARTA IMAGEM</p>
+                    <input name="image4" class="input-image" id="inputImage4" type="file" accept="image/*" />
+                    <label class="input-text" for="inputImage4">
+                            <img src="../images/more-icon.png" id="imagePreview4" />
+                        </label>
+                </div>
+                <div class="image-field">
+                    <p>QUINTA IMAGEM</p>
+                    <input name="image5" class="input-image" id="inputImage5" type="file" accept="image/*" />
+                    <label class="input-text" for="inputImage5">
+                            <img src="../images/more-icon.png" id="imagePreview5" />
+                        </label>
+                </div>
+                <div class="image-field">
+                    <p>SEXTA IMAGEM</p>
+                    <input name="image6" class="input-image" id="inputImage6" type="file" accept="image/*" />
+                    <label class="input-text" for="inputImage6">
+                            <img src="../images/more-icon.png" id="imagePreview6" />
+                        </label>
+                </div>
+            </div>
+            <button id="submit">Cadastrar</button>
+        </form>
+    </main>
+    <footer id="footer">
+        <script src="../Components/Footer/footerManagement.js" type="module"></script>
+    </footer>
+</body>
+
+</html>

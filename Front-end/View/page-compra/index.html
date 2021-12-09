@@ -1,13 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style-global.css">
+    <title>SCERVINO | COMPRA</title>
+    <link rel="stylesheet" href="../style-global.css">
     <link rel="stylesheet" href="style-compra.css">
+    <link rel="shortcut icon" href="../images/logo-verde.png" type="image/x-icon">
+    <link rel="stylesheet" href="../Components/Header/header.css">
+    <link rel="stylesheet" href="../Components/Footer/footer.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
+
+
 <body>
+
+    <header id="header">
+        <script type="module" src="../Components/Header/header.js"></script>
+    </header>
     
+
+    <main>
+
+        <section id="section-top">
+
+            <div id="div-compra-produto">
+
+                <div id="div-compra-produto-img">
+                    <div id="div-compra-produto-imagens">
+                        <img src="images/img-produto.png" alt="imagem-produto">
+                        <img src="images/img-produto.png" alt="imagem-produto">
+                        <img src="images/img-produto.png" alt="imagem-produto">
+                        <img src="images/img-produto.png" alt="imagem-produto">
+                        <img src="images/img-produto.png" alt="imagem-produto">
+                    </div>
+
+                    <div id="div-compra-produto-main-img">
+                        <img src="images/img-produto.png" alt="imagem-principal-produto">
+                    </div>
+                </div>
+
+
+                <div id="div-compra-produto-info">
+                    <h1>NOME DO PRODUTO - MODELO</h1>
+
+                    <div id="div-compra-produto-info-precos">
+                        <p id="p-preco-antigo">R$ <span id="preco-antigo">XX,XX</span> </p>
+                        <div id="div-compra-produto-info-preco">
+                            <p id="p-porcentagem-deconto"> <span id="porcentagem-desconto">XX%</span> OFF</p>
+                            <p id="p-preco-produto">R$ <span id="preco-produto">XX,XX</span> </p>
+                        </div>
+                    </div>
+
+                    <div id="div-compra-produto-info-cores">
+                        <div class="div-cor-produto-circulo"></div>
+                    </div>
+
+                    <button>COMPRAR</button>
+                    <button>Adicionar ao Carrinho</button>
+                </div>
+
+            </div>
+
+
+            <div id="div-frete">
+                <p id="p-title-frete">Calcular Frete</p>
+                <input type="number" name="user-cep" id="input-frete-user-cep" placeholder="digite seu CEP">
+                <p id="p-frete-user-endereco"><img src="images/icon-pin.svg"> <span id="span-frete-user-endereco">Tiradentes 4979 [Casa 6], São Cristóvão</span></p>
+
+                <div id="div-frete-entrega">
+                    <div id="div-frete-entrega-expressa">
+                        <p class="p-frete-entrega-txt">ENVIO EXPRESSO</p>
+                        <p class="p-frete-entrega-prazo">2 dias úteis</p>
+                        <p class="p-frete-entrega-valor">R$ <span id="valor-frete">XX,XX</span></p>
+                    </div>
+
+                    <div id="div-frete-entrega-comum">
+                        <p class="p-frete-entrega-txt">ENVIO COMUN</p>
+                        <p class="p-frete-entrega-prazo">7 dias úteis</p>
+                        <p class="p-frete-entrega-valor">R$ <span id="valor-frete">XX,XX</span></p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <div id="div-compra-produto-descricao">
+            <h3>Descrição do Produto</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id facilisis orci, eget interdum ex. Cras congue molestie mi sed luctus. Nullam laoreet, sem at sollicitudin sagittis, risus urna egestas justo, at aliquet diam augue nec ipsum. Aliquam ut elit arcu. Morbi luctus magna tempus, luctus erat id, suscipit nunc. Sed feugiat erat nec ornare molestie. Nullam ut lorem sed nisi rhoncus pellentesque eget quis justo. Donec vel vulputate velit, eleifend condimentum justo. Praesent eget pharetra velit, non cursus diam. Vestibulum vel facilisis justo, sit amet cursus diam.</p>
+        </div>
+
+
+        <div id="div-produto-formas-pagamento">
+            <h3>Formas de Pagamento</h3>
+            <div id="div-produto-formas-pagamento-opcoes">
+                <div class="div-produto-tipo-formas-pagamento">
+                    <p class="p-produto-tipo-formas-pagamento-top">BOLETO</p>
+                    <img src="images/icon-boleto.svg">
+                    <p id="p-produto-tipo-formas-pagamento-top">parcelado em 12x</p>
+                </div>
+
+                <div class="div-produto-tipo-formas-pagamento">
+                    <p class="p-produto-tipo-formas-pagamento-top">CARTÃO</p>
+                    <p class="p-produto-tipo-cartao">CRÉDITO OU DÉBITO</p>
+                    <img src="images/icon-cartao.svg">
+                </div>
+
+                <div class="div-produto-tipo-formas-pagamento">
+                    <p class="p-produto-tipo-formas-pagamento-top">CARTÃO</p>
+                    <p class="p-produto-tipo-cartao">SCERVINO</p>
+                    <img src="images/icon-cartao.svg">
+                    <p id="p-produto-tipo-formas-pagamento-top">desconto de 5%</p>
+                </div>
+
+                <div class="div-produto-tipo-formas-pagamento">
+                    <p class="p-produto-tipo-formas-pagamento-top">PIX</p>
+                    <img src="images/icon-pix.svg">
+                </div>
+            </div>
+        </div>
+
+
+        <div id="div-avaliacao-produto">
+            <h3>Avaliar Produto</h3>
+            <form action="">
+                <div id="div-avaliacao-produto-estrelas">
+                    <input type="radio" name="star" id="star1"> <label for="star1" class="estrelas-avaliacao"></label>
+                    <input type="radio" name="star" id="star2"> <label for="star2" class="estrelas-avaliacao"></label>
+                    <input type="radio" name="star" id="star3"> <label for="star3" class="estrelas-avaliacao"></label>
+                    <input type="radio" name="star" id="star4"> <label for="star4" class="estrelas-avaliacao"></label>
+                    <input type="radio" name="star" id="star5"> <label for="star5" class="estrelas-avaliacao"></label>
+                </div>
+
+                <input type="text" name="" id="">
+
+                <button type="submit">ENVIAR</button>
+            </form>
+        </div>
+        </div>
+
+    </main>
+
+
+    <!-- <footer id="footer">
+        <script src="../Components/Footer/footer.js"></script>
+    </footer> -->
+
 </body>
+
 </html>
