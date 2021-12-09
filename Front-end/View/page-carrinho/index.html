@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style-carrinho.css"/>
     <link rel="stylesheet" href="../Components/Footer/footer.css" />
     <link rel="stylesheet" href="../Components/Header/header.css" />
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -50,7 +51,7 @@
                 <div id="qtdPrice">
                         <div id="quantity">
                             <div id="slider">
-                                <button>&#9001;</button>
+                                <button id="menos">&#9001;</button>
                                 <input
                                     type="number"
                                     id="quantityProducts"
@@ -59,8 +60,9 @@
                                     min="1"
                                     max="100"
                                     oninput="validity.valid||(value='1');"
+                                    readonly
                                 />
-                                <button>&#9002;</button>
+                                <button id="mais">&#9002;</button>
                             </div>
                             <img id="deleteProduct" src="./images/img_216917.png" alt="" />
                         </div>
