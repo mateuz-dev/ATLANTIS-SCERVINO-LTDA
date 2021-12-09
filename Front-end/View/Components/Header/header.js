@@ -2,8 +2,10 @@
 
 function searchBar() {
     form_mobile.classList.add('aumentar-tamanho-barra-pesquisa');
-    a_header.style.display="none";
+    form_mobile.classList.remove('form-mobile')
+   
     mobile_menu.style.display="none"
+  
 }
 
 import { getCategories } from '../../request/categories.js'
@@ -23,7 +25,7 @@ document.querySelector('#header').innerHTML = `<input type="checkbox" id="check"
         </div>
     </a>
 
-        <form id="form-mobile" action="">
+        <form class="form-mobile" action="">
             <img src="../Components/Header/images/search-icon.png">
             <input type="text" name="" id="" placeholder="Buscar">
         </form>
@@ -107,7 +109,7 @@ if (categories.length > 0) {
 }
 
 
-const form_mobile = document.querySelector("#form-mobile")
+const form_mobile = document.querySelector(".form-mobile")
 const mobile_menu = document.querySelector(".mobile-menu")
 const a_header = document.querySelector("#a-header")
 
