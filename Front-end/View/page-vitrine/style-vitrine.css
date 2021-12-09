@@ -123,6 +123,10 @@ main{
     border: none;
     border-radius: 15px;
 }
+
+
+
+
 #vitrine-produto-img{
     display: flex;
     align-items: center;
@@ -132,10 +136,34 @@ main{
     background-color: #4C4E5F;
     border: none;
     border-radius: 15px;
+    position: relative;
 }
-#vitrine-produto-img img{
+#img-produtos{
     width: 12vw;
 }
+
+.acoes-produtos{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    background-color:#c3c2c2dc;
+    border-radius: 6px;
+    z-index: 2;
+}
+  
+.acoes-produtos img{
+    width: 20px;
+    height: 20px;
+}
+
+.acoes-produtos img:hover {
+    transition: 0.2s;
+    transform: rotate(360deg) scale(1.1);
+}
+
 #vitrine-produto-info{
     display: flex;
     flex-direction: column;
@@ -223,7 +251,7 @@ main{
     justify-content: center;
     background-color: var(--main-black);
     width: 100%;
-    height: 60vh;
+    height: 40vh;
     padding: 3%;
     color: white;
     font-family: 'Montserrat', sans-serif;
@@ -253,11 +281,13 @@ main{
 #footer-black-friday-img{
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: start;
     width: 60%;
 }
 #footer-black-friday-img img{
     width: 100%;
+    margin-bottom: 15vh;
+
 }
 
 
@@ -268,5 +298,15 @@ main{
     background: url(../images/green-waves.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: var(--main-black);
+}
+
+@media (max-width: 1350px) {
+    #black-waves{
+        display: none;
+    }
+
+    #footer-black-friday{
+        display: none;
+    }
+
 }
