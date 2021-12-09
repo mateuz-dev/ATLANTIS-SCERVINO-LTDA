@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../style-global.css" />
-    <link rel="stylesheet" href="style-carrinho.css" />
+    <link rel="stylesheet" href="style-carrinho.css"/>
+    <link rel="stylesheet" href="../Components/Footer/footer.css" />
+    <link rel="stylesheet" href="../Components/Header/header.css" />
 </head>
 
 <body>
-    <header></header>
+
+    <header id="header">
+        <script src="../Components/Header/header.js" type="module"></script>
+    </header>
 
     <main>
         <h1 class="title-page">CARRINHO</h1>
@@ -30,44 +35,59 @@
                 <img src="./images/vaso_ceramica_comum_terracota_45x44cm_89499935_0001_300x300.jpg" alt="" />
 
                 <div id="textProduct">
-                    <b><h2>Nome produto -</h2>
-                            Modelo</b
-                        >
-
+                    <div id="textNameProduct">
+                        <h2>Nome produto -</h2>
+                        <b>Modelo</b>
+                    </div>
                         <div id="rowColor">
                             <img src="./images/icone-cercle-rempli-rose.png" alt="" />
                             <h2>Rosa</h2>
                         </div>
                         <p>Código do Produto: aK971bf421</p>
-                    </div>
-                </div>
-
-                <div id="qtdPrice">
-                    <div id="quantity">
-                        <div id="slider">
-                            <button>&#9001;</button>
-                            <input
-                                type="number"
-                                id="quantityProducts"
-                                value="1"
-                                name="quantityProducts"
-                                min="1"
-                                max="100"
-                                oninput="validity.valid||(value='1');"
-                            />
-                            <button>&#9002;</button>
-                        </div>
-                        <img id="deleteProduct" src="./images/img_216917.png" alt="" />
-                    </div>
-
-                    <div id="price">
-                        <p>De <b>R$500,00</b></p>
-                    <p class="actualPrice">Por R$450,00 ou R$375,00 á vista</p>
                 </div>
             </div>
+
+                <div id="qtdPrice">
+                        <div id="quantity">
+                            <div id="slider">
+                                <button>&#9001;</button>
+                                <input
+                                    type="number"
+                                    id="quantityProducts"
+                                    value="1"
+                                    name="quantityProducts"
+                                    min="1"
+                                    max="100"
+                                    oninput="validity.valid||(value='1');"
+                                />
+                                <button>&#9002;</button>
+                            </div>
+                            <img id="deleteProduct" src="./images/img_216917.png" alt="" />
+                        </div>
+
+                        <div id="price">
+                            <p>De <b>R$500,00</b></p>
+                            <p class="actualPrice">Por R$450,00 ou R$375,00 á vista</p>
+                        </div>
+                </div>
         </div>
 
-        <div id="row">
+        <div id="rowFretePagar">
+      
+
+            <div id="pagar">
+                <h2 id="subtotal">SUBTOTAL(1 ITEM)</h2>
+                <div id="precoApagar">
+                    <h2>R$900,00</h2>
+                    <p>OU</p>
+                    <h2>R$750,00</h2>
+                    <p>á vista</p>
+                </div>
+
+                <p id="textParcelado">(Em até 12x de R$ 75 sem juros e 5% de desconto no Cartão Scervino)</p>
+                <button>CONTINUAR</button>
+            </div>
+
             <div id="frete">
                 <div id="frete1">
                     <h2>Frete para</h2>
@@ -87,22 +107,13 @@
                 </div>
             </div>
 
-            <div id="pagar">
-                <h2>SUBTOTAL(1 ITEM)</h2>
-                <div id="precoApagar">
-                    <h2>R$900,00</h2>
-                    <p>OU</p>
-                    <h2>R$750,00</h2>
-                    <p>á vista</p>
-                </div>
-
-                <p>(Em até 12x de R$ 75 sem juros e 5% de desconto no Cartão Scervino)</p>
-                <button>CONTINUAR</button>
-            </div>
         </div>
     </main>
 
-    <footer></footer>
+    <footer id="footer">
+        <script src="../Components/Footer/footer.js" type="module"></script>
+    </footer>
+
 </body>
 
 </html>

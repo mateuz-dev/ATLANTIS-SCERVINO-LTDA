@@ -11,7 +11,11 @@ body{
     width: 100vw;
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
-    padding: 100px;
+    padding-top: 10%;
+}
+
+main{
+    padding-top: 80px;
 }
 
 .title-page{
@@ -51,7 +55,8 @@ body{
 }
 
 #contentCart{
-    height: 200px;
+    width: 100vw;
+    height: 25vh;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -77,6 +82,13 @@ body{
     align-items: center;
     justify-content: center;
 }
+
+#rowProduct{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
 #product img{
     width: 150px;
     height: 150px;
@@ -93,6 +105,13 @@ body{
     font-size: 1.5rem;
 }
 
+#textNameProduct{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
 #textProduct em{
     font-weight: bold;
 }
@@ -100,7 +119,7 @@ body{
 #rowColor{
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: flex-center;
     justify-content: center;
     gap: 10px;
 }
@@ -139,13 +158,12 @@ body{
 }
 
 #slider button{
-    background-color:#2b2d3c;
+    background-color:#ffffff00;
     color: white;
     font-size: 30px;
     height: 40px;
     width: 10px;
     border: none;
-    border-radius: 1;
 }
 
 #slider input{
@@ -194,7 +212,7 @@ input[type=number] {
     font-weight: bold;
 }
 
-#row{
+#rowFretePagar{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -301,6 +319,120 @@ input[type=number] {
     font-size: 35px;
     color: white;
     background-color: #4aad41;
+}
+
+#footer{
+    align-self: bottom;
+}
+
+
+
+
+@media (max-width: 1260px) {
+
+
+    #headerCart{
+        display: none;
+    }
+
+
+    #contentCart{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+    }
+
+    #product img{
+        width: 100px;
+        height: 100px;
+    }
+
+    #rowColor img{
+        width: 25px;
+        height: 25px;
+    }
+    #textProduct h2{
+        font-size: 1.2rem;
+    }
+
+    #textProduct b, p{  
+        font-size: 1.2rem;
+    }
+
+    #textNameProduct{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 5px;
+    }
+    #qtdPrice{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    #price p{
+        font-size: 1rem;
+    }
+
+    #quantity{
+        flex-direction: row;
+    }
+
+    #rowFretePagar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0; 
+        padding-top: 20px;
+        padding-bottom: 20px;
+        gap: 10vh;
+    }
+
+    #subtotal{
+        display: none;
+    }
+
+    #textParcelado{
+        margin-bottom: 20px;
+    }
+
+    #frete{
+        flex-direction: column;
+    }
+
+
+    #slider{
+        width: 80px;
+        height: 40px;
+        border-radius: 20px;
+    }
+    
+    #slider button{
+        font-size: 20px;
+        height: 30px;
+        width: 8px;
+
+    }
+    
+    #slider input{
+        width: 40px;
+        height: 35px;
+        font-size: 20px;
+        border-radius: 20px;
+    }
+
+    #deleteProduct{
+        width: 20px;
+        height: 25px;
+    }
+
 }
 
 
