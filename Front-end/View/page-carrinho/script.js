@@ -8,14 +8,13 @@ const url = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Products/'
 var qtdProducts = document.getElementById("quantityProducts")
 const fretePara = document.getElementById("frete2")
 const inputFrete = document.getElementById("inputFrete")
-const qtdMaxProducts = 10
 
 const productsDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadProduct/'
 
 const minValueFrete = 1000000
 const maxValueFrete = 99999999
 
-function aumentarProdutos() {
+function aumentarProdutos(qtdMaxProducts) {
     if(qtdProducts.value < qtdMaxProducts){
     qtdProducts.value = parseInt(qtdProducts.value) + 1
     }
@@ -77,8 +76,10 @@ const calculateInstallments = (price, discount) => {
 }
 
 const writeProductsInCart = ({idProduct, nameProduct, nameColor, hexa, discount, price, qtdInventory, image}) => {
+    
+    
     const contentLine = `
-        <div id="contentCart ${idProduct}">
+        <div id="contentCart">
             <div id="product">
                 <img src="${productsDirectory}${image}" alt="" />
 
@@ -87,7 +88,7 @@ const writeProductsInCart = ({idProduct, nameProduct, nameColor, hexa, discount,
                         <h2>${nameProduct}</h2>
                     </div>
                     <div id="rowColor">
-                        <img src="./images/icone-cercle-rempli-rose.png" alt="" />
+                        <div id="circleColor" class="circleColor"></div>
                         <h2>${nameColor}</h2>
                     </div>
                     <p>Código do Produto: ${geraStringAleatoria(10)}</p>
@@ -97,7 +98,7 @@ const writeProductsInCart = ({idProduct, nameProduct, nameColor, hexa, discount,
                 <div id="qtdPrice">
                         <div id="quantity">
                             <div id="slider">
-                                <button id="menos">&#9001;</button>
+                                <button id="menos" onclick="diminuirProdutos">&#9001;</button>
                                 <input
                                     type="number"
                                     id="quantityProducts"
@@ -106,7 +107,7 @@ const writeProductsInCart = ({idProduct, nameProduct, nameColor, hexa, discount,
                                     oninput="validity.valid||(value='1');"
                                     readonly
                                 />
-                                <button id="mais">&#9002;</button>
+                                <button id="mais" onclick="aumentarProdutos(${qtdInventory})">&#9002;</button>
                             </div>
                             <img id="deleteProduct" src="./images/img_216917.png" alt="" onclick="deleteProduct(${idProduct})"/>
                         </div>
@@ -118,22 +119,37 @@ const writeProductsInCart = ({idProduct, nameProduct, nameColor, hexa, discount,
                 </div>
             </div>
         </div>`
+
+        putLineInContainer(contentLine, '#contentGlobal')
+}
+
+// {
+//     [
+//         idProduct: 1
+//     ],
+//     [
+//         idProduct: 2
+//     ]
+// }
+
+// var produtosCarrinho = getLocal
+
+// //Adicionar id product no arrayzão
+
+// //Dar set no local storage com nova variável
+
+const products = await getProducts()
+
+if (products.length > 0) {
+    products.map(writeProductsInCart)
 }
 
 
-const products = await getProducts()
-console.log(products)
 
 
 
 
 
-
-document.getElementById("mais")
-.addEventListener("click", aumentarProdutos)
-
-document.getElementById("menos")
-.addEventListener("click", diminuirProdutos)
 
 document.getElementById("inputFrete") 
 .addEventListener("keypress", encontrarCep)
