@@ -200,6 +200,7 @@ main{
 .div-produto-tipo-formas-pagamento{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 .p-produto-tipo-formas-pagamento-top{
     font-size: 1.3vw;
@@ -248,7 +249,7 @@ main{
     display: flex;
     justify-content: space-between;
     width: 35%;
-    font-size: 2vw;
+    font-size: 2.5vw;
     overflow:hidden;
 }
 .rating input {
@@ -285,6 +286,7 @@ main{
 #div-avaliacao-produto-bottom{
     display: flex;
     flex-direction: column;
+    min-width: 85%;
 }
 #div-avaliacao-produto textarea{
     display: flex;
@@ -292,10 +294,13 @@ main{
     justify-content: flex-start;
     border: 1px solid var(--main-black);
     border-radius: 15px;
+    width: 100%;
     max-width: 100%;
+    min-width: 80%;
     height: 15vh;
     padding: 2%;
     font-family: 'Montserrat', sans-serif;
+    font-size: 1.3vw;
 }
 #div-avaliacao-produto textarea:focus{
     outline: none;
@@ -306,7 +311,77 @@ main{
     border-radius: 8px;
     background-color: var(--main-green);
     color: white;
-    padding: 2%;
-    margin-top: 2%;
+    padding: .7vw;
+    margin-top: 1vw;
     font-size: 1vw;
+}
+
+
+
+#section-opinioes-produto{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1%;
+    margin-top: 3%;
+    font-family: 'Montserrat', sans-serif;
+}
+#section-opinioes-produto h3{
+    font-size: 2vw;
+    font-weight: 700;
+}
+#div-nota-produto{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+}
+#div-nota-produto p{
+    font-size: 5vw;
+    font-weight: 700;
+    margin-bottom: 2%;
+}
+#div-nota-produto-estrelas{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#div-nota-produto-estrelas span{
+    font-size: 2.5vw;
+}
+
+#div-comentarios-produto{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2%;
+}
+#div-comentarios-produto ul{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 20%;
+    list-style: none;
+    font-size: 1.1vw;
+    margin-bottom: 1%;
+}
+#div-comentarios-produto ul:hover{
+    cursor: pointer;
+}
+ul li{
+    border-bottom: 2px solid transparent;
+}
+ul li:hover{
+    color: var(--main-green);
+    border-bottom: 2px solid var(--main-green);
+}
+#div-usuario-comentario-produto{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
