@@ -1,13 +1,16 @@
 'use strict'
 
+import { getProducts } from "../request/products.js"
+
+const url = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Products/'
+
 
 var qtdProducts = document.getElementById("quantityProducts")
 const fretePara = document.getElementById("frete2")
 const inputFrete = document.getElementById("inputFrete")
 const qtdMaxProducts = 10
 
-
-
+const productsDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadProduct/'
 
 const minValueFrete = 1000000
 const maxValueFrete = 99999999
@@ -43,6 +46,84 @@ function encontrarCep(){
         `
     }
 }
+
+
+function geraStringAleatoria(tamanho) {
+    var stringAleatoria = '';
+    var caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (var i = 0; i < tamanho; i++) {
+        stringAleatoria += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+    }
+    return stringAleatoria;
+}
+
+
+const putLineInContainer = (stringHTML, idContainer) => {
+    const container = document.querySelector(idContainer)
+    const div = document.createElement('div')
+
+    div.innerHTML = stringHTML
+    container.appendChild(div)
+}
+
+
+const calculatePriceDiscount = (price, discount) => {
+    return price - (discount/100) * price
+}
+
+const calculateInstallments = (price, discount) => {
+    var discountInstallments = discount*0.7
+    return price - (discountInstallments/100) * price
+}
+
+const writeProductsInCart = ({idProduct, nameProduct, nameColor, hexa, discount, price, qtdInventory, image}) => {
+    const contentLine = `
+        <div id="contentCart ${idProduct}">
+            <div id="product">
+                <img src="${productsDirectory}${image}" alt="" />
+
+                <div id="textProduct" class="textProduct">
+                    <div id="textNameProduct" class="textNameProduct">
+                        <h2>${nameProduct}</h2>
+                    </div>
+                    <div id="rowColor">
+                        <img src="./images/icone-cercle-rempli-rose.png" alt="" />
+                        <h2>${nameColor}</h2>
+                    </div>
+                    <p>Código do Produto: ${geraStringAleatoria(10)}</p>
+                </div>
+            </div>
+
+                <div id="qtdPrice">
+                        <div id="quantity">
+                            <div id="slider">
+                                <button id="menos">&#9001;</button>
+                                <input
+                                    type="number"
+                                    id="quantityProducts"
+                                    value="1"
+                                    name="quantityProducts"
+                                    oninput="validity.valid||(value='1');"
+                                    readonly
+                                />
+                                <button id="mais">&#9002;</button>
+                            </div>
+                            <img id="deleteProduct" src="./images/img_216917.png" alt="" onclick="deleteProduct(${idProduct})"/>
+                        </div>
+
+                <div id="price">
+                    <p>De <b>R$${price}</b></p>
+                    <p class="actualPrice">Por R$${calculateInstallments(price, discount)}
+                     ou R$${calculatePriceDiscount(price, discount)} á vista</p>
+                </div>
+            </div>
+        </div>`
+}
+
+
+const products = await getProducts()
+console.log(products)
+
 
 
 

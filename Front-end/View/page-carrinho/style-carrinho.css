@@ -29,6 +29,8 @@ main{
     justify-content: space-between;
     flex-direction: row;
     background-color: #C4C4C4;
+    padding-left: 100px;
+    padding-right: 240px;
 }
 
 #headerCart p{
@@ -38,9 +40,6 @@ main{
     color: #2b2d3c;
 }
 
-#headerProductCart p{
-    margin-left: 100px;
-}
 
 
 
@@ -49,8 +48,7 @@ main{
     align-items: center;
     flex-direction: row;
     justify-content: end;
-    margin-right: 200px;
-    gap: 150px;
+    gap: 9vw;
 }
 
 #contentCart{
@@ -125,13 +123,15 @@ main{
 #rowColor{
     display: flex;
     flex-direction: row;
-    align-items: flex-center;
+    align-items: flex-start;
     justify-content: center;
     gap: 10px;
 }
-#rowColor img{
+.circleColor{
     width: 30px;
     height: 30px;
+    border-radius: 100%;
+    background-color: rgb(255, 47, 82);
 }
 
 #qtdPrice{
@@ -367,16 +367,16 @@ input[type=number] {
         height: 100px;
     }
 
-    #rowColor img{
+    #circleColor{
         width: 20px;
         height: 20px;
     }
     #textProduct h2{
-        font-size: 0.8rem;
+        font-size: 1.2rem;
     }
 
-    #textProduct b, p{  
-        font-size: 0.8rem;
+    #textProduct p{  
+        font-size: 1.2rem;
     }
 
     #textNameProduct{
@@ -395,7 +395,7 @@ input[type=number] {
 
 
     #price p{
-        font-size: 0.8rem;
+        font-size: 1.2rem;
     }
 
     #quantity{

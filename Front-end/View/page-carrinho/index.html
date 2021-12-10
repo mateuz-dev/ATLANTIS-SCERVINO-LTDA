@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../Components/Footer/footer.css" />
     <link rel="stylesheet" href="../Components/Header/header.css" />
     <link rel="shortcut icon" href="../images/logo-verde.png" type="image/x-icon" />
-    <script src="script.js" defer></script>
+    <script src="script.js" type="module" defer></script>
 </head>
 
 <body>
@@ -32,43 +32,44 @@
             </div>
         </div>
 
-        <div id="contentCart">
-            <div id="product">
-                <img src="./images/vaso_ceramica_comum_terracota_45x44cm_89499935_0001_300x300.jpg" alt="" />
+        <div id="contentGlobal" class="contentGlobal">
+            <div id="contentCart">
+                <div id="product">
+                    <img src="./images/vaso_ceramica_comum_terracota_45x44cm_89499935_0001_300x300.jpg" alt="" />
 
-                <div id="textProduct">
-                    <div id="textNameProduct">
-                        <h2>Nome produto -</h2>
-                        <b>Modelo</b>
-                    </div>
-                    <div id="rowColor">
-                        <img src="./images/icone-cercle-rempli-rose.png" alt="" />
-                        <h2>Rosa</h2>
-                    </div>
-                    <p>Código do Produto: aK971bf421</p>
-                </div>
-            </div>
-
-                <div id="qtdPrice">
-                        <div id="quantity">
-                            <div id="slider">
-                                <button id="menos">&#9001;</button>
-                                <input
-                                    type="number"
-                                    id="quantityProducts"
-                                    value="1"
-                                    name="quantityProducts"
-                                    oninput="validity.valid||(value='1');"
-                                    readonly
-                                />
-                                <button id="mais">&#9002;</button>
-                            </div>
-                            <img id="deleteProduct" src="./images/img_216917.png" alt="" />
+                    <div id="textProduct" class="textProduct">
+                        <div id="textNameProduct" class="textNameProduct">
+                            <h2>Nome produto</h2>
                         </div>
+                        <div id="rowColor">
+                            <div id="circleColor" class="circleColor"></div>
+                            <h2>Rosa</h2>
+                        </div>
+                        <p>Código do Produto: aK971bf421</p>
+                    </div>
+                </div>
 
-                <div id="price">
-                    <p>De <b>R$500,00</b></p>
-                    <p class="actualPrice">Por R$450,00 ou R$375,00 á vista</p>
+                    <div id="qtdPrice">
+                            <div id="quantity">
+                                <div id="slider">
+                                    <button id="menos">&#9001;</button>
+                                    <input
+                                        type="number"
+                                        id="quantityProducts"
+                                        value="1"
+                                        name="quantityProducts"
+                                        oninput="validity.valid||(value='1');"
+                                        readonly
+                                    />
+                                    <button id="mais">&#9002;</button>
+                                </div>
+                                <img id="deleteProduct" src="./images/img_216917.png" alt="" onclick="deleteProduct()"/>
+                            </div>
+
+                    <div id="price">
+                        <p>De <b>R$500,00</b></p>
+                        <p class="actualPrice">Por R$450,00 ou R$375,00 á vista</p>
+                    </div>
                 </div>
             </div>
         </div>
