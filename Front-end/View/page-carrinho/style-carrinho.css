@@ -19,7 +19,6 @@ main{
 }
 
 .title-page{
-    margin-left: 95px;
     margin-bottom: 20px;
 }
 #headerCart{
@@ -131,10 +130,10 @@ main{
 #qtdPrice{
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     margin-right: 50px;
-    gap: 150px;
+    gap: 10vw;
 }
 
 #quantity{
@@ -277,6 +276,19 @@ input[type=number] {
 #frete2 h3{
     font-size: 1rem;
 }
+
+#rowAdress{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#rowAdress img{
+    width: 18px;
+    height: 18px;
+}
+
 #envioComum{
     display: flex;
     flex-direction: row;
@@ -350,15 +362,15 @@ input[type=number] {
     }
 
     #rowColor img{
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 20px;
     }
     #textProduct h2{
-        font-size: 1.2rem;
+        font-size: 0.8rem;
     }
 
     #textProduct b, p{  
-        font-size: 1.2rem;
+        font-size: 0.8rem;
     }
 
     #textNameProduct{
@@ -377,7 +389,7 @@ input[type=number] {
 
 
     #price p{
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     #quantity{
