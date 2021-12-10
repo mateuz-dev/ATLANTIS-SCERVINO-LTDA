@@ -105,7 +105,7 @@ if (categories.length > 0) {
     categories.map(writeCategoriesInHeader)
 } else {
     const errorMessage = '<p>Não encontramos as categorias</p>'
-    putLineInContainer(errorMessage, '#ul-categories')
+    putLineInContainer(errorMessage, '#ul-categories') 
 }
 
 
