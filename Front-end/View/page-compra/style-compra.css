@@ -12,7 +12,7 @@ main{
 
 #section-top{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding: 1%;
     margin-top: 13vh;
 }
@@ -23,7 +23,7 @@ main{
 }
 
 #div-compra-produto-img{
-    width: 60%;
+    width: 40%;
     height: 100%;
 }
 
@@ -79,6 +79,7 @@ main{
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 0;
     font-weight: 700;
+    font-size: 2vw;
 }
 
 
@@ -95,7 +96,7 @@ main{
 #p-title-frete{
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 3;
-    font-size: 200%;
+    font-size: 2vw;
     margin-bottom: 5%;
 }
 #input-frete-user-cep{
@@ -104,7 +105,7 @@ main{
     width: 75%;
     padding: 3%;
     font-family: 'Montserrat', sans-serif;
-    font-size: 100%;
+    font-size: .8vw;
     margin-bottom: 5%;
 }
 #input-frete-user-cep:focus{
@@ -136,15 +137,21 @@ main{
     justify-content: space-between;
     margin-top: 3%; margin-bottom: 3%;
 }
+#p-frete-user-endereco img{
+    width: 5%;
+}
+#p-frete-user-endereco{
+    font-size: 1vw;
+}
 .p-frete-entrega-txt{
-    font-size: 110%;
+    font-size: 1vw;
 }
 .p-frete-entrega-prazo{
     color: var(--main-green);
-    font-size: 85%;
+    font-size: .6vw;
 }
 .p-frete-entrega-valor{
-    font-size: 125%;
+    font-size: 1.5vw;
     font-weight: 700;
 }
 
@@ -160,9 +167,12 @@ main{
     font-family: 'Montserrat', sans-serif;
 }
 #div-compra-produto-descricao h3{
-    font-size: 200%;
+    font-size: 2vw;
     font-weight: 700;
     margin-bottom: 2%;
+}
+#div-compra-produto-descricao p{
+    font-size: .9vw;
 }
 
 
@@ -177,7 +187,7 @@ main{
     font-family: 'Montserrat', sans-serif;
 }
 #div-produto-formas-pagamento h3{
-    font-size: 200%;
+    font-size: 2vw;
     font-weight: 700;
     margin-bottom: 2%;
 }
@@ -190,12 +200,21 @@ main{
 .div-produto-tipo-formas-pagamento{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
-.p-produto-tipo-cartao{
-    font-size: 80%;
+.p-produto-tipo-formas-pagamento-top{
+    font-size: 1.3vw;
+    font-weight: 900;
 }
 .div-produto-tipo-formas-pagamento img{
     margin: 10%;
+}
+.p-produto-tipo-cartao{
+    font-size: .7vw;
+}
+.p-produto-tipo-formas-pagamento-bottom{
+    font-size: .7vw;
+    font-weight: 900;
 }
 
 
@@ -206,50 +225,163 @@ main{
     justify-content: center;
     margin-top: 5%;
     margin-left: 1%;
-    font-family: 'Montserrat', sans-serif;
 }
 #div-avaliacao-produto h3{
-    font-size: 200%;
+    font-size: 2vw;
     font-weight: 700;
-    margin-bottom: 1%;
+    font-family: 'Montserrat', sans-serif;
 }
 #div-avaliacao-produto form{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    width: 30%;
+    width: 50%;
+    font-family: 'Montserrat', sans-serif;
 }
 #div-avaliacao-produto-estrelas{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 50%;
+    width: 10%;
 }
-#div-avaliacao-produto-estrelas input{
-    display: none;
+.rating {
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+    font-size: 2.5vw;
+    overflow:hidden;
 }
-#div-avaliacao-produto-estrelas label{
-    display: block;
+.rating input {
+    float: right;
+    opacity: 0;
+    position: absolute;
+}
+.rating a,
+.rating label{
+    float:right;
+    color: #aaa;
+    text-decoration: none;
+    -webkit-transition: color .3s;
+    -moz-transition: color .3s;
+    -o-transition: color .3s;
+    transition: color .3s;
+}
+.rating label:hover ~ label,
+.rating input:focus ~ label,
+.rating label:hover,
+.rating a:hover,
+.rating a:hover ~ a,
+.rating a:focus,
+.rating a:focus ~ a{
+    color: orange;
     cursor: pointer;
 }
-#div-avaliacao-produto-estrelas label::before{
-    content: '\f005';
-    font-family: fontAwesome;
-    font-size: 2vw;
-    position: relative;
-    display: block;
-    color: #C1C8CE;
+.rating{
+    direction: rtl;
 }
-#div-avaliacao-produto-estrelas label::after{
-    content: '\f005';
-    font-family: fontAwesome;
-    font-size: 2vw;
-    position: absolute;
-    display: block;
-    color: #FFC600;
-    top: 0;
+.rating a{
+    float:none
 }
-#div-avaliacao-produto-estrelas label:hover::after{
-    opacity: 1;
+#div-avaliacao-produto-bottom{
+    display: flex;
+    flex-direction: column;
+    min-width: 85%;
+}
+#div-avaliacao-produto textarea{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border: 1px solid var(--main-black);
+    border-radius: 15px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 80%;
+    height: 15vh;
+    padding: 2%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3vw;
+}
+#div-avaliacao-produto textarea:focus{
+    outline: none;
+}
+#div-avaliacao-produto button{
+    align-self: flex-end;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--main-green);
+    color: white;
+    padding: .7vw;
+    margin-top: 1vw;
+    font-size: 1vw;
+}
+
+
+
+#section-opinioes-produto{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1%;
+    margin-top: 3%;
+    font-family: 'Montserrat', sans-serif;
+}
+#section-opinioes-produto h3{
+    font-size: 2vw;
+    font-weight: 700;
+}
+#div-nota-produto{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+}
+#div-nota-produto p{
+    font-size: 5vw;
+    font-weight: 700;
+    margin-bottom: 2%;
+}
+#div-nota-produto-estrelas{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#div-nota-produto-estrelas span{
+    font-size: 2.5vw;
+}
+
+#div-comentarios-produto{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2%;
+}
+#div-comentarios-produto ul{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 20%;
+    list-style: none;
+    font-size: 1.1vw;
+    margin-bottom: 1%;
+}
+#div-comentarios-produto ul:hover{
+    cursor: pointer;
+}
+ul li{
+    border-bottom: 2px solid transparent;
+}
+ul li:hover{
+    color: var(--main-green);
+    border-bottom: 2px solid var(--main-green);
+}
+#div-usuario-comentario-produto{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }

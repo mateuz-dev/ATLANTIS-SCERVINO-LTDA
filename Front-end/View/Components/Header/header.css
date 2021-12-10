@@ -123,7 +123,7 @@ nav {
     list-style: none;
     width: 250px;
     border-radius: 5px;
-    box-shadow: 0 0 1em black;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
 }
 
 #ul-categories li {
@@ -213,7 +213,11 @@ a {
     display: none;
 }
 
-#form-mobile {
+.form-mobile {
+    display: none;
+}
+
+.aumentar-tamanho-barra-pesquisa {
     display: none;
 }
 
@@ -230,25 +234,25 @@ a {
     header form {
         display: none;
     }
-    #nav-list{
+    #nav-list {
         display: none;
     }
-    #form-mobile {
+    .form-mobile {
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 40px;
+        width: 60px;
+        height: 60px;
         padding: 2%;
         border: 1px solid var(--main-green);
         border-radius: 24px;
         font-family: 'Montserrat', sans-serif;
     }
-    #form-mobile input {
+    .form-mobile input {
         display: none;
     }
-    #form-mobile img {
-        width: 20px;
-        height: 20px;
+    .form-mobile img {
+        width: 2vw;
     }
     #nav-mobile {
         display: flex;
@@ -262,7 +266,7 @@ a {
         background-color: var(--main-green);
         transition: transform 5.3s ease-in-out;
     }
-    #form-mobile:hover{
+    .form-mobile:hover {
         cursor: pointer;
     }
     #menu-options-mobile {
@@ -334,10 +338,7 @@ a {
     #ul-user-options {
         display: none;
     }
-    #div-title-header h1 {
-        padding-left: 10%;
-        padding-right: 10%;
-    }
+    #div-title-header h1 {}
 }
 
 #container-categorias {
@@ -356,12 +357,23 @@ a {
     }
 }
 
-
-
-
-
-.aumentar-tamanho-barra-pesquisa{
-    position: absolute;
-    width: 80vw;
-    padding: 0;
+.aumentar-tamanho-barra-pesquisa {
+    display: flex;
+    width: 50vw;
+    height: 60%;
+    padding: 2vw;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-out;
 }
+
+@media (min-width: 1260px) {
+    .aumentar-tamanho-barra-pesquisa {
+        display: none;
+    }
+}
+
+
+/* @media (max-width:1400px){
+    
+} */

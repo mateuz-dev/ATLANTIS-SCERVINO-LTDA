@@ -5,6 +5,9 @@ const imagePreview = (idFile, idImagem) => {
     const preview = document.getElementById(idImagem)
     const fileReader = new FileReader()
 
+    console.log(file)
+    console.log(preview)
+
     if (file) {
         fileReader.readAsDataURL(file)
     } else {

@@ -76,6 +76,8 @@ table tr td {
     height: 80px;
     background-color: #414141;
     font-size: 1.3rem;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 table tr td:nth-child(1) {
@@ -87,8 +89,6 @@ table tr td:nth-child(1) {
 table tr td:nth-child(2) {
     width: 100%;
     padding-left: 2vw;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
 }
 
 table tr td:nth-child(3) {
@@ -108,6 +108,6 @@ table tr td:nth-child(3) {
         width: 90%;
     }
     table tr td:nth-child(3) {
-        min-width: 50px;
+        min-width: 80px;
     }
 }
