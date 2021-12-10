@@ -47,6 +47,7 @@ const putOptionCategoryInContainer = (stringHTML, idContainer, idCategory) => {
     container.appendChild(option)
 }
 
+
 //Preenchimento das opções de cor e categoria
 const writeColorsInSelect = ({ idColor, name, hexa }) => {
     const contentOption = `${name}`
