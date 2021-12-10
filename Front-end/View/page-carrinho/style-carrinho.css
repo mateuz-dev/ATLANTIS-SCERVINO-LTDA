@@ -61,6 +61,7 @@ main{
     align-items: center;
     justify-content: space-between;
     padding-left: 80px;
+    padding-right: 80px;
     border-bottom: 10px #C4C4C4 solid;
 }
 
@@ -92,6 +93,12 @@ main{
     width: 150px;
     height: 150px;
 }
+
+#deleteProduct:hover{
+    transition: 0.2s;
+    transform: rotate(360deg) scale(1.1);
+}
+
 #textProduct{
     display: flex;
     flex-direction: column;
@@ -132,7 +139,6 @@ main{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-right: 50px;
     gap: 10vw;
 }
 
@@ -393,7 +399,7 @@ input[type=number] {
     }
 
     #quantity{
-        flex-direction: row;
+        flex-direction: column;
     }
 
     #rowFretePagar{
