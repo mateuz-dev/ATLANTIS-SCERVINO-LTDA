@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="../Components/Footer/footer.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-</head>
 
 
 <body>
@@ -100,7 +99,7 @@
                 <div class="div-produto-tipo-formas-pagamento">
                     <p class="p-produto-tipo-formas-pagamento-top">BOLETO</p>
                     <img src="images/icon-boleto.svg">
-                    <p id="p-produto-tipo-formas-pagamento-top">parcelado em 12x</p>
+                    <p class="p-produto-tipo-formas-pagamento-bottom">parcelado em 12x</p>
                 </div>
 
                 <div class="div-produto-tipo-formas-pagamento">
@@ -113,7 +112,7 @@
                     <p class="p-produto-tipo-formas-pagamento-top">CARTÃO</p>
                     <p class="p-produto-tipo-cartao">SCERVINO</p>
                     <img src="images/icon-cartao.svg">
-                    <p id="p-produto-tipo-formas-pagamento-top">desconto de 5%</p>
+                    <p class="p-produto-tipo-formas-pagamento-bottom">desconto de 5%</p>
                 </div>
 
                 <div class="div-produto-tipo-formas-pagamento">
@@ -127,20 +126,60 @@
         <div id="div-avaliacao-produto">
             <h3>Avaliar Produto</h3>
             <form action="">
-                <div id="div-avaliacao-produto-estrelas">
-                    <input type="radio" name="star" id="star1"> <label for="star1" class="estrelas-avaliacao"></label>
-                    <input type="radio" name="star" id="star2"> <label for="star2" class="estrelas-avaliacao"></label>
-                    <input type="radio" name="star" id="star3"> <label for="star3" class="estrelas-avaliacao"></label>
-                    <input type="radio" name="star" id="star4"> <label for="star4" class="estrelas-avaliacao"></label>
-                    <input type="radio" name="star" id="star5"> <label for="star5" class="estrelas-avaliacao"></label>
+                <div class="rating">
+                    <a href="#5" title="5 estrelas">★</a>
+                    <a href="#4" title="4 estrelas">★</a>
+                    <a href="#3" title="3 estrelas">★</a>
+                    <a href="#2" title="2 estrelas">★</a>
+                    <a href="#1" title="1 estrelas">★</a>
                 </div>
 
-                <input type="text" name="" id="">
-
-                <button type="submit">ENVIAR</button>
+                <div id="div-avaliacao-produto-bottom">
+                    <textarea name="avaliacao-produto-texto" id="avaliacao-produto-texto" cols="30" rows="10">Diga-nos o que achou do produto...</textarea>
+                    <button type="submit">ENVIAR</button>
+                </div>
             </form>
         </div>
-        </div>
+
+
+        <section id="section-opinioes-produto">
+            <h3>Opiniões sobre o produto</h3>
+            <div id="div-nota-produto">
+                <p>4.0</p>
+                <div id="div-nota-produto-estrelas">
+                    <span class="checked-star">★</span>
+                    <span class="checked-star">★</span>
+                    <span class="checked-star">★</span>
+                    <span class="checked-star">★</span>
+                    <span class="empty-star">★</span>
+                </div>
+            </div>
+
+            <div id="div-comentarios-produto">
+                <ul>
+                    <li>Todas</li>
+                    <li>Positivas</li>
+                    <li>Negativas</li>
+                </ul>
+
+                <div id="div-usuario-comentario-produto">
+                    <div id="div-usuario-comentario-produto-top">
+                        <img src="images/icon-user.svg" alt="Imagem de Perfil">
+                        <p>@user</p>
+                    </div>
+
+                    <div id="div-usuario-comentario-produto-estrelas">
+                            <span class="checked-star">★</span>
+                            <span class="checked-star">★</span>
+                            <span class="checked-star">★</span>
+                            <span class="checked-star">★</span>
+                            <span class="empty-star">★</span>
+                    </div>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id facilisis orci, eget interdum ex. Cras congue molestie mi sed luctus. Nullam laoreet, sem at sollicitudin sagittis, risus urna egestas justo, at aliquet diam augue nec ipsum. Aliquam ut elit arcu. Morbi luctus magna tempus, luctus erat id, suscipit nunc. Sed feugiat erat nec ornare molestie. Nullam ut lorem sed nisi rhoncus pellentesque eget quis justo. Donec vel vulputate velit, eleifend condimentum justo. Praesent eget pharetra velit, non cursus diam. Vestibulum vel facilisis justo, sit amet cursus diam.</p>
+                </div>
+            </div>
+        </section>
 
     </main>
 

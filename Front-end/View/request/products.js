@@ -24,6 +24,8 @@ const getProductByIdCategory = async(idCategory) => {
     if (result['status'] === 'Sucess') {
         return result['data']
     }
+
+    
 }
 
 const deleteProduct = async(idProduct) => {

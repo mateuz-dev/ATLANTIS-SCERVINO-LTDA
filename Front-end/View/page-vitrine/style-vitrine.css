@@ -127,7 +127,7 @@ main{
 
 
 
-#vitrine-produto-img{
+.vitrine-produto-img{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -164,7 +164,7 @@ main{
     transform: rotate(360deg) scale(1.1);
 }
 
-#vitrine-produto-info{
+.vitrine-produto-info{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -172,18 +172,18 @@ main{
     width: 100%;
     height: 40%;
 }
-#vitrine-produto-info h1{
+.vitrine-produto-info h1{
     color: white;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: normal;
     font-weight: 700;
     font-size: 125%;
 }
-#vitrine-produto-info img{
+.vitrine-produto-info img{
     width: 50%;
     margin-top: 1vw;
 }
-#vitrine-produto-precos{
+.vitrine-produto-precos{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -193,14 +193,14 @@ main{
     color: white;
     font-family: 'Montserrat', sans-serif;
 }
-#p-preco-antigo{
+.p-preco-antigo{
     text-decoration: line-through;
 }
-#p-porcentagem-deconto{
+.p-porcentagem-deconto{
     font-weight: bold;
     color: var(--main-green);
 }
-#p-preco-produto{
+.p-preco-produto{
     font-weight: bold;
     font-size: 175%;
 }

@@ -1,5 +1,4 @@
 <?php
-
 class ModelClient{
 
     private $_conn;
@@ -20,7 +19,9 @@ class ModelClient{
         $this->_email = $_POST['email'] ?? $datasClient->email ?? null;
         $this->_password = $_POST['password'] ?? $datasClient->password ?? null;
         $this->_cpf = $_POST['cpf'] ?? $datasClient->cpf ?? null;
+        
         $this->_birthDate = $_POST['birthDate'] ?? $datasClient->birthDate ?? null;
+
         $this->_profilePhoto = $_FILES['profilePhoto'] ?? null;
 
         $this->_conn = $conn;

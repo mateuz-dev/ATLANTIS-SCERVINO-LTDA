@@ -1,11 +1,10 @@
 'use strict'
 
 function searchBar() {
-    form_mobile.classList.add('aumentar-tamanho-barra-pesquisa');
+    form_mobile.classList.add('aumentar-tamanho-barra-pesquisa')
     form_mobile.classList.remove('form-mobile')
-   
-    mobile_menu.style.display="none"
-  
+
+    mobile_menu.style.display = 'none'
 }
 
 import { getCategories } from '../../request/categories.js'
@@ -18,7 +17,7 @@ document.querySelector('#header').innerHTML = `<input type="checkbox" id="check"
         <div class="line3"></div>
     </label>
 
-    <a id="a-header" href="">
+    <a id="a-header" href="../page-landingPage/index.html">
         <div id="div-title-header">
             <img src="../Components/Header/images/logo.png">
             <h1>SCERVINO</h1>
@@ -56,8 +55,8 @@ document.querySelector('#header').innerHTML = `<input type="checkbox" id="check"
         </ul>
 
         <ul id="ul-user-options">
-            <a href=""> <img src="../Components/Header/images/cart-icon.png" alt="Carrinho"> </a>
-            <a href=""> <img src="../Components/Header/images/user-icon.png" alt="Login/Cadastrar"> </a>
+            <a href="../page-carrinho/"> <img src="../Components/Header/images/cart-icon.png" alt="Carrinho"> </a>
+            <a href="../page-login/"> <img src="../Components/Header/images/user-icon.png" alt="Login/Cadastrar"> </a>
         </ul>
     </nav>
 
@@ -74,7 +73,7 @@ document.querySelector('#header').innerHTML = `<input type="checkbox" id="check"
                     </ul>
                 </li>
              
-                <li><a href="">Carrinho</a></li>
+                <li><a href="../../page-carrinho/index.html">Carrinho</a></li>
                 <li><a href="">Login</a></li>
             </ul>
     </nav>`
@@ -89,11 +88,9 @@ const putLineInContainer = (stringHTML, idContainer) => {
 
 const writeCategoriesInHeader = ({ idCategory, icon, name }) => {
     const contentLine = `
-    <li>
         <a href="../page-vitrine/index.html?idCategory=${idCategory}">
         <img src="${iconsDirectory}${icon}"> ${name}
-        </a>
-    </li>`
+        </a>`
 
     putLineInContainer(contentLine, '#ul-categories')
     putLineInContainer(contentLine, '#ul-categories-mobile')
@@ -104,13 +101,12 @@ const categories = await getCategories()
 if (categories.length > 0) {
     categories.map(writeCategoriesInHeader)
 } else {
-    const errorMessage = '<p>Não encontramos as categorias</p>'
-    putLineInContainer(errorMessage, '#ul-categories') 
+    const message = '<p>Não encontramos nenhuma categoria.</p>'
+    putLineInContainer(message, '#ul-categories')
 }
 
-
-const form_mobile = document.querySelector(".form-mobile")
-const mobile_menu = document.querySelector(".mobile-menu")
-const a_header = document.querySelector("#a-header")
+const form_mobile = document.querySelector('.form-mobile')
+const mobile_menu = document.querySelector('.mobile-menu')
+const a_header = document.querySelector('#a-header')
 
 form_mobile.addEventListener('click', searchBar)
