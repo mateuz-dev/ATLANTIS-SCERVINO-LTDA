@@ -34,7 +34,7 @@ main {
     justify-content: center;
     border-radius: 20px;
     height: 35px;
-    width: 120px;
+    width: 160px;
     font-size: 1.5rem;
     font-family: 'Montserrat', sans-serif;
     background-color: #eeeeee;
@@ -61,7 +61,7 @@ main {
 }
 
 #button-add-to-cart {
-    background-color: #4C4E5F;
+    background-color: #4c4e5f;
 }
 
 .button-standart {
@@ -132,7 +132,7 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background-color: #4C4E5F;
+    background-color: #4c4e5f;
     border: none;
     border-radius: 15px;
     padding: 5%;
@@ -191,7 +191,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: .3vw;
+    gap: 0.3vw;
     width: 100%;
 }
 
@@ -301,11 +301,11 @@ main {
 }
 
 .p-produto-tipo-cartao {
-    font-size: .8rem;
+    font-size: 0.8rem;
 }
 
 .p-produto-tipo-formas-pagamento-bottom {
-    font-size: .5rem;
+    font-size: 0.5rem;
     font-weight: 900;
 }
 
@@ -359,10 +359,10 @@ main {
     float: right;
     color: #aaa;
     text-decoration: none;
-    -webkit-transition: color .3s;
-    -moz-transition: color .3s;
-    -o-transition: color .3s;
-    transition: color .3s;
+    -webkit-transition: color 0.3s;
+    -moz-transition: color 0.3s;
+    -o-transition: color 0.3s;
+    transition: color 0.3s;
 }
 
 .rating label:hover~label,
@@ -381,7 +381,7 @@ main {
 }
 
 .rating a {
-    float: none
+    float: none;
 }
 
 #div-avaliacao-produto-bottom {
@@ -402,7 +402,7 @@ main {
     height: 15vh;
     padding: 2%;
     font-family: 'Montserrat', sans-serif;
-    font-size: .7rem;
+    font-size: 0.7rem;
 }
 
 #div-avaliacao-produto textarea:focus {
@@ -415,9 +415,9 @@ main {
     border-radius: 8px;
     background-color: var(--main-green);
     color: white;
-    padding: .7vw;
+    padding: 0.7vw;
     margin-top: 1vw;
-    font-size: .7rem;
+    font-size: 0.7rem;
 }
 
 #section-opinioes-produto {
@@ -474,7 +474,7 @@ main {
     justify-content: space-between;
     width: 20%;
     list-style: none;
-    font-size: .7rem;
+    font-size: 0.7rem;
     margin-bottom: 1%;
 }
 
@@ -505,7 +505,7 @@ ul li:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: .7vw;
+    gap: 0.7vw;
     font-size: 2rem;
 }
 
@@ -522,7 +522,7 @@ ul li:hover {
 }
 
 #div-usuario-comentario-produto-estrelas span {
-    font-size: .7rem;
+    font-size: 0.7rem;
 }
 
 #div-usuario-comentario-produto p {

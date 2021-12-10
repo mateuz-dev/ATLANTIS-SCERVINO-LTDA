@@ -24,8 +24,6 @@ const getProductByIdCategory = async(idCategory) => {
     if (result['status'] === 'Sucess') {
         return result['data']
     }
-
-    
 }
 
 const deleteProduct = async(idProduct) => {
@@ -39,6 +37,8 @@ const deleteProduct = async(idProduct) => {
         },
     }
     fetch(`${url}`, options)
+
+    document.location.reload(true)
 }
 
 export { getProducts, getProductByIdProduct, getProductByIdCategory, deleteProduct }

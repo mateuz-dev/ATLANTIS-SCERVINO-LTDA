@@ -4,7 +4,7 @@ import { getCategories, deleteCategory } from '../request/categories.js'
 import { getProducts, deleteProduct } from '../request/products.js'
 
 const iconsDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/icon/'
-const ImagesProductDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadProduct/'
+const imagesProductDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadProduct/'
 
 const writeCategoriesInTable = ({ idCategory, name, icon }) => {
     const table = document.getElementById('category-table')
@@ -13,7 +13,7 @@ const writeCategoriesInTable = ({ idCategory, name, icon }) => {
     eachLine.innerHTML = `
     <td>
         <a href="../page-vitrine/index.html?idCategory=${idCategory}">
-            <img src="${iconsDirectory}${icon}" alt="Category icon">
+            <img class="table-image" src="${iconsDirectory}${icon}" alt="Category icon">
         </a>
     </td>
     <td>
@@ -48,7 +48,9 @@ const writeProductsInTable = ({ idProduct, nameProduct, image }) => {
 
     eachLine.innerHTML = `
     <td>
-        <a href="../page-compra/index.html?idProduct=${idProduct}"><img src="${ImagesProductDirectory}${image}" alt="Product image"></a>
+        <a href="../page-compra/index.html?idProduct=${idProduct}">
+            <img class="table-image" src="${imagesProductDirectory}${image}" alt="Product image">
+        </a>
     </td>
     <td>
         ${nameProduct}

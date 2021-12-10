@@ -29,6 +29,8 @@ const deleteCategory = async(idCategory) => {
         },
     }
     fetch(`${url}`, options)
+
+    document.location.reload(true)
 }
 
 export { getCategories, getCategoryById, deleteCategory }

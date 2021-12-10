@@ -1,0 +1,252 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#top-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 750px;
+}
+
+#top-section>* {
+    padding-top: 120px;
+}
+
+#top-section>*:nth-child(1) {
+    flex: 2;
+    padding-left: 30px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--main-green);
+}
+
+#top-section>*:nth-child(2) {
+    flex: 1;
+    background-color: var(--main-black);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.title-container-white {
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.title-container-white .black-line {
+    height: 8px;
+    background-color: var(--main-black);
+    border-radius: 20px;
+}
+
+.title-page-white {
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 4px;
+    color: white;
+}
+
+.img-title {
+    width: 40px;
+    filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.835));
+}
+
+#p-who-we-are {
+    color: white;
+    margin-right: 15vw;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+#images-equip-container {
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+    gap: 40px;
+}
+
+.each-member-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.each-member-container img {
+    margin-bottom: 20px;
+    width: 140px;
+}
+
+.each-member-container h6 {
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 4px;
+    color: white;
+    text-align: center;
+}
+
+.each-member-container p {
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+#black-wave {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: -50px;
+}
+
+#logo-image {
+    width: 70%;
+}
+
+#onda-main {
+    display: flex;
+    top: 65%;
+    height: 14vh;
+    width: 100vw;
+    background: url(images/Onda\ branca.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+}
+
+.logo-text {
+    font-family: 'Lustria', serif;
+    font-weight: normal;
+    color: white;
+    letter-spacing: 7px;
+}
+
+#logo-higher-text {
+    margin-top: 20px;
+    font-size: 3rem;
+}
+
+#logo-higher-text {
+    font-size: 2rem;
+}
+
+#company-values {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 300px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    position: relative;
+}
+
+.each-value {
+    display: flex;
+    flex-direction: column;
+}
+
+.each-value img {
+    height: 80px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.each-value h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+#wave-under-values {
+    position: absolute;
+    width: 110%;
+    bottom: -40px;
+}
+
+#bottom-section {
+    height: 1300px;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 30px;
+    background-color: var(--main-black);
+}
+
+.bottom-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    width: 50%;
+}
+
+#bottom-section-left p {
+    color: white;
+    text-align: justify;
+    margin-right: 15vw;
+    margin-bottom: 60px;
+}
+
+#bottom-section-right {
+    justify-content: space-around;
+    gap: 40px;
+    padding: 30px;
+}
+
+#bottom-section-right .image-container {
+    height: 25vw;
+    width: 30vw;
+    background-color: var(--main-green);
+    border-radius: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+#bottom-section-right .image-container img {
+    width: 30vw;
+    height: 30vw;
+    object-fit: cover;
+    border-radius: 40px;
+    position: absolute;
+    right: 1vw;
+    top: 0;
+}
+
+@media (max-width: 1125px) {
+    #top-section {
+        flex-direction: column;
+        height: 1500px;
+    }
+    #top-section>*:nth-child(2) {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    #black-wave {
+        left: unset;
+        width: 100vw;
+        top: 0px;
+        transform: rotate(90deg);
+    }
+}
