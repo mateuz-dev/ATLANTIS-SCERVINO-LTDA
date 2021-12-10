@@ -17,7 +17,7 @@ document.querySelector('#header').innerHTML = `<input type="checkbox" id="check"
         <div class="line3"></div>
     </label>
 
-    <a id="a-header" href="">
+    <a id="a-header" href="../page-landingPage/index.html">
         <div id="div-title-header">
             <img src="../Components/Header/images/logo.png">
             <h1>SCERVINO</h1>
@@ -55,8 +55,8 @@ document.querySelector('#header').innerHTML = `<input type="checkbox" id="check"
         </ul>
 
         <ul id="ul-user-options">
-            <a href=""> <img src="../Components/Header/images/cart-icon.png" alt="Carrinho"> </a>
-            <a href=""> <img src="../Components/Header/images/user-icon.png" alt="Login/Cadastrar"> </a>
+            <a href="../page-carrinho/"> <img src="../Components/Header/images/cart-icon.png" alt="Carrinho"> </a>
+            <a href="../page-login/"> <img src="../Components/Header/images/user-icon.png" alt="Login/Cadastrar"> </a>
         </ul>
     </nav>
 
@@ -73,7 +73,7 @@ document.querySelector('#header').innerHTML = `<input type="checkbox" id="check"
                     </ul>
                 </li>
              
-                <li><a href="">Carrinho</a></li>
+                <li><a href="../../page-carrinho/index.html">Carrinho</a></li>
                 <li><a href="">Login</a></li>
             </ul>
     </nav>`

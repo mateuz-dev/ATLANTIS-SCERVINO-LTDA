@@ -1,52 +1,124 @@
-body{
+body {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-main{
+main {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-#section-top{
+.bold {
+    font-weight: bolder;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.price-p {
+    font-size: 1rem;
+}
+
+#p-preco-produto {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+.color-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    height: 35px;
+    width: 120px;
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #eeeeee;
+}
+
+#div-compra-produto-info-precos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#div-compra-produto-info-preco {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.porcentagem-desconto {
+    color: var(--main-green);
+}
+
+#button-buy {
+    background-color: var(--main-green);
+}
+
+#button-add-to-cart {
+    background-color: #4C4E5F;
+}
+
+.button-standart {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 7px;
+    height: 50px;
+    width: 300px;
+    margin-top: 20px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+}
+
+#section-top {
     display: flex;
     justify-content: space-between;
     padding: 1%;
     margin-top: 13vh;
 }
 
-#div-compra-produto{
+#div-compra-produto {
     width: 75%;
     height: 100%;
 }
 
-#div-compra-produto-img{
+#div-compra-produto-img {
     width: 40%;
     height: 100%;
 }
 
-#div-compra-produto-imagens{
+#div-compra-produto-imagens {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 20%;
     height: 100%;
 }
-#div-compra-produto-imagens img{
+
+#div-compra-produto-imagens img {
     width: 100%;
-    margin-top: 2%; margin-top: 2%;
+    margin-top: 2%;
+    margin-top: 2%;
     background-color: var(--main-black);
     border: none;
     border-radius: 10px;
     padding: 5%;
 }
-#div-compra-produto-imagens img:hover{
+
+#div-compra-produto-imagens img:hover {
     cursor: pointer;
 }
 
-#div-compra-produto-main-img{
+#div-compra-produto-main-img {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,18 +127,18 @@ main{
     margin-left: 1vw;
     overflow: hidden;
 }
-#div-compra-produto-main-img img{
+
+#div-compra-produto-main-img img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
     background-color: #4C4E5F;
     border: none;
     border-radius: 15px;
     padding: 5%;
 }
 
-
-#div-compra-produto-info{
-    background-color: brown;
+#div-compra-produto-info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -75,15 +147,15 @@ main{
     height: 100%;
     margin: 2%;
 }
-#div-compra-produto-info h1{
+
+#div-compra-produto-info h1 {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 0;
     font-weight: 700;
     font-size: 2vw;
 }
 
-
-#div-frete{
+#div-frete {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -93,36 +165,42 @@ main{
     border: 1px solid var(--main-black);
     border-radius: 15px;
 }
-#p-title-frete{
+
+#p-title-frete {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 3;
-    font-size: 2vw;
+    font-size: 2rem;
     margin-bottom: 5%;
 }
-#input-frete-user-cep{
+
+#input-frete-user-cep {
     border: 1px solid var(--main-black);
     border-radius: 15px;
     width: 75%;
     padding: 3%;
     font-family: 'Montserrat', sans-serif;
-    font-size: .8vw;
+    font-size: 1rem;
     margin-bottom: 5%;
 }
-#input-frete-user-cep:focus{
+
+#input-frete-user-cep:focus {
     outline: none;
 }
-#p-frete-user-endereco{
+
+#p-frete-user-endereco {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: .3vw;
     width: 100%;
 }
-#span-frete-user-endereco{
+
+#span-frete-user-endereco {
     font-family: 'Montserrat', sans-serif;
-    font-size: 100%;
+    font-size: 1rem;
 }
-#div-frete-entrega{
+
+#div-frete-entrega {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -130,33 +208,39 @@ main{
     width: 100%;
     margin-top: 5%;
 }
-#div-frete-entrega div{
+
+#div-frete-entrega div {
     display: flex;
     width: 100%;
     font-family: 'Montserrat', sans-serif;
     justify-content: space-between;
-    margin-top: 3%; margin-bottom: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
-#p-frete-user-endereco img{
+
+#p-frete-user-endereco img {
     width: 5%;
 }
-#p-frete-user-endereco{
-    font-size: 1vw;
+
+#p-frete-user-endereco {
+    font-size: 1rem;
 }
-.p-frete-entrega-txt{
-    font-size: 1vw;
+
+.p-frete-entrega-txt {
+    font-size: 1rem;
 }
-.p-frete-entrega-prazo{
+
+.p-frete-entrega-prazo {
     color: var(--main-green);
-    font-size: .6vw;
+    font-size: 1rem;
 }
-.p-frete-entrega-valor{
-    font-size: 1.5vw;
+
+.p-frete-entrega-valor {
+    font-size: 1rem;
     font-weight: 700;
 }
 
-
-#div-compra-produto-descricao{
+#div-compra-produto-descricao {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -166,17 +250,18 @@ main{
     width: 60%;
     font-family: 'Montserrat', sans-serif;
 }
-#div-compra-produto-descricao h3{
-    font-size: 2vw;
+
+#div-compra-produto-descricao h3 {
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 2%;
 }
-#div-compra-produto-descricao p{
-    font-size: .9vw;
+
+#div-compra-produto-descricao p {
+    font-size: 1rem;
 }
 
-
-#div-produto-formas-pagamento{
+#div-produto-formas-pagamento {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -186,39 +271,45 @@ main{
     width: 60%;
     font-family: 'Montserrat', sans-serif;
 }
-#div-produto-formas-pagamento h3{
-    font-size: 2vw;
+
+#div-produto-formas-pagamento h3 {
+    font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 2%;
 }
-#div-produto-formas-pagamento-opcoes{
+
+#div-produto-formas-pagamento-opcoes {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;
 }
-.div-produto-tipo-formas-pagamento{
+
+.div-produto-tipo-formas-pagamento {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-.p-produto-tipo-formas-pagamento-top{
-    font-size: 1.3vw;
+
+.p-produto-tipo-formas-pagamento-top {
+    font-size: 1rem;
     font-weight: 900;
 }
-.div-produto-tipo-formas-pagamento img{
+
+.div-produto-tipo-formas-pagamento img {
     margin: 10%;
 }
-.p-produto-tipo-cartao{
-    font-size: .7vw;
+
+.p-produto-tipo-cartao {
+    font-size: .8rem;
 }
-.p-produto-tipo-formas-pagamento-bottom{
-    font-size: .7vw;
+
+.p-produto-tipo-formas-pagamento-bottom {
+    font-size: .5rem;
     font-weight: 900;
 }
 
-
-#div-avaliacao-produto{
+#div-avaliacao-produto {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -226,12 +317,14 @@ main{
     margin-top: 5%;
     margin-left: 1%;
 }
-#div-avaliacao-produto h3{
-    font-size: 2vw;
+
+#div-avaliacao-produto h3 {
+    font-size: 1.5rem;
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
 }
-#div-avaliacao-produto form{
+
+#div-avaliacao-produto form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -239,27 +332,31 @@ main{
     width: 50%;
     font-family: 'Montserrat', sans-serif;
 }
-#div-avaliacao-produto-estrelas{
+
+#div-avaliacao-produto-estrelas {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 10%;
 }
+
 .rating {
     display: flex;
     justify-content: space-between;
-    width: 35%;
-    font-size: 2.5vw;
-    overflow:hidden;
+    width: 250px;
+    font-size: 2rem;
+    overflow: hidden;
 }
+
 .rating input {
     float: right;
     opacity: 0;
     position: absolute;
 }
+
 .rating a,
-.rating label{
-    float:right;
+.rating label {
+    float: right;
     color: #aaa;
     text-decoration: none;
     -webkit-transition: color .3s;
@@ -267,28 +364,33 @@ main{
     -o-transition: color .3s;
     transition: color .3s;
 }
-.rating label:hover ~ label,
-.rating input:focus ~ label,
+
+.rating label:hover~label,
+.rating input:focus~label,
 .rating label:hover,
 .rating a:hover,
-.rating a:hover ~ a,
+.rating a:hover~a,
 .rating a:focus,
-.rating a:focus ~ a{
+.rating a:focus~a {
     color: orange;
     cursor: pointer;
 }
-.rating{
+
+.rating {
     direction: rtl;
 }
-.rating a{
-    float:none
+
+.rating a {
+    float: none
 }
-#div-avaliacao-produto-bottom{
+
+#div-avaliacao-produto-bottom {
     display: flex;
     flex-direction: column;
     min-width: 85%;
 }
-#div-avaliacao-produto textarea{
+
+#div-avaliacao-produto textarea {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -300,12 +402,14 @@ main{
     height: 15vh;
     padding: 2%;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.3vw;
+    font-size: .7rem;
 }
-#div-avaliacao-produto textarea:focus{
+
+#div-avaliacao-produto textarea:focus {
     outline: none;
 }
-#div-avaliacao-produto button{
+
+#div-avaliacao-produto button {
     align-self: flex-end;
     border: none;
     border-radius: 8px;
@@ -313,12 +417,10 @@ main{
     color: white;
     padding: .7vw;
     margin-top: 1vw;
-    font-size: 1vw;
+    font-size: .7rem;
 }
 
-
-
-#section-opinioes-produto{
+#section-opinioes-produto {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -327,32 +429,37 @@ main{
     margin-top: 3%;
     font-family: 'Montserrat', sans-serif;
 }
-#section-opinioes-produto h3{
-    font-size: 2vw;
+
+#section-opinioes-produto h3 {
+    font-size: 1rem;
     font-weight: 700;
 }
-#div-nota-produto{
+
+#div-nota-produto {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     font-family: 'Montserrat', sans-serif;
 }
-#div-nota-produto p{
-    font-size: 5vw;
+
+#div-nota-produto p {
+    font-size: 3rem;
     font-weight: 700;
     margin-bottom: 2%;
 }
-#div-nota-produto-estrelas{
+
+#div-nota-produto-estrelas {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-#div-nota-produto-estrelas span{
-    font-size: 2.5vw;
+
+#div-nota-produto-estrelas span {
+    font-size: 2rem;
 }
 
-#div-comentarios-produto{
+#div-comentarios-produto {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -360,28 +467,85 @@ main{
     width: 100%;
     margin-top: 2%;
 }
-#div-comentarios-produto ul{
+
+#div-comentarios-produto ul {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     width: 20%;
     list-style: none;
-    font-size: 1.1vw;
+    font-size: .7rem;
     margin-bottom: 1%;
 }
-#div-comentarios-produto ul:hover{
+
+#div-comentarios-produto ul:hover {
     cursor: pointer;
 }
-ul li{
+
+ul li {
     border-bottom: 2px solid transparent;
+    width: 1vw;
 }
-ul li:hover{
+
+ul li:hover {
     color: var(--main-green);
-    border-bottom: 2px solid var(--main-green);
+    border-bottom: solid var(--main-green);
+    border-bottom-width: thin;
 }
-#div-usuario-comentario-produto{
+
+#div-usuario-comentario-produto {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    width: 65%;
+}
+
+#div-usuario-comentario-produto-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .7vw;
+    font-size: 2rem;
+}
+
+#div-usuario-comentario-produto-top img {
+    width: 2rem;
+}
+
+#div-usuario-comentario-produto-estrelas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 6vw;
+    height: 4vh;
+}
+
+#div-usuario-comentario-produto-estrelas span {
+    font-size: .7rem;
+}
+
+#div-usuario-comentario-produto p {
+    width: 80%;
+    font-size: 1rem;
+}
+
+@media (max-width: 798px) {
+    #section-top {
+        flex-direction: column;
+    }
+    #div-compra-produto {
+        flex-direction: column;
+        width: 100%;
+    }
+    #div-compra-produto>* {
+        width: 90%;
+    }
+    #div-compra-produto-info h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+    #div-frete {
+        width: 90%;
+    }
 }
