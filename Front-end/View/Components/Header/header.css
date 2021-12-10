@@ -73,15 +73,40 @@ nav {
     align-items: center;
     width: 15%;
     margin-left: 20%;
+    list-style: none;
+    gap: 30%;
 }
 
 #ul-user-options img {
-    width: 50%;
+    height: 30px;
+}
+#ul-user-options li{
+    display: flex;
+    align-items: center;
+}
+#ul-user-options li:hover{
+    cursor: pointer;
 }
 
-#arrow {
-    width: 10%;
-    margin-left: 5%;
+#ul-user-options-ul{
+    display: none;
+   
+    flex-direction: row;
+    align-items: center;
+    height: 4vh;
+}
+
+#ul-user-options:hover{
+    display: flex;
+}
+
+
+
+
+.arrow {
+    width: .7vw;
+    height: .7vh;
+    padding-left: 5%;
     color: var(--main-green);
 }
 
