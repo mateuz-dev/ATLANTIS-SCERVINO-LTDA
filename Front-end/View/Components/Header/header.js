@@ -10,73 +10,89 @@ function searchBar() {
 import { getCategories } from '../../request/categories.js'
 const iconsDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/icon/'
 
-document.querySelector('#header').innerHTML = `<input type="checkbox" id="check">
-    <label for="check" class="mobile-menu">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-    </label>
-
-    <a id="a-header" href="../page-landingPage/index.html">
-        <div id="div-title-header">
-            <img src="../Components/Header/images/logo.png">
-            <h1>SCERVINO</h1>
-        </div>
-    </a>
-
-        <form class="form-mobile" action="">
-            <img src="../Components/Header/images/search-icon.png">
-            <input type="text" name="" id="" placeholder="Buscar">
-        </form>
-   
-
-    <nav id="nav-list">
-        <ul id="ul-menu-options">
-
-
-            <li> <a href="">Nossa História</a> </li>
-
-            <li id="li-catalog"> Catálogo <img src="../Components/Header/images/arrow-icon.svg" id="arrow">
-
-
-                <ul id="ul">
-                    <ul id="ul-triangle"><img src="../Components/Header/images/triangle-icon.png"></ul>
-
-                    <ul id="ul-categories">
-                    </ul>
-                </ul>
-
-            </li>
-
-            <form action="">
+document.querySelector('#header').innerHTML = 
+`
+<input type="checkbox" id="check">
+        <label for="check" class="mobile-menu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </label>
+    
+        <a href="../page-landingPage/index.html">
+            <div id="div-title-header">
+                <img  src="../Components/Header/images/logo.png">
+                <h1>SCERVINO</h1>
+            </div>
+        </a>
+    
+            <form class="form-mobile" action="" onclick="searchBar()">
                 <img src="../Components/Header/images/search-icon.png">
                 <input type="text" name="" id="" placeholder="Buscar">
             </form>
-        </ul>
+       
+    
+        <nav id="nav-list">
 
-        <ul id="ul-user-options">
-            <a href="../page-carrinho/"> <img src="../Components/Header/images/cart-icon.png" alt="Carrinho"> </a>
-            <a href="../page-login/"> <img src="../Components/Header/images/user-icon.png" alt="Login/Cadastrar"> </a>
-        </ul>
-    </nav>
+            <ul id="ul-menu-options">
+                <li> <a href="../page-our-history/index.html">Nossa História</a> </li>
+    
+                <li id="li-catalog"> Catálogo <img src="../Components/Header/images/arrow-icon.svg" class="arrow">
+                    <ul id="ul">
+                        <li class="li-triangle"><img src="../Components/Header/images/triangle-icon.png"></li>
+                        <ul id="ul-categories"></ul>
+                    </ul>
+                </li>
+    
+                <form action="">
+                    <img src="../Components/Header/images/search-icon.png">
+                    <input type="text" name="" id="" placeholder="Buscar">
+                </form>
+            </ul>
+    
 
-    <nav id="nav-mobile">
-            <ul id="menu-options-mobile">
-                <li><a href="">Nossa História</a></li>
-                
-                <li id="li-catalog-mobile"><a href="">Catálogo</a> <img src="../Components/Header/images/arrow-icon.svg" id="arrow-mobile">
-                    <ul id="ul-mobile">
-                        <ul id="ul-triangle-mobile"><img src="../Components/Header/images/triangle-icon.png"></ul>
 
-                        <ul id="ul-categories-mobile">
+            <ul id="ul-user-options">
+                <li> <a href="../page-carrinho/index.html"><img src="../Components/Header/images/cart-icon.png" alt="Carrinho"></a> </li>
+
+                <li id="li-user-options"> <img src="../Components/Header/images/user-icon.png" alt="Login/Cadastrar"> <img src="../Components/Header/images/arrow-icon.svg" class="arrow">
+                    <ul id="ul-user-options-ul">
+                        <li id="li-triangle-user"><img src="../Components/Header/images/triangle-icon.png"></li>
+                        <ul id="ul-user-options-list">
+                            <li> <a href="../page-cadastro/index.html"> <img src="../Components/Header/images/edit-icon.svg"> Perfil </a> </li>
+                            <li> <a href="../page-management/index.html"> <img src="../Components/Header/images/management-icon.svg"> Gerenciamento </a> </li>
+                            <li> <a href="../page-login/index.html"> <img src="../Components/Header/images/login-icon.svg"> Login </a> </li>
+                            <li> <a href=""> <img src="../Components/Header/images/logout-icon.svg"> Sair </a> </li>
                         </ul>
                     </ul>
                 </li>
-             
-                <li><a href="../../page-carrinho/index.html">Carrinho</a></li>
-                <li><a href="">Login</a></li>
             </ul>
-    </nav>`
+
+        </nav>
+    
+
+
+
+
+        <nav id="nav-mobile">
+
+            <ul id="menu-options-mobile">
+                <li><a href="">Nossa História</a></li>
+                    
+                <li id="li-catalog-mobile"><a href="">Catálogo</a> <img src="../Components/Header/images/arrow-icon.svg" id="arrow-mobile">
+                    <ul id="ul-mobile">
+                        <ul id="ul-triangle-mobile"><img src="../Components/Header/images/triangle-icon.png"></ul>
+                        <ul id="ul-categories-mobile"></ul>
+                    </ul>
+                </li>
+                 
+                <li><a href="">Carrinho</a></li>
+                <li><a href="">Login</a></li>
+
+            </ul>
+            
+        </nav>
+`
 
 const putLineInContainer = (stringHTML, idContainer) => {
     const container = document.querySelector(idContainer)
