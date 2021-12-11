@@ -1,6 +1,10 @@
+/* ~ HEADER CSS SETTINGS ~ */
+
+
+/* GENERAL CHANGES */
 header {
     height: 80px;
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,7 +17,6 @@ header {
     background-color: white;
     text-align: center;
 }
-
 header p {
     display: flex;
     flex-direction: column;
@@ -23,27 +26,65 @@ header p {
     border-radius: 5px;
     color: white;
 }
-
 header p:hover {
     background-color: var(--main-green);
 }
-
+header form {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 45%;
+    height: 50%;
+    padding: 2%;
+    border: 1px solid var(--main-green);
+    border-radius: 24px;
+    font-family: 'Montserrat', sans-serif;
+}
+header form img {
+    width: 6%;
+}
+header form input {
+    width: 100%;
+    margin-left: 5%;
+    border: none;
+    background: none;
+    color: var(--main-green);
+    font-size: 1.3rem;
+}
+header form input:focus {
+    outline: none;
+    border: none;
+}
+h1 {
+    font-family: 'Lustria', serif;
+    font-size: 225%;
+    font-weight: normal;
+    letter-spacing: 7px;
+}
+a {
+    text-decoration: none;
+    color: var(--main-green);
+}
 div {
     display: flex;
     align-items: center;
 }
 
-#div-title-header {
+
+/* DIV TITLE [LOGO / TEXT] */
+#div-title-header{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
-
 #div-title-header img {
     width: 10%;
     margin-right: 5%;
 }
 
+
+
+/* NAVIGATION [NOSSA HISTÓRIA / CATALOG / SEARCH BAR]  */
 nav {
     display: flex;
     align-items: center;
@@ -51,28 +92,78 @@ nav {
     width: 70%;
     height: 100%;
 }
-
 #ul-menu-options {
     width: 100%;
-    height: 10%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     justify-content: space-between;
 }
-
 #ul-menu-options li {
     list-style: none;
     font-family: 'Montserrat', sans-serif;
-    font-style: 18px;
+}
+#li-user-options{
+    display: flex;
 }
 
+
+
+/* CATALOG */
+#li-catalog:hover>#ul {
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+}
+#li-catalog {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 4vh;
+}
+#ul {
+    display: none;
+    top: 6%;
+    width: 175px;
+    position: absolute;
+    margin-left: 50px;
+}
+#ul-categories {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-green);
+    list-style: none;
+    width: 250px;
+    border-radius: 5px;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
+}
+#ul-categories li {
+    border-radius: 5px;
+}
+#ul-categories li:hover {
+    background-color: var(--main-black);
+}
+#ul-categories li>a {
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 5%;
+}
+#ul-categories li>a img {
+    width: 10%;
+    margin-right: 5%;
+}
+
+
+
+/* CART AND USER OPTIONS */
 #ul-user-options {
     display: flex;
     align-items: center;
-    width: 15%;
-    margin-left: 20%;
+    width: 25%;
+    margin-left: 15%;
     list-style: none;
     gap: 30%;
 }
@@ -87,61 +178,52 @@ nav {
 #ul-user-options li:hover{
     cursor: pointer;
 }
-
-#ul-user-options-ul{
-    display: none;
-   
-    flex-direction: row;
-    align-items: center;
-    height: 4vh;
-}
-
-#ul-user-options:hover{
-    display: flex;
-}
-
-
-
-
-.arrow {
-    width: .7vw;
-    height: .7vh;
-    padding-left: 5%;
-    color: var(--main-green);
-}
-
-#li-catalog:hover>#ul {
+#ul-user-options-list{
     display: flex;
     flex-direction: column;
-    padding-top: 60px;
+    background-color: var(--main-green);
+    list-style: none;
+    width: 250px;
+    border-radius: 5px;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 }
-
-#li-catalog {
+#ul-user-options-list li{
+    padding: .5vw;
+    font-size: 1.2rem;
+    width: 100%;
+    height: 100%;
+}
+#ul-user-options-list a{
+    width: 100%;
+    height: 100%
+}
+#ul-user-options-list a>img{
+    width: 100%;
+    height: 100%;
+}
+#li-user-options:hover>#ul-user-options-ul {
+    display: flex;
+    flex-direction: column;
+}
+#li-user-options {
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 4vh;
 }
-
-#ul {
+#ul-user-options-ul {
     display: none;
-    top: 6%;
-    width: 175px;
+    flex-direction: column;
+    margin-top: 6vh;
+    width: 100%;
     position: absolute;
     margin-left: 50px;
+    top: 57px;
+    margin: 0;
 }
-
-#ul-triangle {
-    display: flex;
-    width: 175px;
-}
-
-#ul-triangle img {
-    width: 7%;
-    margin-left: 7%;
-}
-
-#ul-categories {
+#ul-user-options-list {
     display: flex;
     flex-direction: column;
     background-color: var(--main-green);
@@ -150,67 +232,51 @@ nav {
     border-radius: 5px;
     box-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
 }
-
-#ul-categories li {
+#ul-user-options-list li {
     border-radius: 5px;
 }
-
-#ul-categories li:hover {
+#ul-user-options-list li:hover {
     background-color: var(--main-black);
 }
-
-#ul-categories li>a {
+#ul-user-options-list li>a {
     color: white;
     display: flex;
     align-items: center;
     padding: 5%;
 }
-
-#ul-categories li>a img {
+#ul-user-options-list li>a img {
     width: 10%;
     margin-right: 5%;
 }
-
-header form {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    width: 45%;
-    height: 100%;
-    padding: 2%;
-    border: 1px solid var(--main-green);
-    border-radius: 24px;
-    font-family: 'Montserrat', sans-serif;
+#li-triangle-user img{
+    width: 1vw;
+    height: 1.3vh;
+    margin-left: 2.5vw;
 }
 
-header form img {
-    width: 6%;
-}
 
-header form input {
+
+/* MENU HEADER GENERAL CLASSES */
+.arrow {
+    width: .7vw;
+    height: .7vh;
+    color: var(--main-green);
+    margin-left: .5vw;
+}
+.li-triangle{
+    width: 1vw;
+    height: 1vh;
+}
+.li-triangle img {
     width: 100%;
-    margin-left: 5%;
-    border: none;
-    background: none;
-    color: var(--main-green);
+    height: 100%;
 }
 
-header form input:focus {
-    outline: none;
-    border: none;
-}
 
-h1 {
-    font-family: 'Lustria', serif;
-    font-size: 225%;
-    font-weight: normal;
-    letter-spacing: 7px;
-}
 
-a {
-    text-decoration: none;
-    color: var(--main-green);
-}
+
+
+/* CSS MOBILE HEADER */
 
 .mobile-menu {
     display: none;
