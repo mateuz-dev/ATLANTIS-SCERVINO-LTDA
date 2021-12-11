@@ -98,7 +98,7 @@ const writeProductsInCart = ({idProduct, nameProduct, nameColor, hexa, discount,
                 <div id="qtdPrice">
                         <div id="quantity">
                             <div id="slider">
-                                <button id="menos" onclick="diminuirProdutos">&#9001;</button>
+                                <button id="menos">&#9001;</button>
                                 <input
                                     type="number"
                                     id="quantityProducts"
@@ -107,7 +107,7 @@ const writeProductsInCart = ({idProduct, nameProduct, nameColor, hexa, discount,
                                     oninput="validity.valid||(value='1');"
                                     readonly
                                 />
-                                <button id="mais" onclick="aumentarProdutos(${qtdInventory})">&#9002;</button>
+                                <button id="mais" value="${qtdInventory}">&#9002;</button>
                             </div>
                             <img id="deleteProduct" src="./images/img_216917.png" alt="" onclick="deleteProduct(${idProduct})"/>
                         </div>
@@ -138,6 +138,8 @@ const writeProductsInCart = ({idProduct, nameProduct, nameColor, hexa, discount,
 
 // //Dar set no local storage com nova variável
 
+
+
 const products = await getProducts()
 
 if (products.length > 0) {
@@ -147,7 +149,13 @@ if (products.length > 0) {
 
 
 
+const buttonMais = document.getElementById("mais")
 
+document.getElementById("mais") 
+.addEventListener("click", aumentarProdutos(buttonMais.value))
+
+document.getElementById("menos") 
+.addEventListener("click", diminuirProdutos)
 
 
 

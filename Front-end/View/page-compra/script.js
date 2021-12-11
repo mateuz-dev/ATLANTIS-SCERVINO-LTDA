@@ -71,3 +71,39 @@ const fillPageWithProductDatas = () => {
 }
 
 fillPageWithProductDatas()
+
+// localStorage.removeItem('idProduct')
+var addToCart = JSON.parse(localStorage.getItem('idProduct'))
+
+
+function addProductToCart() {
+    
+
+    var idProduct = {}
+    if (addToCart != "") {
+        idProduct = {
+        idProduct:product[0].idProduct
+        }
+        
+    } else {
+        idProduct = {
+            idProduct:product[0].idProduct
+        }
+    }
+    
+
+    localStorage.setItem('idProduct', JSON.stringify(idProduct))
+     productsInCart = JSON.parse(localStorage.getItem('idProduct'))
+
+    return idProduct
+}
+
+
+
+
+
+
+    addToCart = JSON.parse(localStorage.getItem('idProduct'))
+
+document.getElementById("button-add-to-cart")
+.addEventListener("click", addProductToCart)
