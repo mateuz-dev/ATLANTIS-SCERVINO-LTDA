@@ -1,25 +1,21 @@
-"use strict"
-
+'use strict'
 
 var url = window.location.href
 
 const ImagesProductDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadProduct/'
 
-console.log(url)
+import { getProductByIdCategory } from '../request/products.js'
 
-import {getProductByIdCategory} from '../request/products.js'
-
-
-var idCategory = url.substring(url.lastIndexOf('=') + 1);
+var idCategory = url.substring(url.lastIndexOf('=') + 1)
 
 const listProducts = ({ idProduct, nameProduct, image, discount, price }) => {
-        const container = document.getElementById('div-catalogo-produtos')
-        const eachProduct = document.createElement('a')
+    const container = document.getElementById('div-catalogo-produtos')
+    const eachProduct = document.createElement('a')
 
-        eachProduct.className = 'vitrine-produto'
-        eachProduct.href = `../page-compra/index.html?idProduct=${idProduct}`
-    
-        eachProduct.innerHTML = `
+    eachProduct.className = 'vitrine-produto'
+    eachProduct.href = `../page-compra/index.html?idProduct=${idProduct}`
+
+    eachProduct.innerHTML = `
         <div class="vitrine-produto-img"> <img src="${ImagesProductDirectory}${image}" alt=""></div>
         <div class="vitrine-produto-info">
             <h1>${nameProduct}</h1>
@@ -31,7 +27,7 @@ const listProducts = ({ idProduct, nameProduct, image, discount, price }) => {
             </div>
         </div>
         `
-        container.appendChild(eachProduct)
+    container.appendChild(eachProduct)
 }
 
 const selectOnlyOnePerId = (product) => {
@@ -45,9 +41,5 @@ const products = await getProductByIdCategory(idCategory)
 
 var lastIdProductFound = 0
 const productsWithoutImages = products.filter(selectOnlyOnePerId)
-console.log(productsWithoutImages)
 
 productsWithoutImages.map(listProducts)
-
-
-

@@ -72,50 +72,24 @@ const fillPageWithProductDatas = () => {
 
 fillPageWithProductDatas()
 
-function verifyItems() {
-    if (localStorage.getItem('idProduct') != null) {
-        return localStorage.getItem('idProduct')
-    } else {
-       return
-    }
-}
+var cart = []
 
-
-
-
-// localStorage.removeItem('idProduct')
- var cart = []
-
-if (localStorage.getItem('idProduct') == null) {
-    cart = []
+if (JSON.parse(localStorage.getItem('cart')) !== null) {
+    cart = JSON.parse(localStorage.getItem('cart'))
 } else {
-    cart = [verifyItems()]
+    localStorage.setItem('cart', JSON.stringify(cart))
 }
-
 
 function addProductToCart() {
-    
-    var productID = product[0].idProduct
-    var productsInCart = localStorage.getItem('idProduct');
-    var existsProductsInCart = -1
+    const productID = product[0].idProduct
 
-    if(productsInCart != null){
-        existsProductsInCart = productsInCart.indexOf(product[0].idProduct);
+    if (cart.indexOf(productID) === -1) {
+        cart.push(productID)
+        localStorage.setItem('cart', JSON.stringify(cart))
+
+        return true
     }
-
-    if(existsProductsInCart == -1){
-        cart.push(productID)     
-        var productsInCart = localStorage.setItem('idProduct', cart)
-    } 
-
-    return productsInCart
+    return false
 }
 
-
-
-    // addToCart = JSON.parse(localStorage.getItem('idProduct'))
-
-document.getElementById("button-add-to-cart")
-.addEventListener("click", addProductToCart)
-
-
+document.getElementById('button-add-to-cart').addEventListener('click', addProductToCart)

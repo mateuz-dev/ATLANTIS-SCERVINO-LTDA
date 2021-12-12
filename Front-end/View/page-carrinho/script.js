@@ -1,36 +1,29 @@
 'use strict'
 
-import { getProductByIdProduct } from "../request/products.js"
+import { getProductByIdProduct } from '../request/products.js'
 
-const url = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Products/'
-
-
-var qtdProducts = document.getElementById("quantityProducts")
-const fretePara = document.getElementById("frete2")
-const inputFrete = document.getElementById("inputFrete")
+var qtdProducts = document.getElementById('quantityProducts')
+const fretePara = document.getElementById('frete2')
+const inputFrete = document.getElementById('inputFrete')
 
 const productsDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadProduct/'
 
 const minValueFrete = 1000000
 const maxValueFrete = 99999999
 
-const datasByGet = {}
-const product = await getProductByIdProduct(datasByGet['idProduct'])
-
 function aumentarProdutos(qtdMaxProducts) {
-    if(qtdProducts.value < qtdMaxProducts){
-    qtdProducts.value = parseInt(qtdProducts.value) + 1
+    if (qtdProducts.value < qtdMaxProducts) {
+        qtdProducts.value = parseInt(qtdProducts.value) + 1
     }
 }
 
 function diminuirProdutos() {
-    if(qtdProducts.value > 1){
+    if (qtdProducts.value > 1) {
         qtdProducts.value = parseInt(qtdProducts.value) - 1
     }
 }
 
-
-function encontrarCep(){
+function encontrarCep() {
     if (inputFrete.value >= minValueFrete && inputFrete.value <= maxValueFrete) {
         fretePara.innerHTML = `
                     <div id="rowAdress">
@@ -49,16 +42,14 @@ function encontrarCep(){
     }
 }
 
-
 function geraStringAleatoria(tamanho) {
-    var stringAleatoria = '';
-    var caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var stringAleatoria = ''
+    var caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
     for (var i = 0; i < tamanho; i++) {
-        stringAleatoria += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+        stringAleatoria += caracteres.charAt(Math.floor(Math.random() * caracteres.length))
     }
-    return stringAleatoria;
+    return stringAleatoria
 }
-
 
 const putLineInContainer = (stringHTML, idContainer) => {
     const container = document.querySelector(idContainer)
@@ -68,31 +59,40 @@ const putLineInContainer = (stringHTML, idContainer) => {
     container.appendChild(div)
 }
 
-
 const calculatePriceDiscount = (price, discount) => {
-    return price - (discount/100) * price
+    return price - (discount / 100) * price
 }
 
 const calculateInstallments = (price, discount) => {
-    var discountInstallments = discount*0.7
-    return price - (discountInstallments/100) * price
+    var discountInstallments = discount * 0.7
+    return price - (discountInstallments / 100) * price
 }
 
-const writeProductsInCart = ({idProduct, nameProduct, nameColor, hexa, discount, price, qtdInventory, image}) => {
-    
-    
+const deleteProductFromCart = (idProduct) => {
+    const index = cart.indexOf(idProduct)
+
+    if (index > -1) {
+        cart.splice(index, 1)
+
+        localStorage.setItem('cart', JSON.stringify(cart))
+    }
+}
+
+const listProducts = async(idProduct) => {
+    const product = await getProductByIdProduct(idProduct)
+
     const contentLine = `
-        <div class="contentCart" id="contentCart ${idProduct}">
+        <div class="contentCart" id="contentCart ${product[0].idProduct}">
             <div id="product">
-                <img src="${productsDirectory}${image}" alt="" />
+                <img src="${productsDirectory}${product[0].image}" alt="" />
 
                 <div id="textProduct" class="textProduct">
                     <div id="textNameProduct" class="textNameProduct">
-                        <h2>${nameProduct}</h2>
+                        <h2>${product[0].nameProduct}</h2>
                     </div>
                     <div id="rowColor">
-                        <div id="circleColor" class="circleColor" style="background-color:${hexa}"></div>
-                        <h2 style="color:${hexa}">${nameColor}</h2>
+                        <div id="circleColor" class="circleColor" style="background-color:${product[0].hexa}"></div>
+                        <h2 style="color:${product[0].hexa}">${product[0].nameColor}</h2>
                     </div>
                     <p>Código do Produto: ${geraStringAleatoria(10)}</p>
                 </div>
@@ -109,35 +109,48 @@ const writeProductsInCart = ({idProduct, nameProduct, nameColor, hexa, discount,
                                     name="quantityProducts"
                                     readonly
                                 />
-                                <button id="mais" onclick="aumentarProdutos(${qtdInventory})">&#9002;</button>
+                                <button id="mais" onclick="aumentarProdutos(${
+                                    product[0].qtdInventory
+                                })">&#9002;</button>
                             </div>
-                            <img id="${idProduct}" class="deleteProduct" src="./images/img_216917.png" alt="" onclick="deleteProduct(${idProduct})"/>
+                            <img id="${product[0].idProduct}" class="deleteProduct" 
+                            src="./images/img_216917.png" 
+                            alt=""/>
                         </div>
 
                 <div id="price">
-                    <p>De <b>R$${price}</b></p>
-                    <p class="actualPrice">Por R$${calculateInstallments(price, discount)}
-                     ou R$${calculatePriceDiscount(price, discount)} á vista</p>
+                    <p>De <b>R$${product[0].price}</b></p>
+                    <p class="actualPrice">Por R$${calculateInstallments(product[0].price, product[0].discount)}
+                     ou R$${calculatePriceDiscount(product[0].price, product[0].discount)} á vista</p>
                 </div>
             </div>
         </div>`
 
-       
+    putLineInContainer(contentLine, '#contentGlobal')
 
+    const sendProductToDeletionCart = () => {
+        const message = 'Tem certeza de que deseja remover este produto do carrinho?'
 
-        putLineInContainer(contentLine, '#contentGlobal')
+        if (confirm(message)) {
+            deleteProductFromCart(idProduct)
+            return true
+        }
+        return false
+    }
+
+    document.getElementById(`${product[0].idProduct}`).addEventListener('click', sendProductToDeletionCart)
 }
 
+var cart = []
 
-var productsInCart = localStorage.getItem('idProduct');
-
-
-const products = await getProductByIdProduct(1)
-
-if (products.length > 0) {
-    products.map(writeProductsInCart)
+if (JSON.parse(localStorage.getItem('cart')) !== null) {
+    cart = JSON.parse(localStorage.getItem('cart'))
+} else {
+    localStorage.setItem('cart', JSON.stringify(cart))
 }
 
+if (cart.length > 0) {
+    cart.map(listProducts)
+}
 
-document.getElementById("inputFrete") 
-.addEventListener("keypress", encontrarCep)
+document.getElementById('inputFrete').addEventListener('keypress', encontrarCep)
