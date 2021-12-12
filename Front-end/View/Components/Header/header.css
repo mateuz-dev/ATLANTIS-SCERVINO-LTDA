@@ -57,7 +57,7 @@ header form input:focus {
 }
 h1 {
     font-family: 'Lustria', serif;
-    font-size: 225%;
+    font-size: 3rem;
     font-weight: normal;
     letter-spacing: 7px;
 }

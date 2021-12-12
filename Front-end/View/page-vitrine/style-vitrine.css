@@ -229,6 +229,7 @@ main{
     border: 2px solid var(--main-green);
     border-radius: 5px;
     width: 20%;
+    background-color: var(--main-green);
 }
 #button-ver-mais img{
     width: 2vw;
@@ -298,6 +299,7 @@ main{
     background: url(../images/green-waves.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: var(--main-black);
 }
 
 @media (max-width: 1350px) {
