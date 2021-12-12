@@ -73,45 +73,49 @@ const fillPageWithProductDatas = () => {
 fillPageWithProductDatas()
 
 function verifyItems() {
-    if (localStorage.getItem('idProduct', ) != null) {
+    if (localStorage.getItem('idProduct') != null) {
         return localStorage.getItem('idProduct')
     } else {
        return
     }
 }
 
+
+
+
 // localStorage.removeItem('idProduct')
- var chart = [verifyItems()]
+ var cart = []
+
+if (localStorage.getItem('idProduct') == null) {
+    cart = []
+} else {
+    cart = [verifyItems()]
+}
+
+
 function addProductToCart() {
     
     var productID = product[0].idProduct
+    var productsInCart = localStorage.getItem('idProduct');
+    var existsProductsInCart = -1
 
-    
-    chart.push(productID) 
-         
+    if(productsInCart != null){
+        existsProductsInCart = productsInCart.indexOf(product[0].idProduct);
+    }
 
-   
-    
-    console.log(chart)
-    // productsInCart = JSON.parse(localStorage.getItem('idProduct'))
-    return localStorage.setItem('idProduct', chart)
+    if(existsProductsInCart == -1){
+        cart.push(productID)     
+        var productsInCart = localStorage.setItem('idProduct', cart)
+    } 
+
+    return productsInCart
 }
+
+
 
     // addToCart = JSON.parse(localStorage.getItem('idProduct'))
 
 document.getElementById("button-add-to-cart")
 .addEventListener("click", addProductToCart)
 
-// var numeros = []
 
-// numeros.push(1)
-
-// console.log(numeros)
-
-// numeros.push(4)
-
-// console.log(numeros)
-
-// numeros.push(54)
-
-// console.log(numeros)

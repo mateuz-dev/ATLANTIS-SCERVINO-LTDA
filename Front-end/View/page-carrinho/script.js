@@ -1,6 +1,6 @@
 'use strict'
 
-import { getProducts } from "../request/products.js"
+import { getProductByIdProduct } from "../request/products.js"
 
 const url = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Products/'
 
@@ -13,6 +13,9 @@ const productsDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uplo
 
 const minValueFrete = 1000000
 const maxValueFrete = 99999999
+
+const datasByGet = {}
+const product = await getProductByIdProduct(datasByGet['idProduct'])
 
 function aumentarProdutos(qtdMaxProducts) {
     if(qtdProducts.value < qtdMaxProducts){
@@ -79,7 +82,7 @@ const writeProductsInCart = ({idProduct, nameProduct, nameColor, hexa, discount,
     
     
     const contentLine = `
-        <div id="contentCart">
+        <div class="contentCart" id="contentCart ${idProduct}">
             <div id="product">
                 <img src="${productsDirectory}${image}" alt="" />
 
@@ -88,8 +91,8 @@ const writeProductsInCart = ({idProduct, nameProduct, nameColor, hexa, discount,
                         <h2>${nameProduct}</h2>
                     </div>
                     <div id="rowColor">
-                        <div id="circleColor" class="circleColor"></div>
-                        <h2>${nameColor}</h2>
+                        <div id="circleColor" class="circleColor" style="background-color:${hexa}"></div>
+                        <h2 style="color:${hexa}">${nameColor}</h2>
                     </div>
                     <p>Código do Produto: ${geraStringAleatoria(10)}</p>
                 </div>
@@ -98,18 +101,17 @@ const writeProductsInCart = ({idProduct, nameProduct, nameColor, hexa, discount,
                 <div id="qtdPrice">
                         <div id="quantity">
                             <div id="slider">
-                                <button id="menos">&#9001;</button>
+                                <button id="menos" onclick="diminuirProdutos()">&#9001;</button>
                                 <input
                                     type="number"
                                     id="quantityProducts"
                                     value="1"
                                     name="quantityProducts"
-                                    oninput="validity.valid||(value='1');"
                                     readonly
                                 />
-                                <button id="mais" value="${qtdInventory}">&#9002;</button>
+                                <button id="mais" onclick="aumentarProdutos(${qtdInventory})">&#9002;</button>
                             </div>
-                            <img id="deleteProduct" src="./images/img_216917.png" alt="" onclick="deleteProduct(${idProduct})"/>
+                            <img id="${idProduct}" class="deleteProduct" src="./images/img_216917.png" alt="" onclick="deleteProduct(${idProduct})"/>
                         </div>
 
                 <div id="price">
@@ -120,45 +122,22 @@ const writeProductsInCart = ({idProduct, nameProduct, nameColor, hexa, discount,
             </div>
         </div>`
 
+       
+
+
         putLineInContainer(contentLine, '#contentGlobal')
 }
 
-// {
-//     [
-//         idProduct: 1
-//     ],
-//     [
-//         idProduct: 2
-//     ]
-// }
 
-// var produtosCarrinho = getLocal
-
-// //Adicionar id product no arrayzão
-
-// //Dar set no local storage com nova variável
+var productsInCart = localStorage.getItem('idProduct');
 
 
-
-const products = await getProducts()
+const products = await getProductByIdProduct(1)
 
 if (products.length > 0) {
     products.map(writeProductsInCart)
 }
 
 
-
-
-const buttonMais = document.getElementById("mais")
-
-document.getElementById("mais") 
-.addEventListener("click", aumentarProdutos(buttonMais.value))
-
-document.getElementById("menos") 
-.addEventListener("click", diminuirProdutos)
-
-
-
 document.getElementById("inputFrete") 
 .addEventListener("keypress", encontrarCep)
-
