@@ -72,38 +72,46 @@ const fillPageWithProductDatas = () => {
 
 fillPageWithProductDatas()
 
-// localStorage.removeItem('idProduct')
-var addToCart = JSON.parse(localStorage.getItem('idProduct'))
-
-
-function addProductToCart() {
-    
-
-    var idProduct = {}
-    if (addToCart != "") {
-        idProduct = {
-        idProduct:product[0].idProduct
-        }
-        
+function verifyItems() {
+    if (localStorage.getItem('idProduct', ) != null) {
+        return localStorage.getItem('idProduct')
     } else {
-        idProduct = {
-            idProduct:product[0].idProduct
-        }
+       return
     }
-    
-
-    localStorage.setItem('idProduct', JSON.stringify(idProduct))
-     productsInCart = JSON.parse(localStorage.getItem('idProduct'))
-
-    return idProduct
 }
 
+// localStorage.removeItem('idProduct')
+ var chart = [verifyItems()]
+function addProductToCart() {
+    
+    var productID = product[0].idProduct
 
+    
+    chart.push(productID) 
+         
 
+   
+    
+    console.log(chart)
+    // productsInCart = JSON.parse(localStorage.getItem('idProduct'))
+    return localStorage.setItem('idProduct', chart)
+}
 
-
-
-    addToCart = JSON.parse(localStorage.getItem('idProduct'))
+    // addToCart = JSON.parse(localStorage.getItem('idProduct'))
 
 document.getElementById("button-add-to-cart")
 .addEventListener("click", addProductToCart)
+
+// var numeros = []
+
+// numeros.push(1)
+
+// console.log(numeros)
+
+// numeros.push(4)
+
+// console.log(numeros)
+
+// numeros.push(54)
+
+// console.log(numeros)
