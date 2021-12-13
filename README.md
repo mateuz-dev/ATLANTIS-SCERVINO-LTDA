@@ -1,68 +1,16 @@
-# ATLANTIS-SCERVINO-LTDA
+# ATLANTIS-SCERVINO - Website
 
-    Um parágrafo da descrição do projeto vai aqui
+    Um site de ecommerce desenvolvido para a empresa fictícia "ATLANTIS-SCERVINO-LTDA", o sitema busca uma forma simples e intuitiva de divulgar, e vender os produtos disponíveis no estoque da loja. Com a implementação de um sistema capaz de lidar com as solicitações dos usuários e funcionários administradores da empresa.
 
-## 🚀 Começando
+## 🚀 Ideia inicial
 
-Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
-
-Consulte **Implantação** para saber como implantar o projeto.
-
-### 📋 Pré-requisitos
-
-De que coisas você precisa para instalar o software e como instalá-lo?
-
-```
-Dar exemplos
-```
-
-### 🔧 Instalação
-
-Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
-
-Diga como essa etapa será:
-
-```
-Dar exemplos
-```
-
-E repita:
-
-```
-Até finalizar
-```
-
-Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
-
-## ⚙️ Executando os testes
-
-Explicar como executar os testes automatizados para este sistema.
-
-### 🔩 Analise os testes de ponta a ponta
-
-Explique que eles verificam esses testes e porquê.
-
-```
-Dar exemplos
-```
-
-### ⌨️ E testes de estilo de codificação
-
-Explique que eles verificam esses testes e porquê.
-
-```
-Dar exemplos
-```
-
-## 📦 Desenvolvimento
-
-Adicione notas adicionais sobre como implantar isso em um sistema ativo
+    Com as demandas de uma empresa crescendo constantemente, seria necessário um sistema de gerenciamento que fosse capaz de lidar com as diversas demandas que surgem em grande escala.
 
 ## 🛠️ Construído com
 
--   [HTML, CSS, JS](https://www.w3c.br/) - O framework web usado
--   [php](https://maven.apache.org/) - Gerente de Dependência
--   [ROME](https://rometools.github.io/rome/) - Usada para gerar RSS
+-   [HTML, CSS, JS](https://www.w3c.br/) - A tecnologia front-end utilizada
+-   [PHP](https://www.php.net/) - Linguagem de back-end utilizada
+-   [MySQL](https://www.mysql.com/) - Tecnologia utilizada para lidar com o banco de dados
 
 ## 📌 Versão inicial
 
