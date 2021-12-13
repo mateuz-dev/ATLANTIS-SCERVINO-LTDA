@@ -24,10 +24,14 @@ Este projeto foi feito exclusivamente com o intuito educacional, não havendo po
 
 ⌨️ Cenário empresarial composto por por:
 Desenvolvedores:
-[Daniel Wilson Alves dos Santos, https://github.com/GabrielTSR],
+
+[Daniel Wilson Alves dos Santos, https://github.com/Daniel25778],
+
 [Gabriel Tavares Silva Rocha, https://github.com/GabrielTSR],
-[Mateus Bispo Ramos, https://gist.github.com/lohhans],
-[Paulo Cesar Ribeiro Rodrigues Pontes, https://gist.github.com/lohhans]
+
+[Mateus Bispo Ramos, https://github.com/mateuz-dev],
+
+[Paulo Cesar Ribeiro Rodrigues Pontes, https://github.com/BlVck213]
 
 Administradores:
 [Beatriz Vitória],
