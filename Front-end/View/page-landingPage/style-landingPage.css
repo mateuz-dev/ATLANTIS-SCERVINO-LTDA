@@ -2,6 +2,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 
 main {
@@ -144,7 +145,7 @@ main {
     justify-content: start;
     position: absolute;
     z-index: 2;
-    margin-left: 79%;
+    margin-left: 80%;
     padding-left: 1vw;
     background-color: white;
 }
@@ -163,6 +164,7 @@ main {
     height: 25vh;
     width: 80vw;
     margin-left: 20vw;
+    transition: 1s ;
 }
 /* CATEGORY ITEM */
 #a-category{
@@ -194,7 +196,6 @@ main {
     padding-bottom: 100%;
     border-radius: 50%;
     background-position: center;
-    background-image: url(images/category-img.svg);
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: darken;
@@ -217,6 +218,14 @@ main {
     width: 70%;
 }
 
+
+.sliderMoveLeft{
+    padding-left: 10vw;
+}
+
+.sliderMoveRight{
+    padding-right: 10vw;
+}
 
 
 #footer-img-green-wave{
