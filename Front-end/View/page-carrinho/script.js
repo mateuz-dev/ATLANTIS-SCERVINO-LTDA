@@ -118,9 +118,12 @@ const listProducts = async(idProduct) => {
     putLineInContainer(contentLine, '#contentGlobal')
 
     var mais = document.getElementById('mais')
+    var menos = document.getElementById('menos')
+
     mais.value = product[0].qtdInventory
 
     mais.addEventListener('click', aumentarProdutos)
+    menos.addEventListener('click', diminuirProdutos)
 
     const sendProductToDeletionCart = () => {
         const message = 'Tem certeza de que deseja remover este produto do carrinho?'
@@ -161,25 +164,19 @@ if (cart.length > 0) {
 
 if (cart.length > 0) {
     document.getElementById('inputFrete').addEventListener('keypress', encontrarCep)
-
-    const menos = document.getElementById('menos')
-
-    // menos.addEventListener('click', function diminuirProdutos() {
-    //     if (qtdProducts.value > 1) {
-    //         qtdProducts.value = parseInt(qtdProducts.value) - 1
-    //     }
-    // })
-
-    // const buttonMais = document.getElementById('mais')
 }
 
 function aumentarProdutos() {
     const qtdProducts = document.getElementById('quantityProducts')
 
-    console.log(qtdProducts.value)
-    console.log(parseInt(mais.value))
-    console.log(qtdProducts.value < mais.value)
     if (parseInt(qtdProducts.value) < parseInt(mais.value)) {
         qtdProducts.value++
+    }
+}
+
+function diminuirProdutos() {
+    const qtdProducts = document.getElementById('quantityProducts')
+    if (qtdProducts.value > 1) {
+        qtdProducts.value = parseInt(qtdProducts.value) - 1
     }
 }
