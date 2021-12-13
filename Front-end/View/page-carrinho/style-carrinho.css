@@ -4,58 +4,56 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
     padding-top: 10%;
 }
 
-main{
+main {
     padding-top: 80px;
 }
 
-#noContentInCart{
+#noContentInCart {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#mainimg{
+#mainimg {
     width: 250px;
     height: 250px;
 }
 
-.title-page{
+.title-page {
     margin-bottom: 20px;
 }
-#headerCart{
+
+#headerCart {
     width: 100vw;
     height: 35px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    background-color: #C4C4C4;
+    background-color: #c4c4c4;
     padding-left: 100px;
     padding-right: 240px;
 }
 
-#headerCart p{
+#headerCart p {
     font-size: 1.3rem;
     font-family: sans-serif;
     font-weight: bold;
     color: #2b2d3c;
 }
 
-
-
-
-#rowHeaderCart{
+#rowHeaderCart {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -63,7 +61,7 @@ main{
     gap: 9vw;
 }
 
-.contentCart{
+.contentCart {
     width: 100vw;
     height: 25vh;
     display: flex;
@@ -72,28 +70,27 @@ main{
     justify-content: space-between;
     padding-left: 80px;
     padding-right: 80px;
-    border-bottom: 10px #C4C4C4 solid;
+    border-bottom: 10px #c4c4c4 solid;
 }
 
-#contentGlobal{
+#contentGlobal {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.contentCart h2{
+.contentCart h2 {
     font-size: 1.5rem;
     font-family: 'Montserrat';
     color: #2b2d3c;
 }
 
-.contentCart p{
+.contentCart p {
     font-family: 'Montserrat';
 }
 
-
-#product{
+#product {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -101,23 +98,24 @@ main{
     gap: 20px;
 }
 
-#rowProduct{
+#rowProduct {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
 }
-#product img{
+
+#product img {
     width: 145px;
     height: 145px;
 }
 
-.deleteProduct:hover{
+.deleteProduct:hover {
     transition: 0.2s;
     transform: rotate(360deg) scale(1.1);
 }
 
-#textProduct{
+#textProduct {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -125,36 +123,37 @@ main{
     gap: 8px;
 }
 
-#textProduct h2{
+#textProduct h2 {
     font-size: 1.5rem;
 }
 
-#textNameProduct{
+#textNameProduct {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
 }
 
-#textProduct em{
+#textProduct em {
     font-weight: bold;
 }
 
-#rowColor{
+#rowColor {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
     gap: 10px;
 }
-.circleColor{
+
+.circleColor {
     width: 30px;
     height: 30px;
     border-radius: 100%;
     background-color: rgb(0, 0, 0);
 }
 
-#qtdPrice{
+#qtdPrice {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -162,7 +161,7 @@ main{
     gap: 10vw;
 }
 
-#quantity{
+#quantity {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -170,7 +169,7 @@ main{
     gap: 15px;
 }
 
-#slider{
+#slider {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -182,10 +181,8 @@ main{
     gap: 5px;
 }
 
-
-
-#slider button{
-    background-color:#ffffff00;
+#slider button {
+    background-color: #ffffff00;
     color: white;
     font-size: 30px;
     height: 40px;
@@ -193,7 +190,7 @@ main{
     border: none;
 }
 
-#slider input{
+#slider input {
     border: 0 none;
     outline: 0;
     width: 50px;
@@ -201,45 +198,44 @@ main{
     border-radius: 15px;
     text-align: center;
     font-size: 20px;
-    
 }
 
-input[type=number]::-webkit-inner-spin-button { 
+input[type='number']::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    
-}
-input[type=number] { 
-   -moz-appearance: textfield;
-   appearance: textfield;
-
 }
 
-.deleteProduct{
+input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.deleteProduct {
     width: 40px;
     height: 50px;
 }
 
-#price{
+#price {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
 }
-#price p{
+
+#price p {
     max-width: 220px;
-    font-size: 26px;
+    font-size: 1.4rem;
 }
 
-#price b{
+#price b {
     text-decoration: line-through;
     font-weight: normal;
 }
 
-#price .actualPrice{
+#price .actualPrice {
     font-weight: bold;
 }
 
-#rowFretePagar{
+#rowFretePagar {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -247,7 +243,7 @@ input[type=number] {
     padding: 50px;
 }
 
-#frete{
+#frete {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -257,20 +253,19 @@ input[type=number] {
     padding: 20px;
     gap: 20px;
 }
- #frete h2{
-     font-weight: lighter;
- }
 
+#frete h2 {
+    font-weight: lighter;
+}
 
-#frete1{
+#frete1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-
-#frete1 input{
+#frete1 input {
     border: 1px black solid;
     outline: 0;
     width: 150px;
@@ -288,8 +283,7 @@ input[type=number] {
     gap: 10px;
 }
 
-
-#envioExpresso{
+#envioExpresso {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -297,27 +291,28 @@ input[type=number] {
     gap: 10px;
 }
 
-#frete2 em{
+#frete2 em {
     font-size: 10px;
     color: green;
 }
-#frete2 h3{
+
+#frete2 h3 {
     font-size: 1rem;
 }
 
-#rowAdress{
+#rowAdress {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-#rowAdress img{
+#rowAdress img {
     width: 18px;
     height: 18px;
 }
 
-#envioComum{
+#envioComum {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -325,7 +320,7 @@ input[type=number] {
     gap: 10px;
 }
 
-#pagar{
+#pagar {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -333,7 +328,7 @@ input[type=number] {
     gap: 5px;
 }
 
-#precoApagar{
+#precoApagar {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -341,16 +336,16 @@ input[type=number] {
     gap: 10px;
 }
 
-#precoApagar h2{
+#precoApagar h2 {
     font-size: 25px;
 }
 
-#pagar p{
+#pagar p {
     font-size: 15px;
     max-width: 250px;
 }
 
-#pagar button{
+#pagar button {
     border: none;
     outline: none;
     border-radius: 15px;
@@ -361,118 +356,91 @@ input[type=number] {
     background-color: #4aad41;
 }
 
-#footer{
+#footer {
     align-self: bottom;
 }
 
-
-
-
 @media (max-width: 1260px) {
-
-
-    #headerCart{
+    #headerCart {
         display: none;
     }
-
-
-    .contentCart{
+    .contentCart {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         padding: 40px;
     }
-
-    #product img{
+    #product img {
         width: 100px;
         height: 100px;
     }
-
-    #circleColor{
+    #circleColor {
         width: 20px;
         height: 20px;
     }
-    #textProduct h2{
+    #textProduct h2 {
         font-size: 1.2rem;
     }
-
-    #textProduct p{  
+    #textProduct p {
         font-size: 1.2rem;
     }
-
-    #textNameProduct{
+    #textNameProduct {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
         gap: 5px;
     }
-    #qtdPrice{
+    #qtdPrice {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
     }
-
-
-    #price p{
+    #price p {
         font-size: 1.2rem;
     }
-
-    #quantity{
+    #quantity {
         flex-direction: column;
     }
-
-    #rowFretePagar{
+    #rowFretePagar {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 0; 
+        padding: 0;
         padding-top: 20px;
         padding-bottom: 20px;
         gap: 10vh;
     }
-
-    #subtotal{
+    #subtotal {
         display: none;
     }
-
-    #textParcelado{
+    #textParcelado {
         margin-bottom: 20px;
     }
-
-    #frete{
+    #frete {
         flex-direction: column;
     }
-
-
-    #slider{
+    #slider {
         width: 80px;
         height: 40px;
         border-radius: 20px;
     }
-    
-    #slider button{
+    #slider button {
         font-size: 20px;
         height: 30px;
         width: 8px;
-
     }
-    
-    #slider input{
+    #slider input {
         width: 40px;
         height: 35px;
         font-size: 20px;
         border-radius: 20px;
     }
-
-    .deleteProduct{
+    .deleteProduct {
         width: 20px;
         height: 25px;
     }
-
 }
-
-

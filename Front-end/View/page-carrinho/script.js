@@ -10,9 +10,9 @@ const productsDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uplo
 const minValueFrete = 1000000
 const maxValueFrete = 99999999
 
-const datasByGet = {}
-
-const product = await getProductByIdProduct(datasByGet['idProduct'])
+var valorParcelado = 0
+var valorVista = 0
+var valorCadaParcela = 0
 
 function encontrarCep() {
     if (inputFrete.value >= minValueFrete && inputFrete.value <= maxValueFrete) {
@@ -108,12 +108,47 @@ const listProducts = async(idProduct) => {
                         </div>
 
                 <div id="price">
-                    <p>De <b>R$${product[0].price}</b></p>
-                    <p class="actualPrice">Por R$${calculateInstallments(product[0].price, product[0].discount)}
-                     ou R$${calculatePriceDiscount(product[0].price, product[0].discount)} á vista</p>
+                    <p>De <b>${calculatePriceDiscount(product[0].price, 0).toLocaleString('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL',
+                    })}</b></p>
+                    <p class="actualPrice">Por ${calculateInstallments(
+                        product[0].price,
+                        product[0].discount
+                    ).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                     ou ${calculatePriceDiscount(product[0].price, product[0].discount).toLocaleString('pt-BR', {
+                         style: 'currency',
+                         currency: 'BRL',
+                     })} á vista</p>
                 </div>
             </div>
         </div>`
+
+    const writeTotal = () => {
+        const subtotal = document.getElementById('subtotal')
+        if (cart.length === 1) {
+            subtotal.innerText = `SUBTOTAL(1 ITEM)`
+        } else {
+            subtotal.innerText = `SUBTOTAL(${cart.length} ITENS)`
+        }
+
+        document.getElementById('precoApagar').innerHTML = `
+            <h2>${valorParcelado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h2>
+            <p>OU</p>
+            <h2>${valorVista.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h2>
+            <p>á vista</p>`
+
+        document.getElementById('textParcelado').innerText = `(Em até 12x de ${valorCadaParcela.toLocaleString(
+            'pt-BR',
+            { style: 'currency', currency: 'BRL' }
+        )} sem juros e 5% de desconto no Cartão Scervino)`
+    }
+
+    valorParcelado += calculateInstallments(product[0].price, product[0].discount)
+    valorCadaParcela = valorParcelado / 12
+    valorVista += calculatePriceDiscount(product[0].price, product[0].discount)
+
+    writeTotal()
 
     putLineInContainer(contentLine, '#contentGlobal')
 
