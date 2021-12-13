@@ -18,6 +18,18 @@ main{
     padding-top: 80px;
 }
 
+#noContentInCart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#mainimg{
+    width: 250px;
+    height: 250px;
+}
+
 .title-page{
     margin-bottom: 20px;
 }

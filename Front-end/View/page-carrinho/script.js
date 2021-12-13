@@ -11,8 +11,12 @@ const productsDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uplo
 const minValueFrete = 1000000
 const maxValueFrete = 99999999
 
-function aumentarProdutos(qtdMaxProducts) {
-    if (qtdProducts.value < qtdMaxProducts) {
+const datasByGet = {}
+
+const product = await getProductByIdProduct(datasByGet['idProduct'])
+
+function aumentarProdutos() {
+    if (qtdProducts.value <  100) {
         qtdProducts.value = parseInt(qtdProducts.value) + 1
     }
 }
@@ -101,17 +105,17 @@ const listProducts = async(idProduct) => {
                 <div id="qtdPrice">
                         <div id="quantity">
                             <div id="slider">
-                                <button id="menos" onclick="diminuirProdutos()">&#9001;</button>
+                                <button id="menos">&#9001;</button>
                                 <input
                                     type="number"
                                     id="quantityProducts"
                                     value="1"
-                                    name="quantityProducts"
+                                    min="1"
+                                    max="100"
+                                    oninput="validity.valid||(value='1');"
                                     readonly
                                 />
-                                <button id="mais" onclick="aumentarProdutos(${
-                                    product[0].qtdInventory
-                                })">&#9002;</button>
+                                <button id="mais">&#9002;</button>
                             </div>
                             <img id="${product[0].idProduct}" class="deleteProduct" 
                             src="./images/img_216917.png" 
@@ -133,6 +137,7 @@ const listProducts = async(idProduct) => {
 
         if (confirm(message)) {
             deleteProductFromCart(idProduct)
+            location.reload()
             return true
         }
         return false
@@ -149,8 +154,34 @@ if (JSON.parse(localStorage.getItem('cart')) !== null) {
     localStorage.setItem('cart', JSON.stringify(cart))
 }
 
+const main = document.getElementById('main')
+const footer = document.getElementById('footer')
+
 if (cart.length > 0) {
     cart.map(listProducts)
+} else {
+    main.innerHTML = `
+    <div id="noContentInCart">
+    <h1 class="title-page">NENHUM PRODUTO FOI ADICIONADO AO CARRINHO</h1>
+    <img id="mainimg" src="./images/cart.png">
+    </div>
+    `
+    footer.innerHTML = ``
+
 }
 
+
+
+
+if (cart.length > 0) {
+ 
 document.getElementById('inputFrete').addEventListener('keypress', encontrarCep)
+
+const menos = document.getElementById('menos')
+menos.addEventListener('click', diminuirProdutos())
+
+const mais = document.getElementById('mais')
+mais.addEventListener('click', aumentarProdutos())   
+
+}
+
