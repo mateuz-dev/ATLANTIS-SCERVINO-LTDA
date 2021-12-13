@@ -2,7 +2,6 @@
 
 import { getProductByIdProduct } from '../request/products.js'
 
-var qtdProducts = document.getElementById('quantityProducts')
 const fretePara = document.getElementById('frete2')
 const inputFrete = document.getElementById('inputFrete')
 
@@ -14,8 +13,6 @@ const maxValueFrete = 99999999
 const datasByGet = {}
 
 const product = await getProductByIdProduct(datasByGet['idProduct'])
-
-
 
 function encontrarCep() {
     if (inputFrete.value >= minValueFrete && inputFrete.value <= maxValueFrete) {
@@ -103,7 +100,7 @@ const listProducts = async(idProduct) => {
                                     oninput="validity.valid||(value='1');"
                                     readonly
                                 />
-                                <button id="mais" value="${product[0].qtdProducts}">&#9002;</button>
+                                <button id="mais">&#9002;</button>
                             </div>
                             <img id="${product[0].idProduct}" class="deleteProduct" 
                             src="./images/img_216917.png" 
@@ -119,6 +116,11 @@ const listProducts = async(idProduct) => {
         </div>`
 
     putLineInContainer(contentLine, '#contentGlobal')
+
+    var mais = document.getElementById('mais')
+    mais.value = product[0].qtdInventory
+
+    mais.addEventListener('click', aumentarProdutos)
 
     const sendProductToDeletionCart = () => {
         const message = 'Tem certeza de que deseja remover este produto do carrinho?'
@@ -155,32 +157,29 @@ if (cart.length > 0) {
     </div>
     `
     footer.innerHTML = ``
-
 }
-
-
-
 
 if (cart.length > 0) {
- 
-document.getElementById('inputFrete').addEventListener('keypress', encontrarCep)
+    document.getElementById('inputFrete').addEventListener('keypress', encontrarCep)
 
-const menos = document.getElementById('menos')
+    const menos = document.getElementById('menos')
 
-menos.addEventListener('click', function diminuirProdutos() {
-    if (qtdProducts.value > 1) {
-        qtdProducts.value = parseInt(qtdProducts.value) - 1
-    }
-})
+    // menos.addEventListener('click', function diminuirProdutos() {
+    //     if (qtdProducts.value > 1) {
+    //         qtdProducts.value = parseInt(qtdProducts.value) - 1
+    //     }
+    // })
 
-const mais = document.getElementById('mais')
-const buttonMais = document.getElementById('mais')
-
-mais.addEventListener('click', function aumentarProdutos() {
-    if (qtdProducts.value <  buttonMais.value) {
-        qtdProducts.value = parseInt(qtdProducts.value) + 1
-    }
-})   
-
+    // const buttonMais = document.getElementById('mais')
 }
 
+function aumentarProdutos() {
+    const qtdProducts = document.getElementById('quantityProducts')
+
+    console.log(qtdProducts.value)
+    console.log(parseInt(mais.value))
+    console.log(qtdProducts.value < mais.value)
+    if (parseInt(qtdProducts.value) < parseInt(mais.value)) {
+        qtdProducts.value++
+    }
+}
