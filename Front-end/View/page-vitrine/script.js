@@ -1,6 +1,7 @@
 'use strict'
 
 var url = window.location.href
+var higherDiscount = 0
 
 const ImagesProductDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadProduct/'
 
@@ -28,6 +29,10 @@ const listProducts = ({ idProduct, nameProduct, image, discount, price }) => {
         </div>
         `
     container.appendChild(eachProduct)
+
+    if (discount > higherDiscount) {
+        higherDiscount = discount
+    }
 }
 
 const selectOnlyOnePerId = (product) => {
@@ -43,3 +48,6 @@ var lastIdProductFound = 0
 const productsWithoutImages = products.filter(selectOnlyOnePerId)
 
 productsWithoutImages.map(listProducts)
+
+document.getElementById('discount').innerHTML = `
+        <p id="discount">Até <span id="porcentagem-desconto">${higherDiscount}%</span> OFF</p>`

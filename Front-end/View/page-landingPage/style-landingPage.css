@@ -1,8 +1,7 @@
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden;
 }
 
 main {
@@ -10,7 +9,7 @@ main {
     width: 100%;
     height: 75vh;
     flex-direction: column;
-    background: url(images/waves-landingPage\ \(1\).svg);
+    background: url(images/waves-landingPage\(1\).svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -46,7 +45,7 @@ main {
 }
 
 #texto-landingPage button {
-    background-color: #4AAD41;
+    background-color: #4aad41;
     font-family: 'Montserrat', sans-serif;
     color: white;
     font-size: 1.5rem;
@@ -81,10 +80,10 @@ main {
 
 #image-LandingPage img {
     width: 60vw;
-    height: 60vh; 
+    height: 60vh;
 }
 
-#div-texto-categoria{
+#div-texto-categoria {
     display: flex;
     flex-direction: column;
     justify-self: center;
@@ -93,31 +92,32 @@ main {
     width: 100%;
     margin-top: 10vh;
     gap: 10px;
-    color:black;
+    color: black;
     font-family: 'Montserrat', sans-serif;
 }
+
 #div-texto-categoria p {
     width: 100%;
     text-align: center;
 }
-#p-categorias-landingPage{
+
+#p-categorias-landingPage {
     font-size: 1.3rem;
     font-weight: 900;
 }
-#p-busqueOqueDesejar{
+
+#p-busqueOqueDesejar {
     font-size: 2rem;
 }
-#div-texto-categoria hr{
-   border: solid 2px var(--main-green) ;
-   width: 4vw;
-   border-radius: 5px;
-   background-color: var(--main-green);
+
+#div-texto-categoria hr {
+    border: solid 2px var(--main-green);
+    width: 4vw;
+    border-radius: 5px;
+    background-color: var(--main-green);
 }
 
-
-
-
-#div-categories-slider{
+#div-categories-slider {
     display: flex;
     align-items: center;
     height: 25vh;
@@ -125,11 +125,13 @@ main {
     margin-top: 10vh;
     margin-bottom: 10vh;
 }
-#div-categories-slider div{
+
+#div-categories-slider div {
     display: flex;
     align-items: center;
 }
-#div-button-left{
+
+#div-button-left {
     height: 25vh;
     width: 20vw;
     justify-self: flex-start;
@@ -139,7 +141,8 @@ main {
     padding-right: 1vw;
     background-color: white;
 }
-#div-button-right{
+
+#div-button-right {
     height: 25vh;
     width: 20vw;
     justify-content: start;
@@ -149,25 +152,30 @@ main {
     padding-left: 1vw;
     background-color: white;
 }
-#div-button-left button, #div-button-right button{
+
+#div-button-left button,
+#div-button-right button {
     background: transparent;
     border: none;
 }
 
 
-
 /* DIV CATEGORIES */
-#div-categories{
+
+#div-categories {
     display: flex;
     align-items: center;
     justify-content: flex-start space-between;
     height: 25vh;
     width: 80vw;
     margin-left: 20vw;
-    transition: 1s ;
+    transition: 1s;
 }
+
+
 /* CATEGORY ITEM */
-#a-category{
+
+#a-category {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -180,18 +188,20 @@ main {
     margin-right: 1rem;
     margin-left: 1rem;
     color: black;
-    font-size: .9rem;
+    font-size: 0.9rem;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
-#a-category-top{
+
+#a-category-top {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 70%;
 }
-#img-category-background{
+
+#img-category-background {
     width: 100%;
     padding-bottom: 100%;
     border-radius: 50%;
@@ -201,55 +211,46 @@ main {
     background-blend-mode: darken;
     background-color: rgba(0, 0, 0, 0.567);
 }
-#div-category-content{
+
+#div-category-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
     color: white;
-    font-size: .9rem;
+    font-size: 0.9rem;
     margin-top: 1rem;
 }
-#div-category-content span{
+
+#div-category-content span {
     font-size: 1.2rem;
     font-weight: 900;
 }
-#img-category-logo{
+
+#img-category-logo {
     width: 70%;
 }
 
-
-.sliderMoveLeft{
+.sliderMoveLeft {
     padding-left: 10vw;
 }
 
-.sliderMoveRight{
+.sliderMoveRight {
     padding-right: 10vw;
 }
 
-
-#footer-img-green-wave{
+#footer-img-green-wave {
     width: 100%;
 }
 
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 1630px) {
-    #image-LandingPage{
+    #image-LandingPage {
         margin-top: 7%;
     }
 }
 
-@media (max-width: 1430px){
-    #image-LandingPage{
+@media (max-width: 1430px) {
+    #image-LandingPage {
         margin-top: 8%;
     }
 }

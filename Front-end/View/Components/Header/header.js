@@ -7,11 +7,10 @@ function searchBar() {
     mobile_menu.style.display = 'none'
 }
 
-// import { getCategories } from '../../request/categories.js'
-// const iconsDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/icon/'
+import { getCategories } from '../../request/categories.js'
+const iconsDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/icon/'
 
-document.querySelector('#header').innerHTML = 
-`
+document.querySelector('#header').innerHTML = `
 <input type="checkbox" id="check">
         <label for="check" class="mobile-menu">
             <div class="line1"></div>
@@ -94,32 +93,32 @@ document.querySelector('#header').innerHTML =
         </nav>
 `
 
-// const putLineInContainer = (stringHTML, idContainer) => {
-//     const container = document.querySelector(idContainer)
-//     const li = document.createElement('li')
+const putLineInContainer = (stringHTML, idContainer) => {
+    const container = document.querySelector(idContainer)
+    const li = document.createElement('li')
 
-//     li.innerHTML = stringHTML
-//     container.appendChild(li)
-// }
+    li.innerHTML = stringHTML
+    container.appendChild(li)
+}
 
-// const writeCategoriesInHeader = ({ idCategory, icon, name }) => {
-//     const contentLine = `
-//         <a href="../page-vitrine/index.html?idCategory=${idCategory}">
-//         <img src="${iconsDirectory}${icon}"> ${name}
-//         </a>`
+const writeCategoriesInHeader = ({ idCategory, icon, name }) => {
+    const contentLine = `
+        <a href="../page-vitrine/index.html?idCategory=${idCategory}">
+        <img src="${iconsDirectory}${icon}"> ${name}
+        </a>`
 
-//     putLineInContainer(contentLine, '#ul-categories')
-//     putLineInContainer(contentLine, '#ul-categories-mobile')
-// }
+    putLineInContainer(contentLine, '#ul-categories')
+    putLineInContainer(contentLine, '#ul-categories-mobile')
+}
 
-// const categories = await getCategories()
+const categories = await getCategories()
 
-// if (categories.length > 0) {
-//     categories.map(writeCategoriesInHeader)
-// } else {
-//     const message = '<p>Não encontramos nenhuma categoria.</p>'
-//     putLineInContainer(message, '#ul-categories')
-// }
+if (categories.length > 0) {
+    categories.map(writeCategoriesInHeader)
+} else {
+    const message = '<p>Não encontramos nenhuma categoria.</p>'
+    putLineInContainer(message, '#ul-categories')
+}
 
 const form_mobile = document.querySelector('.form-mobile')
 const mobile_menu = document.querySelector('.mobile-menu')

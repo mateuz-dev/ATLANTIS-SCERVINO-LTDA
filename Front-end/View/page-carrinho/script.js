@@ -75,8 +75,9 @@ const listProducts = async(idProduct) => {
     const contentLine = `
         <div class="contentCart" id="contentCart ${product[0].idProduct}">
             <div id="product">
+            <a href="../page-compra/index.html?idProduct=${idProduct}">
                 <img src="${productsDirectory}${product[0].image}" alt="" />
-
+            </a>
                 <div id="textProduct" class="textProduct">
                     <div id="textNameProduct" class="textNameProduct">
                         <h2>${product[0].nameProduct}</h2>
@@ -203,6 +204,7 @@ if (cart.length > 0) {
 
 function aumentarProdutos() {
     const qtdProducts = document.getElementById('quantityProducts')
+    const mais = document.getElementById('mais')
 
     if (parseInt(qtdProducts.value) < parseInt(mais.value)) {
         qtdProducts.value++
