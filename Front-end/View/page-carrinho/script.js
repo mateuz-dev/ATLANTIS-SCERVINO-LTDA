@@ -15,17 +15,7 @@ const datasByGet = {}
 
 const product = await getProductByIdProduct(datasByGet['idProduct'])
 
-function aumentarProdutos() {
-    if (qtdProducts.value <  100) {
-        qtdProducts.value = parseInt(qtdProducts.value) + 1
-    }
-}
 
-function diminuirProdutos() {
-    if (qtdProducts.value > 1) {
-        qtdProducts.value = parseInt(qtdProducts.value) - 1
-    }
-}
 
 function encontrarCep() {
     if (inputFrete.value >= minValueFrete && inputFrete.value <= maxValueFrete) {
@@ -110,12 +100,10 @@ const listProducts = async(idProduct) => {
                                     type="number"
                                     id="quantityProducts"
                                     value="1"
-                                    min="1"
-                                    max="100"
                                     oninput="validity.valid||(value='1');"
                                     readonly
                                 />
-                                <button id="mais">&#9002;</button>
+                                <button id="mais" value="${product[0].qtdProducts}">&#9002;</button>
                             </div>
                             <img id="${product[0].idProduct}" class="deleteProduct" 
                             src="./images/img_216917.png" 
@@ -178,10 +166,21 @@ if (cart.length > 0) {
 document.getElementById('inputFrete').addEventListener('keypress', encontrarCep)
 
 const menos = document.getElementById('menos')
-menos.addEventListener('click', diminuirProdutos())
+
+menos.addEventListener('click', function diminuirProdutos() {
+    if (qtdProducts.value > 1) {
+        qtdProducts.value = parseInt(qtdProducts.value) - 1
+    }
+})
 
 const mais = document.getElementById('mais')
-mais.addEventListener('click', aumentarProdutos())   
+const buttonMais = document.getElementById('mais')
+
+mais.addEventListener('click', function aumentarProdutos() {
+    if (qtdProducts.value <  buttonMais.value) {
+        qtdProducts.value = parseInt(qtdProducts.value) + 1
+    }
+})   
 
 }
 
