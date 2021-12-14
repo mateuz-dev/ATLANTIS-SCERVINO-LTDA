@@ -4,7 +4,10 @@ var url = window.location.href
 var higherDiscount = 0
 
 const ImagesProductDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadProduct/'
+const iconsDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/icon/'
+const imageCategoryDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/background/'
 
+import { getCategoryById } from '../request/categories.js'
 import { getProductByIdCategory } from '../request/products.js'
 
 var idCategory = url.substring(url.lastIndexOf('=') + 1)
@@ -48,6 +51,13 @@ var lastIdProductFound = 0
 const productsWithoutImages = products.filter(selectOnlyOnePerId)
 
 productsWithoutImages.map(listProducts)
+
+const category = await getCategoryById(idCategory)
+
+document.getElementById('category-name').innerText = category.name
+document.getElementById(
+    'div-banner'
+).style.backgroundImage = `url(${imageCategoryDirectory}${category.backgroundImage})`
 
 document.getElementById('discount').innerHTML = `
         <p id="discount">Até <span id="porcentagem-desconto">${higherDiscount}%</span> OFF</p>`
