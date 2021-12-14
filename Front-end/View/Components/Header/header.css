@@ -195,13 +195,12 @@ nav {
     width: 100%;
     height: 100%;
 }
+#ul-user-options-list li>img{
+    background-color: brown;
+}
 #ul-user-options-list a{
     width: 100%;
     height: 100%
-}
-#ul-user-options-list a>img{
-    width: 100%;
-    height: 100%;
 }
 #li-user-options:hover>#ul-user-options-ul {
     display: flex;
@@ -388,7 +387,7 @@ nav {
     }
     #ul-mobile {
         top: 0;
-        display: flex;
+        display: none;
         flex-direction: column;
         width: 100%;
         height: 100%;
@@ -440,11 +439,6 @@ nav {
     #ul-categories-mobile li>a {
         font-size: 20px;
     }
-    #arrow-mobile {
-        width: 10%;
-        margin-left: 5%;
-        color: white;
-    }
     .mobile-menu {
         display: block;
     }
@@ -470,6 +464,9 @@ nav {
     #div-title-header img {
         width: 35px;
     }
+    /* #image-LandingPage{
+        display: none;
+    } */
 }
 
 .aumentar-tamanho-barra-pesquisa {

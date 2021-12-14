@@ -19,15 +19,15 @@ document.querySelector('#header').innerHTML =
             <div class="line3"></div>
         </label>
     
-        <a href="../../page-landingPage/index.html">
+        <a href="../page-landingPage/index.html">
             <div id="div-title-header">
-                <img  src="./images/logo.png">
+                <img  src="../Components/Header/images/logo.png">
                 <h1>SCERVINO</h1>
             </div>
         </a>
     
             <form class="form-mobile" action="" onclick="searchBar()">
-                <img src="./images/search-icon.png">
+                <img src="../Components/Header/images/search-icon.png">
                 <input type="text" name="" id="" placeholder="Buscar">
             </form>
        
@@ -35,17 +35,17 @@ document.querySelector('#header').innerHTML =
         <nav id="nav-list">
 
             <ul id="ul-menu-options">
-                <li> <a href="../../page-our-history/">Nossa História</a> </li>
+                <li> <a href="../page-our-history/">Nossa História</a> </li>
     
-                <li id="li-catalog"> Catálogo <img src="./images/arrow-icon.svg" class="arrow">
+                <li id="li-catalog"> Catálogo <img src="../Components/Header/images/arrow-icon.svg" class="arrow">
                     <ul id="ul">
-                        <li class="li-triangle"><img src="./images/triangle-icon.png"></li>
+                        <li class="li-triangle"><img src="../Components/Header/images/triangle-icon.png"></li>
                         <ul id="ul-categories"></ul>
                     </ul>
                 </li>
     
                 <form action="">
-                    <img src="./images/search-icon.png">
+                    <img src="../Components/Header/images/search-icon.png">
                     <input type="text" name="" id="" placeholder="Buscar">
                 </form>
             </ul>
@@ -53,16 +53,18 @@ document.querySelector('#header').innerHTML =
 
 
             <ul id="ul-user-options">
-                <li> <a href="../../page-carrinho/"><img src="./images/cart-icon.png" alt="Carrinho"></a> </li>
+                <li> <a href="../page-carrinho/"><img src="../Components/Header/images/cart-icon.png" alt="Carrinho"></a> </li>
 
-                <li id="li-user-options"> <img src="./images/user-icon.png" alt="Login/Cadastrar"> <img src="./images/arrow-icon.svg" class="arrow">
+                <li id="li-user-options">
+                    <img src="../Components/Header/images/user-icon.png" alt="Login/Cadastrar">
+                    <img src="../Components/Header/images/arrow-icon.svg" class="arrow">
                     <ul id="ul-user-options-ul">
-                        <li id="li-triangle-user"><img src="./images/triangle-icon.png"></li>
+                        <li id="li-triangle-user"><img src="../Components/Header/images/triangle-icon.png"></li>
                         <ul id="ul-user-options-list">
-                            <li><img src="images/edit-icon.svg"><a href="../../page-cadastro/">Perfil</a></li>
-                            <li><img src="images/management-icon.svg"><a href="../../page-management/">Gerenciamento</a></li>
-                            <li><img src="images/login-icon.svg"><a href="../../page-login/">Login</a></li>
-                            <li><img src="images/logout-icon.svg"><a href="">Sair</a></li>
+                            <li><img src="../Components/Header/images/edit-icon.svg"><a href="../page-cadastro/">Perfil</a></li>
+                            <li><img src="../Components/Header/images/management-icon.svg"><a href="../page-management/">Gerenciamento</a></li>
+                            <li><img src="../Components/Header/images/login-icon.svg"><a href="../page-login/">Login</a></li>
+                            <li><img src="../Components/Header/images/logout-icon.svg"><a href="">Sair</a></li>
                         </ul>
                     </ul>
                 </li>
@@ -77,20 +79,20 @@ document.querySelector('#header').innerHTML =
         <nav id="nav-mobile">
 
             <ul id="menu-options-mobile">
-                <li><a href="../../page-our-history/">Nossa História</a></li>
+                <li><a href="../page-our-history/">Nossa História</a></li>
                     
                 <li id="li-catalog-mobile">Catálogo
                     <ul id="ul-mobile">
                         <div id="div-ul-mobile-top">
-                            <button id="button-close-ul-mobile"><img src="images/back-page-icon.svg"></button>
+                            <button id="button-close-ul-mobile"><img src="../Components/Header/images/back-page-icon.svg"></button>
                             Categorias
                         </div>
                         <ul id="ul-categories-mobile"></ul>
                     </ul>
                 </li>
                  
-                <li><a href="../../page-carrinho/">Carrinho</a></li>
-                <li><a href="../../page-login/">Login</a></li>
+                <li><a href="../page-carrinho/">Carrinho</a></li>
+                <li><a href="../page-login/">Login</a></li>
 
             </ul>
             

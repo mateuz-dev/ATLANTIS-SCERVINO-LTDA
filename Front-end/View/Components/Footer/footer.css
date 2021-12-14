@@ -27,6 +27,7 @@ footer {
 #div-title h1 {
     color: white;
     margin-bottom: 1%;
+    font-size: 2rem;
 }
 
 #div-title p {
@@ -42,14 +43,15 @@ footer {
 #div-comunication {
     display: flex;
     align-items: flex-start;
-    width: 60%;
-    padding-left: 10%;
-    gap: 30%;
+    justify-content: flex-start space-between;
+    width: 100%;
+    margin-left: 10%;
+    gap: 7%;
 }
 
 #div-comunication img {
     width: 1.8vw;
-    margin-right: 7%;
+    margin-right: 1vw;
 }
 
 #div-comunication a {
@@ -58,19 +60,24 @@ footer {
     text-decoration: none;
     color: white;
     margin-bottom: 2vh;
-    font-size: 1rem;
+    font-size: 100%;
 }
 
 #div-social-media, #div-contact{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
+    flex-direction: column;
+    height: 100%;
+}
+#div-social-media{
+    width: 20%;
+}
+#div-contact{
+    width: 80%;
 }
 #div-social-media a, #div-contact a{
     width: 100%;
 }
-
 #footer-bottom {
     display: flex;
     align-items: center;
@@ -79,4 +86,36 @@ footer {
     font-size: 1rem;
     padding: 1%;
     margin-top: 1%;
+}
+
+
+
+
+
+@media (max-width: 700px){
+    #div-title{
+        width: 100%;
+    }
+    #div-top{
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    #div-comunication{
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding-left: 10%;
+        margin: 0;
+    }
+    #div-comunication img {
+        width: 4vw;
+        margin-right: 2vw;
+    }
+    #div-social-media, #div-contact{
+        width: 100%;
+        margin-top: 4vh;
+    }
 }
