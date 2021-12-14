@@ -16,10 +16,11 @@ const moveSliderLeft = () => {
     divCategories.style.transition = '1s ease-in-out'
 }
 
-const putLinkInContainer = (stringHTML, idContainer) => {
+const putLinkInContainer = (stringHTML, idContainer, idCategory) => {
     const container = document.querySelector(idContainer)
     const link = document.createElement('a')
 
+    link.href = `../page-vitrine/index.html?idCategory=${idCategory}`
     link.className = 'a-category'
     link.innerHTML = stringHTML
     container.appendChild(link)
@@ -27,18 +28,16 @@ const putLinkInContainer = (stringHTML, idContainer) => {
 
 const writeCategories = ({ idCategory, icon, name, backgroundImage, discount }) => {
     const content = `
-    <a href="../page-vitrine/index.html?idCategory=${idCategory}" id="a-category">
-        <div class="a-category-top">
-            <img class="img-category-background" style="background-image: url(${imageCategoryDirectory}${backgroundImage})">
-            <div class="div-category-content">
-                <p>até <span class="span-category-discount">XX</span>% OFF!</p>
-                <img style="background-image: url(${iconsDirectory}${icon})" class="img-category-logo">
-            </div>
+    <div class="a-category-top">
+        <img class="img-category-background" style="background-image: url(${imageCategoryDirectory}${backgroundImage})" />
+        <div class="div-category-content">
+            <p>até <span class="span-category-discount">XX</span>% OFF!</p>
+            <img style="background-image: url(${iconsDirectory}${icon})" class="img-category-logo" />
         </div>
-    ${name}
-    </a>`
+    </div>
+    ${name}`
 
-    putLinkInContainer(content, '#div-categories')
+    putLinkInContainer(content, '#div-categories', idCategory)
 }
 
 const categories = await getCategories()
