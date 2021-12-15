@@ -5,14 +5,14 @@ const iconsDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads
 const imageCategoryDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/background/'
 
 const moveSliderRight = () => {
-    divCategories.style.marginRight = '20vw'
-    divCategories.style.marginLeft = '-20vw'
+    divCategories.style.marginRight = '19vw'
+    divCategories.style.marginLeft = '-19vw'
     divCategories.style.transition = '1s ease-in-out'
 }
 
 const moveSliderLeft = () => {
-    divCategories.style.marginLeft = '20vw'
-    divCategories.style.marginRight = '-20vw'
+    divCategories.style.marginLeft = '19vw'
+    divCategories.style.marginRight = '-19vw'
     divCategories.style.transition = '1s ease-in-out'
 }
 

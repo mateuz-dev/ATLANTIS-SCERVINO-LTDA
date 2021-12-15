@@ -15,7 +15,66 @@ main {
     background-position: center;
 }
 
-#onda-main {
+#container-imagemETexto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-top: 80px;
+}
+
+#texto-landingPage {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    padding-left: 8%;
+    padding-top: 5%;
+    align-items: flex-start;
+}
+
+#texto-landingPage h1 {
+    width: 100%;
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 0;
+    color: white;
+    margin-bottom: 6%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#texto-landingPage p {
+    color: white;
+    width: 70%;
+    font-size: 1.5rem;
+    margin-bottom: 6%;
+}
+
+#texto-landingPage button {
+    background-color: #4aad41;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 1rem;
+    padding: 2%;
+    border: none;
+}
+
+
+#image-LandingPage {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    background-image: url(images/dog-and-tree.svg);
+    background-position: center bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+#white-wave {
     display: flex;
     top: 65%;
     height: 14vh;
@@ -27,61 +86,6 @@ main {
     z-index: 1;
 }
 
-#container-imagemETexto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#texto-landingPage {
-    display: flex;
-    flex-direction: column;
-    width: 50vw;
-    padding-left: 8%;
-    font-family: 'Montserrat', sans-serif;
-    align-items: flex-start;
-    flex-grow: 1;
-    margin-top: 2vh;
-}
-
-#texto-landingPage button {
-    background-color: #4aad41;
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    font-size: 1.5rem;
-    padding: 3%;
-}
-
-#texto-landingPage h1 {
-    width: 20vw;
-    font-size: 2rem;
-    color: white;
-    margin-bottom: 6%;
-}
-
-#texto-landingPage p {
-    color: white;
-    width: 100%;
-    font-size: 1.5rem;
-    margin-bottom: 6%;
-}
-
-#image-LandingPage {
-    display: flex;
-    justify-content: flex-start;
-    flex-grow: 1;
-    margin-top: 6%;
-}
-
-#container-imagemETexto {
-    display: flex;
-    flex-direction: row;
-}
-
-#image-LandingPage img {
-    width: 60vw;
-    height: 60vh;
-}
 
 #div-texto-categoria {
     display: flex;
@@ -133,7 +137,7 @@ main {
 
 #div-button-left {
     height: 25vh;
-    width: 20vw;
+    width: 18vw;
     justify-self: flex-start;
     justify-content: end;
     position: absolute;
@@ -144,11 +148,11 @@ main {
 
 #div-button-right {
     height: 25vh;
-    width: 20vw;
+    width: 18vw;
     justify-content: start;
     position: absolute;
     z-index: 2;
-    margin-left: 80%;
+    margin-left: 81%;
     padding-left: 1vw;
     background-color: white;
 }
@@ -182,8 +186,8 @@ main {
     justify-content: space-between;
     height: 100%;
     max-width: fit-content;
-    padding-top: 2%;
-    padding-bottom: 2%;
+    padding-top: 3%;
+    padding-bottom: 1%;
     text-decoration: none;
     margin-right: 1rem;
     margin-left: 1rem;
@@ -239,18 +243,50 @@ main {
     padding-right: 10vw;
 }
 
-#footer-img-green-wave {
+#footer-green-wave {
+    display: flex;
+    height: 14vh;
     width: 100%;
+    background: url(../images/green-waves.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-@media (max-width: 1630px) {
-    #image-LandingPage {
-        margin-top: 7%;
+
+
+
+
+@media (max-width: 1050px){
+    #texto-landingPage h1{
+        font-size: 3.5vw;
     }
 }
 
-@media (max-width: 1430px) {
-    #image-LandingPage {
-        margin-top: 8%;
+@media (max-width: 800px) {
+    #container-imagemETexto{
+        flex-direction: column;
     }
+    #texto-landingPage p, #texto-landingPage button{
+        font-size: 1rem;
+    }
+    #texto-landingPage {
+        height: 80%;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 15vw;
+        padding-right: 15vw;
+        text-align: center;
+    }
+    #texto-landingPage h1{
+        font-size: 1.8rem;
+        width: 100%;
+    }
+    #image-LandingPage {
+        align-self: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 5vh;
+    }
+
 }
