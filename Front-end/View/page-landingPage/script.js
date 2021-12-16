@@ -4,15 +4,17 @@ import { getCategories } from '../request/categories.js'
 const iconsDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/icon/'
 const imageCategoryDirectory = 'http://localhost/ATLANTIS-SCERVINO-LTDA/Back-end/Uploads/UploadCategory/background/'
 
+const divCategories = document.querySelector('#div-categories')
+
 const moveSliderRight = () => {
-    divCategories.style.marginRight = '19vw'
-    divCategories.style.marginLeft = '-19vw'
+    divCategories.style.marginRight = '20vw'
+    divCategories.style.marginLeft = '-20vw'
     divCategories.style.transition = '1s ease-in-out'
 }
 
 const moveSliderLeft = () => {
-    divCategories.style.marginLeft = '19vw'
-    divCategories.style.marginRight = '-19vw'
+    divCategories.style.marginLeft = '20vw'
+    divCategories.style.marginRight = '-20vw'
     divCategories.style.transition = '1s ease-in-out'
 }
 
@@ -46,9 +48,10 @@ if (categories.length > 0) {
     categories.map(writeCategories)
 } else {
     document.getElementById('div-categories').innerHTML = '<p>Não encontramos as categorias.</p>'
+    divCategories.style.width = '63vw';
 }
 
-const divCategories = document.querySelector('#div-categories')
+
 const sliderRightButton = document.querySelector('#button-landing-page-categories-right')
 sliderRightButton.addEventListener('click', moveSliderRight)
 const sliderLefttButton = document.querySelector('#button-landing-page-categories-left')
