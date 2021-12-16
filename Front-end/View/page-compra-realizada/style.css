@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Lustria&family=Montserrat&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+main img{
+    width:100px;
+    height:100px;
+}
+
+#title-container{
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+}
+
+#title-page {
+    font-size: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: #2b2d3c;
+    text-transform: uppercase;
+}
