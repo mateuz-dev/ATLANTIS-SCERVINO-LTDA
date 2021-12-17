@@ -93,3 +93,4 @@ function addProductToCart() {
 }
 
 document.getElementById('button-add-to-cart').addEventListener('click', addProductToCart)
+document.getElementById('button-buy').addEventListener('click', addProductToCart)
